@@ -484,7 +484,7 @@ main,
 
 .project-preview {
   display: grid;
-  grid-template-columns: minmax(320px, .82fr) minmax(0, 1.18fr);
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
   gap: clamp(44px, 6vw, 100px);
   align-items: center;
   min-height: 0;
@@ -747,13 +747,18 @@ main,
 }
 
 .project-toggle-icon {
-  font-size: 1rem;
-  line-height: 1;
-  transition: transform .45s cubic-bezier(.22, .72, .2, 1);
+  width: 8px;
+  height: 8px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.3s ease;
+  margin-top: -4px;
 }
 
 .project.open .project-toggle-icon {
-  transform: rotate(180deg);
+  transform: rotate(225deg);
+  margin-top: 4px;
 }
 
 /* =========================================================
