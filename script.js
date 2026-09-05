@@ -240,12 +240,12 @@ function updateThankYou() {
     window.innerHeight;
 
   const travel = Math.max(
-    thankSection.offsetHeight - vh,
+    thankSection.offsetHeight,
     1
   );
 
   const progress = clamp(
-    (-rect.top + vh * 0.1) / travel,
+    (vh * 1.3 - rect.top) / travel,
     0,
     1
   );
@@ -254,7 +254,7 @@ function updateThankYou() {
   /* CONTACT */
 
   const bottomProgress = clamp(
-    progress / 0.72,
+    progress / 0.88,
     0,
     1
   );
@@ -269,30 +269,29 @@ function updateThankYou() {
 
   thankBottom.style.transform =
     `translateY(${
-      90 - bottomEase * 90
+      170 - bottomEase * 170
     }px)`;
 
 
   /* TA GJERNE */
 
   const topProgress = clamp(
-    (progress - 0.10) / 0.72,
+    (progress - 0.04) / 0.88,
     0,
     1
   );
 
   const topEase =
-    1 - Math.pow(
-      1 - topProgress,
-      3
-    );
+    topProgress *
+    topProgress *
+    (3 - 2 * topProgress);
 
   thankTop.style.opacity =
     0.05 + topEase * 0.95;
 
   thankTop.style.transform =
     `translateY(${
-      240 - topEase * 240
+      320 - topEase * 320
     }px)`;
 
 
@@ -1016,6 +1015,206 @@ langToggle?.addEventListener(
     );
   }
 );
+
+
+/* =========================================================
+   PROJECT IMAGE LIGHTBOX
+   ========================================================= */
+
+const imageLightbox =
+  document.createElement("div");
+
+imageLightbox.className = "image-lightbox";
+imageLightbox.setAttribute("role", "dialog");
+imageLightbox.setAttribute("aria-modal", "true");
+imageLightbox.setAttribute(
+  "aria-label",
+  "Prosjektbilder / Project images"
+);
+imageLightbox.setAttribute("aria-hidden", "true");
+
+imageLightbox.innerHTML = `
+  <button class="image-lightbox-close" type="button" aria-label="Lukk bildevisning / Close image viewer">×</button>
+  <button class="image-lightbox-arrow image-lightbox-previous" type="button" aria-label="Forrige bilde / Previous image">←</button>
+  <figure class="image-lightbox-figure">
+    <img class="image-lightbox-image" src="" alt="">
+    <figcaption class="image-lightbox-caption"></figcaption>
+    <span class="image-lightbox-counter" aria-live="polite"></span>
+  </figure>
+  <button class="image-lightbox-arrow image-lightbox-next" type="button" aria-label="Neste bilde / Next image">→</button>
+`;
+
+document.body.appendChild(imageLightbox);
+
+const lightboxImage =
+  imageLightbox.querySelector(
+    ".image-lightbox-image"
+  );
+
+const lightboxCaption =
+  imageLightbox.querySelector(
+    ".image-lightbox-caption"
+  );
+
+const lightboxCounter =
+  imageLightbox.querySelector(
+    ".image-lightbox-counter"
+  );
+
+const lightboxClose =
+  imageLightbox.querySelector(
+    ".image-lightbox-close"
+  );
+
+let lightboxItems = [];
+let lightboxIndex = 0;
+let lightboxTrigger = null;
+
+function showLightboxImage(index) {
+  if (!lightboxItems.length) return;
+
+  lightboxIndex =
+    (index + lightboxItems.length) %
+    lightboxItems.length;
+
+  const item =
+    lightboxItems[lightboxIndex];
+
+  lightboxImage.src = item.src;
+  lightboxImage.alt = item.alt;
+  lightboxCaption.textContent = item.alt;
+  lightboxCounter.textContent =
+    `${lightboxIndex + 1} / ${lightboxItems.length}`;
+}
+
+function openImageLightbox(imageElement) {
+  const project =
+    imageElement.closest(".project");
+
+  if (!project) return;
+
+  const galleryImages = [
+    ...project.querySelectorAll(
+      ".case-gallery-card img"
+    )
+  ];
+
+  const previewImages = [
+    ...project.querySelectorAll(
+      ".project-preview img"
+    )
+  ];
+
+  let sourceImages = galleryImages;
+
+  if (imageElement.closest(".project-preview")) {
+    sourceImages = [
+      ...previewImages,
+      ...galleryImages.filter(galleryImage =>
+        !previewImages.some(previewImage =>
+          previewImage.getAttribute("src") ===
+          galleryImage.getAttribute("src")
+        )
+      )
+    ];
+  } else if (!sourceImages.length) {
+    sourceImages = [
+      ...project.querySelectorAll(
+        ".project-preview img"
+      )
+    ];
+  }
+
+  const captionLanguage =
+    currentLanguage();
+
+  lightboxItems = sourceImages.map(image => {
+    const caption = captionLanguage === "en"
+      ? image.dataset.captionEn
+      : image.dataset.captionNo;
+
+    return {
+      src: image.getAttribute("src"),
+      alt: caption ||
+        image.getAttribute("alt") ||
+        "Prosjektbilde"
+    };
+  });
+
+  const clickedSource =
+    imageElement.getAttribute("src");
+
+  const clickedIndex =
+    lightboxItems.findIndex(
+      item => item.src === clickedSource
+    );
+
+  lightboxTrigger = imageElement;
+  showLightboxImage(
+    clickedIndex >= 0 ? clickedIndex : 0
+  );
+
+  imageLightbox.classList.add("is-open");
+  imageLightbox.setAttribute("aria-hidden", "false");
+  document.body.classList.add("lightbox-open");
+  lightboxClose.focus();
+}
+
+function closeImageLightbox() {
+  imageLightbox.classList.remove("is-open");
+  imageLightbox.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("lightbox-open");
+  lightboxTrigger?.focus();
+}
+
+document.addEventListener("click", event => {
+  const image = event.target.closest(
+    ".project-preview img, .detail-media img"
+  );
+
+  if (image) {
+    openImageLightbox(image);
+  }
+});
+
+lightboxClose.addEventListener(
+  "click",
+  closeImageLightbox
+);
+
+imageLightbox
+  .querySelector(".image-lightbox-previous")
+  .addEventListener(
+    "click",
+    () => showLightboxImage(lightboxIndex - 1)
+  );
+
+imageLightbox
+  .querySelector(".image-lightbox-next")
+  .addEventListener(
+    "click",
+    () => showLightboxImage(lightboxIndex + 1)
+  );
+
+imageLightbox.addEventListener("click", event => {
+  if (event.target === imageLightbox) {
+    closeImageLightbox();
+  }
+});
+
+document.addEventListener("keydown", event => {
+  if (!imageLightbox.classList.contains("is-open")) {
+    return;
+  }
+
+  if (event.key === "Escape") {
+    closeImageLightbox();
+  } else if (event.key === "ArrowLeft") {
+    showLightboxImage(lightboxIndex - 1);
+  } else if (event.key === "ArrowRight") {
+    showLightboxImage(lightboxIndex + 1);
+  }
+});
 
 
 /* =========================================================
