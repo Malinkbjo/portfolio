@@ -1,0 +1,749 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Portefølje for Malin Bjørnstadjordet – UX/UI designer." />
+  <title>Malin Bjørnstadjordet — UX/UI Designer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Italiana&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page-bg" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#top">MALIN BJØRNSTADJORDET</a>
+
+    <nav class="nav" aria-label="Hovedmeny">
+      <a href="#about" data-no="Om meg" data-en="About">Om meg</a>
+      <a href="#projects" data-no="Prosjekter" data-en="Projects">Prosjekter</a>
+      <a href="#contact" data-no="Kontakt" data-en="Contact">Kontakt</a>
+      <button class="lang-toggle" type="button" aria-label="Bytt språk">
+        <span class="lang-no active">NO</span><span aria-hidden="true"> / </span><span class="lang-en">EN</span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- HERO: wrapper is taller than viewport so the sticky inner can animate while scrolling -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-sticky">
+        <div class="hero-content">
+          <div class="hero-copy">
+            <h1 id="hero-title">
+              <span>MALIN</span>
+              <span>BJØRNSTADJORDET</span>
+            </h1>
+
+            <a class="hero-project-link" href="#projects">
+              <span data-no="Prosjekter" data-en="Projects">Prosjekter</span>
+              <span class="circle-arrow" aria-hidden="true">↘</span>
+            </a>
+
+            <div class="hero-role" aria-label="UX/UI Designer">
+              <span class="hero-role-main">UX/UI</span>
+              <span class="hero-role-sub">DESIGNER</span>
+            </div>
+          </div>
+
+          <div class="hero-portrait-wrap" aria-hidden="true">
+            <img class="hero-portrait" src="pictures/malinBilde.png" alt="">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about section-shell" id="about" aria-labelledby="about-title">
+      <div class="about-inner">
+        <div class="about-copy about-rise about-rise-copy">
+          <h2 id="about-title" data-no="OM MEG" data-en="ABOUT">
+            OM MEG
+          </h2>
+
+          <p data-no="Jeg er masterstudent på andre år i Informatikk: design, bruk og interaksjon ved UiO. Gjennom studiet og egne prosjekter har jeg jobbet med alt fra fysiske installasjoner og mobilapper til nettsider og komplekse datagrensesnitt."
+             data-en="I am a second-year master's student in Informatics: Design, Use and Interaction at the University of Oslo. Through my studies and independent projects, I have worked with everything from physical installations and mobile apps to websites and complex data interfaces.">
+            Jeg er masterstudent på andre år i Informatikk: design, bruk og interaksjon ved UiO. 
+            <br>
+            <br>Gjennom studiet og egne prosjekter har jeg jobbet med alt fra fysiske installasjoner og mobilapper til nettsider og komplekse datagrensesnitt.
+          </p>
+
+          <p data-no="Jeg tror god design starter med ekte nysgjerrighet på mennesker. Gjennom intervjuer, observasjon og brukertesting prøver jeg å forstå hva folk faktisk trenger — og bruker det som grunnlag for begrunnede designvalg."
+             data-en="I believe good design starts with genuine curiosity about people. Through interviews, observation and user testing, I try to understand what people actually need — and use that as a basis for informed design decisions.">
+            Jeg tror god design starter med ekte nysgjerrighet på mennesker. Gjennom intervjuer, observasjon og brukertesting prøver jeg å forstå hva folk faktisk trenger — og bruker det som grunnlag for begrunnede designvalg.
+          </p>
+        </div>
+
+        <div class="education-card about-rise about-rise-card education-edge" aria-label="Utdanning">
+          <div class="education-line" aria-hidden="true"></div>
+
+          <article class="education-item current">
+            <span class="education-dot" aria-hidden="true"></span>
+            <span class="education-year" data-no="2025–Pågående" data-en="2025–Present">2025–Pågående</span>
+            <h3 data-no="MSc Informatikk: design, bruk og interaksjon" data-en="MSc Informatics: design, use and interaction">MSc Informatikk:<br>design, bruk og interaksjon</h3>
+            <p>Universitetet i Oslo</p>
+          </article>
+
+          <article class="education-item">
+            <span class="education-dot" aria-hidden="true"></span>
+            <span class="education-year">2022–2025</span>
+            <h3 data-no="BSc Informatikk: design, bruk og interaksjon" data-en="BSc Informatics: design, use and interaction">BSc Informatikk:<br>design, bruk og interaksjon</h3>
+            <p>Universitetet i Oslo</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="projects" id="projects" aria-labelledby="projects-title">
+      <div class="projects-head section-shell">
+        <h2 id="projects-title" data-no="Prosjekter" data-en="Projects">Prosjekter</h2>
+      </div>
+
+      <div class="projects-stage section-shell">
+        <aside class="project-rail" aria-label="Prosjektnavigasjon">
+          <div class="rail-line" aria-hidden="true"></div>
+          <button class="rail-item active" data-project-index="0" type="button" aria-label="Gå til prosjekt 1">
+            <span class="rail-dot"></span><span>01</span>
+          </button>
+          <button class="rail-item" data-project-index="1" type="button" aria-label="Gå til prosjekt 2">
+            <span class="rail-dot"></span><span>02</span>
+          </button>
+          <button class="rail-item" data-project-index="2" type="button" aria-label="Gå til prosjekt 3">
+            <span class="rail-dot"></span><span>03</span>
+          </button>
+          <button class="rail-item" data-project-index="3" type="button" aria-label="Gå til prosjekt 4">
+            <span class="rail-dot"></span><span>04</span>
+          </button>
+          <button class="rail-item" data-project-index="4" type="button" aria-label="Gå til prosjekt 5">
+            <span class="rail-dot"></span><span>05</span>
+          </button>
+        </aside>
+
+        <div class="project-list">
+          <!-- PROJECT 1 -->
+          <article class="project" data-project="0" id="project-tanum">
+            <div class="project-preview">
+              <div class="project-summary-text">
+                <div class="project-kicker">
+                  <span>UX / UI DESIGN</span>
+                  <span>•</span>
+                  <span>2026</span>
+                </div>
+
+                <h3>Tanum Ridesenter —<br>Ny nettside</h3>
+                <p data-no="Rydde bort støy og la stallens kvalitet snakke for seg selv."
+                   data-en="Removing noise so the stable's quality can speak for itself.">
+                  Rydde bort støy og la stallens kvalitet snakke for seg selv.
+                </p>
+
+                <button class="project-toggle" type="button" aria-expanded="false" aria-controls="details-tanum">
+                  <span data-no="Se mer" data-en="See more">Se mer</span>
+                  <span class="project-toggle-icon" aria-hidden="true">⌄</span>
+                </button>
+              </div>
+
+              <div class="preview-marquee" aria-label="Prosjektbilder">
+              <div class="preview-track">
+
+                <figure class="preview-card">
+                  <img
+                    src="pictures/tanumHjem.png"
+                    alt="Forsiden til Tanum Ridesenter"
+                  >
+                </figure>
+                <figure class="preview-card">
+                  <img
+                    src="pictures/tanum2.png"
+                    alt="Oppstalling-siden til Tanum Ridesenter"
+                  >
+                </figure>
+                <figure class="preview-card">
+                  <img
+                    src="pictures/tanum3.png"
+                    alt="Undervisning-siden til Tanum Ridesenter"
+                  >
+                </figure>
+              </div>
+            </div>
+            </div>
+
+            
+
+            <div class="project-details" id="details-tanum">
+              <div class="detail-grid">
+                <div class="detail-lead">
+                  <span class="detail-label" data-no="Problem / kontekst" data-en="Problem / context">Problem / kontekst</span>
+                  <h4 data-no="Fra teksttung og uoversiktlig til visuelt, rolig og prioritert."
+                      data-en="From text-heavy and cluttered to visual, calm and prioritised.">
+                    Fra teksttung og uoversiktlig til visuelt, rolig og prioritert.
+                  </h4>
+                </div>
+                <div class="detail-copy">
+                  <p data-no="Den tidligere nettsiden inneholdt mye tekst og gjorde det vanskelig å få rask oversikt over tilbudene ved ridesenteret. Målet var å skape en tydeligere informasjonsstruktur og en roligere visuell opplevelse, slik at både nye og eksisterende kunder lettere kunne finne relevant informasjon."
+                     data-en="The previous website contained a large amount of text and made it difficult to quickly understand the riding centre's services. The goal was to create a clearer information structure and a calmer visual experience, helping both new and existing customers find relevant information more easily.">
+                    Den tidligere nettsiden inneholdt mye tekst og gjorde det vanskelig å få rask oversikt over tilbudene ved ridesenteret. Målet var å skape en tydeligere informasjonsstruktur og en roligere visuell opplevelse, slik at både nye og eksisterende kunder lettere kunne finne relevant informasjon.
+                  </p>
+                </div>
+
+                <div>
+                  <span class="detail-label" data-no="Min rolle" data-en="My role">Min rolle</span>
+                  <p data-no="Jeg hadde ansvar for hele prosessen fra innsiktsarbeid til ferdig nettside. Dette inkluderte intervju, informasjonsarkitektur, UX/UI-design, interaktiv prototyping i Figma, brukertesting og front-end-utvikling i HTML, CSS og JavaScript."
+                     data-en="I was responsible for the full process from research to the completed website. This included interviewing, information architecture, UX/UI design, interactive prototyping in Figma, usability testing and front-end development using HTML, CSS and JavaScript.">
+                    Jeg hadde ansvar for hele prosessen fra innsiktsarbeid til ferdig nettside. Dette inkluderte intervju, informasjonsarkitektur, UX/UI-design, interaktiv prototyping i Figma, brukertesting og front-end-utvikling i HTML, CSS og JavaScript.
+                  </p>
+                </div>
+
+                <div>
+                  <span class="detail-label" data-no="Løsning" data-en="Solution">Løsning</span>
+                  <p data-no="Resultatet er en responsiv nettside med tydelig hierarki, store bilder og færre konkurrerende elementer. Innholdet er organisert rundt det brukerne oftest leter etter, og navigasjonen gjør det enklere å forstå ridesenterets tilbud og finne veien videre."
+                     data-en="The result is a responsive website with a clear hierarchy, large imagery and fewer competing elements. The content is organised around what users most often look for, while the navigation makes it easier to understand the riding centre's services and find the next step.">
+                    Resultatet er en responsiv nettside med tydelig hierarki, store bilder og færre konkurrerende elementer. Innholdet er organisert rundt det brukerne oftest leter etter, og navigasjonen gjør det enklere å forstå ridesenterets tilbud og finne veien videre.
+                  </p>
+                </div>
+
+                <div class="full">
+                  <span class="detail-label" data-no="Designprosess" data-en="Design process">Designprosess</span>
+                  <ol class="process-list">
+                    <li><b>01</b><span data-no="Jeg startet med et intervju for å forstå brukerens behov, ønsker og prioriteringer for den nye nettsiden. Samtalen ga innsikt i hvilket innhold som var viktigst, hva som fungerte dårlig i den eksisterende løsningen og hvilket uttrykk ridesenteret ønsket å formidle." data-en="I began with an interview to understand the user's needs, expectations and priorities for the new website. The conversation provided insight into which content mattered most, what was not working in the existing solution and the impression the riding centre wanted to communicate.">Jeg startet med et intervju for å forstå brukerens behov, ønsker og prioriteringer for den nye nettsiden. Samtalen ga innsikt i hvilket innhold som var viktigst, hva som fungerte dårlig i den eksisterende løsningen og hvilket uttrykk ridesenteret ønsket å formidle.</span></li>
+                    <li><b>02</b><span data-no="På bakgrunn av innsikten sorterte og prioriterte jeg innholdet, forenklet navigasjonen og utviklet en tydeligere informasjonsarkitektur. Målet var å redusere tekstmengden og gjøre de viktigste tilbudene lettere å finne." data-en="Based on these insights, I sorted and prioritised the content, simplified the navigation and developed a clearer information architecture. The aim was to reduce the amount of text and make the most important services easier to find.">På bakgrunn av innsikten sorterte og prioriterte jeg innholdet, forenklet navigasjonen og utviklet en tydeligere informasjonsarkitektur. Målet var å redusere tekstmengden og gjøre de viktigste tilbudene lettere å finne.</span></li>
+                    <li><b>03</b><span data-no="Jeg utforsket den visuelle retningen og bygget en interaktiv prototype i Figma. Prototypen gjorde det mulig å teste navigasjon, innholdsrekkefølge og sentrale brukerflyter før jeg begynte å programmere nettsiden." data-en="I explored the visual direction and built an interactive prototype in Figma. The prototype made it possible to test the navigation, content order and key user flows before I began developing the website.">Jeg utforsket den visuelle retningen og bygget en interaktiv prototype i Figma. Prototypen gjorde det mulig å teste navigasjon, innholdsrekkefølge og sentrale brukerflyter før jeg begynte å programmere nettsiden.</span></li>
+                    <li><b>04</b><span data-no="Den interaktive prototypen ble testet før utviklingsfasen. Tilbakemeldingene viste hvilke deler som var tydelige, og hvilke elementer som fortsatt opplevdes som uoversiktlige. Jeg justerte strukturen og designet før løsningen ble implementert responsivt i HTML, CSS og JavaScript." data-en="The interactive prototype was tested before development began. The feedback showed which parts were clear and which elements still felt confusing. I adjusted the structure and design before implementing the responsive solution in HTML, CSS and JavaScript.">Den interaktive prototypen ble testet før utviklingsfasen. Tilbakemeldingene viste hvilke deler som var tydelige, og hvilke elementer som fortsatt opplevdes som uoversiktlige. Jeg justerte strukturen og designet før løsningen ble implementert responsivt i HTML, CSS og JavaScript.</span></li>
+                    <li><b>05</b><span data-no="Til slutt testet jeg den ferdige løsningen med flere brukere. Jeg observerte hvordan de fant informasjon og beveget seg mellom sidene, og endret innhold, plassering og visuelle elementer som ikke ble oppfattet som oversiktlige. Testingen ble dermed brukt aktivt til å forbedre den endelige nettsiden." data-en="Finally, I tested the completed solution with several users. I observed how they found information and moved between pages, then changed content, placement and visual elements that were not perceived as clear. The testing was actively used to improve the final website.">Til slutt testet jeg den ferdige løsningen med flere brukere. Jeg observerte hvordan de fant informasjon og beveget seg mellom sidene, og endret innhold, plassering og visuelle elementer som ikke ble oppfattet som oversiktlige. Testingen ble dermed brukt aktivt til å forbedre den endelige nettsiden.</span></li>
+                  </ol>
+                </div>
+              </div>
+
+              <div class="case-gallery" aria-label="Tanum Ridesenter – flere prosjektbilder">
+                <figure class="case-gallery-card"><img src="pictures/tanumHjem.png" alt="Forsiden til Tanum Ridesenter"></figure>
+                <figure class="case-gallery-card"><img src="pictures/tanum2.png" alt="Oppstalling-siden til Tanum Ridesenter"></figure>
+                <figure class="case-gallery-card"><img src="pictures/tanum3.png" alt="Undervisning-siden til Tanum Ridesenter"></figure>
+              </div>
+
+              <div class="project-external-link-wrap">
+                <a class="project-external-link" href="https://tanumridesenter.no" target="_blank" rel="noopener noreferrer">
+                  <span data-no="Se nettsiden" data-en="Visit website">Se nettsiden</span>
+                  <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            
+              <div class="next-project-bar" data-next-project="edutopia">
+                <div class="next-project-copy">
+                  <span data-no="Se neste prosjekt" data-en="View next project">Se neste prosjekt</span>
+                  <strong>School Inspection (DHIS2)</strong>
+                </div>
+                <button class="next-project-button" type="button" aria-label="Se neste prosjekt">→</button>
+              </div>
+</div>
+          </article>
+
+          <!-- PROJECT 2 -->
+          <article class="project" data-project="1" id="project-edutopia">
+            <div class="project-preview">
+              <div class="project-summary-text">
+                <div class="project-kicker">
+                  <span>UX / UI DESIGN</span>
+                  <span>•</span>
+                  <span>2024</span>
+                </div>
+
+                <h3>Edutopia —<br>School Inspection (DHIS2)</h3>
+                <p data-no="Et verktøy for å prioritere skolebesøk og gjøre tidligere inspeksjonsdata enklere å bruke."
+                   data-en="A tool for prioritising school visits and making previous inspection data easier to use.">
+                  Et verktøy for å prioritere skolebesøk og gjøre tidligere inspeksjonsdata enklere å bruke.
+                </p>
+
+                <button class="project-toggle" type="button" aria-expanded="false" aria-controls="details-edutopia">
+                  <span data-no="Se mer" data-en="See more">Se mer</span>
+                  <span class="project-toggle-icon" aria-hidden="true">+</span>
+                </button>
+              </div>
+
+              <div class="preview-marquee slow" aria-label="Edutopia School Inspection – prosjektbilder">
+                <div class="preview-track">
+                  <figure class="preview-card">
+                    <img src="pictures/platforms2.png" alt="Skoleoversikt med inspeksjonsdata og kritikalitetsnivåer">
+                  </figure>
+                  <figure class="preview-card">
+                    <img src="pictures/platforms3.png" alt="Forbedret skoleoversikt med tydelige statuskort">
+                  </figure>
+                  <figure class="preview-card">
+                    <img src="pictures/platforms4.png" alt="Startside for valg mellom inspeksjonsplanlegger og registrering">
+                  </figure>
+                  <figure class="preview-card">
+                    <img src="pictures/platforms5.png" alt="Inspeksjonsoversikt med historikk og resultater">
+                  </figure>
+                  <figure class="preview-card">
+                    <img src="pictures/platforms6.png" alt="Skjema for registrering av en skoleinspeksjon">
+                  </figure>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-details" id="details-edutopia">
+              <div class="detail-grid">
+                <div class="detail-lead">
+                  <span class="detail-label" data-no="Problem / kontekst" data-en="Problem / context">Problem / kontekst</span>
+                  <h4 data-no="Skoleinspektører trengte bedre støtte til å prioritere hvor oppfølging var mest kritisk."
+                      data-en="School inspectors needed better support for prioritising where follow-up was most critical.">
+                    Skoleinspektører trengte bedre støtte til å prioritere hvor oppfølging var mest kritisk.
+                  </h4>
+                </div>
+
+                <div class="detail-copy">
+                  <p data-no="Vi utviklet en DHIS2-app som kombinerer skolehierarki, tidligere inspeksjoner og visuelle prioritetsindikatorer i én arbeidsflyt. Fordi skoleinspektører kan arbeide i områder med ustabil eller manglende internettilgang, var offline-støtte en viktig del av løsningen. Vi hadde ikke tilgang til faktiske skoleinspektører og måtte derfor basere brukerforståelsen på prosjektbeskrivelsen og teste løsningen med venner og medstudenter som stedfortredende brukere."
+                     data-en="We developed a DHIS2 app combining school hierarchy, previous inspections and visual priority indicators in one workflow. Because school inspectors may work in areas with unreliable or no internet access, offline support was an important part of the solution. We did not have access to real school inspectors, so our understanding of the users was based on the project brief, and we tested the solution with friends and fellow students acting as proxy users.">
+                    Vi utviklet en DHIS2-app som kombinerer skolehierarki, tidligere inspeksjoner og visuelle prioritetsindikatorer i én arbeidsflyt. Fordi skoleinspektører kan arbeide i områder med ustabil eller manglende internettilgang, var offline-støtte en viktig del av løsningen. Vi hadde ikke tilgang til faktiske skoleinspektører og måtte derfor basere brukerforståelsen på prosjektbeskrivelsen og teste løsningen med venner og medstudenter som stedfortredende brukere.
+                  </p>
+                </div>
+
+                <div>
+                  <span class="detail-label" data-no="Min rolle" data-en="My role">Min rolle</span>
+                  <p data-no="Research, UX/UI-design, wireframing og interaktiv prototyping i Figma, brukertesting og front-end i React/DHIS2."
+                     data-en="Research, UX/UI design, wireframing and interactive prototyping in Figma, user testing and front-end in React/DHIS2.">
+                    Research, UX/UI-design, wireframing og interaktiv prototyping i Figma, brukertesting og front-end i React/DHIS2.
+                  </p>
+                </div>
+
+                <div>
+                  <span class="detail-label" data-no="Metodisk begrensning" data-en="Research limitation">Metodisk begrensning</span>
+                  <p data-no="Vi hadde ingen «ordentlige» brukere fra målgruppen tilgjengelig i prosjektet. Personasene er derfor antakelsesbaserte og ble utviklet fra prosjektbeskrivelsen vi fikk utdelt, ikke fra intervjuer med skoleinspektører. Testene med venner og medstudenter ga nyttig innsikt i forståelighet, navigasjon og visuell tydelighet, men kunne ikke validere den reelle arbeidshverdagen eller behovene til målgruppen."
+                     data-en="We did not have access to real users from the target group during the project. The personas were therefore assumption-based and developed from the project brief we were given, rather than from interviews with school inspectors. Testing with friends and fellow students provided useful insight into comprehension, navigation and visual clarity, but could not validate the target group's real working context or needs.">
+                    Vi hadde ingen «ordentlige» brukere fra målgruppen tilgjengelig i prosjektet. Personasene er derfor antakelsesbaserte og ble utviklet fra prosjektbeskrivelsen vi fikk utdelt, ikke fra intervjuer med skoleinspektører. Testene med venner og medstudenter ga nyttig innsikt i forståelighet, navigasjon og visuell tydelighet, men kunne ikke validere den reelle arbeidshverdagen eller behovene til målgruppen.
+                  </p>
+                </div>
+
+                <div>
+                  <span class="detail-label" data-no="Utfordring" data-en="Challenge">Utfordring</span>
+                  <p data-no="En sentral utfordring var å unngå information overload. Løsningen inneholdt store mengder tall og inspeksjonsdata, og dersom alt ble vist samtidig, ble det vanskelig å forstå hva som var viktigst. Vi måtte derfor prioritere informasjonen vi mente inspektørene trengte først, og presentere den gjennom tydelige statusnivåer. Mer detaljert informasjon ble gjort tilgjengelig ved å klikke seg videre."
+                     data-en="A central challenge was avoiding information overload. The solution contained large amounts of numerical and inspection data, and presenting everything at once made it difficult to understand what mattered most. We therefore prioritised the information we believed inspectors needed first and presented it through clear status levels. More detailed information remained available by clicking through.">
+                    En sentral utfordring var å unngå information overload. Løsningen inneholdt store mengder tall og inspeksjonsdata, og dersom alt ble vist samtidig, ble det vanskelig å forstå hva som var viktigst. Vi måtte derfor prioritere informasjonen vi mente inspektørene trengte først, og presentere den gjennom tydelige statusnivåer. Mer detaljert informasjon ble gjort tilgjengelig ved å klikke seg videre.
+                  </p>
+                </div>
+
+                <div>
+                  <span class="detail-label" data-no="Resultat" data-en="Outcome">Resultat</span>
+                  <p data-no="En DHIS2-app som samler planlegging, prioritering, inspeksjonshistorikk og rapportering i én arbeidsflyt. Tydelige statusnivåer gjør det raskere å forstå hvilke skoler som trenger oppfølging og hvorfor. Offline-funksjonen gjør det mulig å fortsette arbeidet og redusere risikoen for tap av data når nettforbindelsen er ustabil."
+                     data-en="A DHIS2 app that brings planning, prioritisation, inspection history and reporting into one workflow. Clear status levels make it faster to understand which schools need follow-up and why. The offline feature allows inspectors to continue working and reduces the risk of data loss when the connection is unreliable.">
+                    En DHIS2-app som samler planlegging, prioritering, inspeksjonshistorikk og rapportering i én arbeidsflyt. Tydelige statusnivåer gjør det raskere å forstå hvilke skoler som trenger oppfølging og hvorfor. Offline-funksjonen gjør det mulig å fortsette arbeidet og redusere risikoen for tap av data når nettforbindelsen er ustabil.
+                  </p>
+                </div>
+
+                <div class="full">
+                  <span class="detail-label" data-no="Designprosess" data-en="Design process">Designprosess</span>
+                  <ol class="process-list">
+                    <li><b>01</b><span data-no="Fordi vi ikke hadde tilgang til faktiske skoleinspektører, utviklet vi to antakelsesbaserte personas fra prosjektbeskrivelsen vi fikk utdelt. De representerte ulik erfaring og digital kompetanse og hjalp oss med å konkretisere behovene vi måtte undersøke videre." data-en="Because we did not have access to real school inspectors, we developed two assumption-based personas from the project brief we were given. They represented different levels of experience and digital confidence and helped us define the needs that required further investigation.">Fordi vi ikke hadde tilgang til faktiske skoleinspektører, utviklet vi to antakelsesbaserte personas fra prosjektbeskrivelsen vi fikk utdelt. De representerte ulik erfaring og digital kompetanse og hjalp oss med å konkretisere behovene vi måtte undersøke videre.</span></li>
+                    <li><b>02</b><span data-no="Med utgangspunkt i caset prioriterte vi inspeksjonsplanlegging, registrering av rapporter, kritikalitetssortering, historikk og offline-støtte. Deretter laget vi wireframes og en første MVP i Figma." data-en="Based on the case, we prioritised inspection planning, report registration, criticality sorting, inspection history and offline support. We then created wireframes and a first MVP in Figma.">Med utgangspunkt i caset prioriterte vi inspeksjonsplanlegging, registrering av rapporter, kritikalitetssortering, historikk og offline-støtte. Deretter laget vi wireframes og en første MVP i Figma.</span></li>
+                    <li><b>03</b><span data-no="Siden målgruppen ikke var tilgjengelig, gjennomførte vi en geriljatest med venner og medstudenter som stedfortredende brukere. Testen, basert på Don Normans prinsipper, avdekket for mye data, uklare klikkbare rader og svak synlighet rundt sortering av kolonner." data-en="As the target users were unavailable, we conducted a guerrilla usability test with friends and fellow students acting as proxy users. Based on Don Norman's principles, the test revealed information overload, unclear clickable rows and poor visibility of column sorting.">Siden målgruppen ikke var tilgjengelig, gjennomførte vi en geriljatest med venner og medstudenter som stedfortredende brukere. Testen, basert på Don Normans prinsipper, avdekket for mye data, uklare klikkbare rader og svak synlighet rundt sortering av kolonner.</span></li>
+                    <li><b>04</b><span data-no="I en workshop utforsket vi nye måter å presentere verdiene på. Vi forenklet tabellen, la til chevrons og hjelpetekster, og erstattet abstrakte skårer med statusene god, advarsel og kritisk med farger og ikoner." data-en="In a workshop, we explored new ways to present the values. We simplified the table, added chevrons and helper text, and replaced abstract scores with good, warning and critical statuses using colour and icons.">I en workshop utforsket vi nye måter å presentere verdiene på. Vi forenklet tabellen, la til chevrons og hjelpetekster, og erstattet abstrakte skårer med statusene god, advarsel og kritisk med farger og ikoner.</span></li>
+                    <li><b>05</b><span data-no="Vi videreutviklet den interaktive Figma-prototypen og gjennomførte en ny test med stedfortredende brukere, som viste tydelig forbedring i forståelighet og navigasjon. Resultatene må likevel ses i lys av at vi ikke testet med faktiske skoleinspektører. Den raffinerte løsningen ble deretter implementert med DHIS2 UI Library og koblet til plattformens API-er." data-en="We refined the interactive Figma prototype and conducted a second test with proxy users, which showed a clear improvement in comprehension and navigation. However, the findings must be considered in light of the fact that we did not test with real school inspectors. The refined solution was then implemented with the DHIS2 UI Library and connected to the platform's APIs.">Vi videreutviklet den interaktive Figma-prototypen og gjennomførte en ny test med stedfortredende brukere, som viste tydelig forbedring i forståelighet og navigasjon. Resultatene må likevel ses i lys av at vi ikke testet med faktiske skoleinspektører. Den raffinerte løsningen ble deretter implementert med DHIS2 UI Library og koblet til plattformens API-er.</span></li>
+                  </ol>
+                </div>
+              </div>
+
+              <div class="case-gallery" aria-label="Edutopia School Inspection – flere prosjektbilder">
+                <figure class="case-gallery-card">
+                  <img src="pictures/platformsPersonas.png" alt="Personas for skoleinspektørene Daniel og Grace">
+                </figure>
+                <figure class="case-gallery-card">
+                  <img src="pictures/platforms2.png" alt="Skoleoversikt med inspeksjonsdata og kritikalitetsnivåer">
+                </figure>
+                <figure class="case-gallery-card">
+                  <img src="pictures/platforms3.png" alt="Skoleoversikt med fargekodede statuskort">
+                </figure>
+                <figure class="case-gallery-card">
+                  <img src="pictures/platforms4.png" alt="Startside med inspeksjonsplanlegger og registrering">
+                </figure>
+                <figure class="case-gallery-card">
+                  <img src="pictures/platforms5.png" alt="Inspeksjonshistorikk og tidligere resultater">
+                </figure>
+                <figure class="case-gallery-card">
+                  <img src="pictures/platforms6.png" alt="Registreringsskjema for skoleinspeksjon">
+                </figure>
+                <figure class="case-gallery-card case-gallery-card-tall">
+                  <img src="pictures/platforms.png" alt="Mobil tilpasset inspeksjonsoversikt med historikk">
+                </figure>
+              </div>
+            
+              <div class="next-project-bar" data-next-project="participatory">
+                <div class="next-project-copy">
+                  <span data-no="Se neste prosjekt" data-en="View next project">Se neste prosjekt</span>
+                  <strong>Deltakende Design</strong>
+                </div>
+                <button class="next-project-button" type="button" aria-label="Se neste prosjekt">→</button>
+              </div>
+</div>
+          </article>
+
+          <!-- PROJECT 3 -->
+          <article class="project" data-project="2" id="project-participatory">
+            <div class="project-preview">
+              <div class="project-summary-text">
+                <div class="project-kicker">
+                  <span>UX / PARTICIPATORY DESIGN</span>
+                  <span>•</span>
+                  <span>2025</span>
+                </div>
+
+                <h3 data-no="Deltakende Design" data-en="Participatory Design">Deltakende Design</h3>
+                <p data-no="Utforsking av hvordan masterstudenter kan jobbe mer effektivt og opprettholde motivasjon gjennom deltakende design."
+                   data-en="Exploring how master's students can work more effectively and sustain motivation through participatory design.">
+                  Utforsking av hvordan masterstudenter kan jobbe mer effektivt og opprettholde motivasjon gjennom deltakende design.
+                </p>
+
+                <button class="project-toggle" type="button" aria-expanded="false" aria-controls="details-participatory">
+                  <span data-no="Se prosjektet" data-en="View project">Se prosjektet</span>
+                  <span class="project-toggle-icon" aria-hidden="true">+</span>
+                </button>
+              </div>
+
+              <div class="project-image-stack project-image-stack-phone" aria-label="Deltakende design – utvalgte prototypeskjermer">
+                <figure class="stack-image stack-image-back">
+                  <img src="pictures/pd-progress.png" alt="Prototype av Dagens rute med visuell fremgang for studieoppgaver">
+                </figure>
+                <figure class="stack-image stack-image-front">
+                  <img src="pictures/pd-break.png" alt="Prototype av pauseoversikt med nedtelling og kollokviegruppe">
+                </figure>
+              </div>
+            </div>
+
+            <div class="project-details" id="details-participatory">
+              <div class="detail-grid">
+                <div class="detail-lead">
+                  <span class="detail-label" data-no="Problem / kontekst" data-en="Problem / context">Problem / kontekst</span>
+                  <h4 data-no="Hvordan kan studenter jobbe mer effektivt og opprettholde motivasjon?"
+                      data-en="How can students work more effectively and sustain motivation?">
+                    Hvordan kan studenter jobbe mer effektivt og opprettholde motivasjon?
+                  </h4>
+                </div>
+                <div class="detail-copy">
+                  <p data-no="Vi utforsket hvordan masterstudenter kan jobbe mer effektivt og opprettholde motivasjon. Problemdefinisjonen var ikke fastsatt på forhånd, men utviklet seg gjennom prosjektet etter hvert som deltakerne delte erfaringer, identifiserte utfordringer og utviklet ideer sammen med oss."
+                     data-en="We explored how master's students can work more effectively and sustain motivation. The problem definition was not fixed in advance, but developed throughout the project as participants shared experiences, identified challenges and created ideas together with us.">
+                    Vi utforsket hvordan masterstudenter kan jobbe mer effektivt og opprettholde motivasjon. Problemdefinisjonen var ikke fastsatt på forhånd, men utviklet seg gjennom prosjektet etter hvert som deltakerne delte erfaringer, identifiserte utfordringer og utviklet ideer sammen med oss.
+                  </p>
+                </div>
+                <div>
+                  <span class="detail-label" data-no="Min rolle" data-en="My role">Min rolle</span>
+                  <p data-no="Jeg var UX-designer og fasilitator i et team på tre. Jeg bidro til å planlegge og gjennomføre workshopene, analysere innsikt og ferdigstille prototypen. Rollen handlet om å gi struktur og støtte uten å styre deltakerne mot løsninger vi allerede hadde bestemt."
+                     data-en="I was a UX designer and facilitator in a team of three. I helped plan and run the workshops, analyse insights and finalise the prototype. The role was about providing structure and support without steering participants towards solutions we had already decided on.">
+                    Jeg var UX-designer og fasilitator i et team på tre. Jeg bidro til å planlegge og gjennomføre workshopene, analysere innsikt og ferdigstille prototypen. Rollen handlet om å gi struktur og støtte uten å styre deltakerne mot løsninger vi allerede hadde bestemt.
+                  </p>
+                </div>
+                <div>
+                  <span class="detail-label" data-no="Deltakere og rekruttering" data-en="Participants and recruitment">Deltakere og rekruttering</span>
+                  <p data-no="Deltakerne var masterstudenter ved UiO fra design, psykologi og digitalisering i helsesektoren. Et spørreskjema med QR-kode ga få svar, så vi gikk over til lavterskel rekruttering og kommunikasjon gjennom Messenger, med noe ad hoc-rekruttering før første og siste workshop."
+                     data-en="The participants were master's students at the University of Oslo from design, psychology and digitalisation in healthcare. A questionnaire shared through a QR code received few responses, so we moved to low-threshold recruitment and communication through Messenger, including some ad hoc recruitment before the first and final workshops.">
+                    Deltakerne var masterstudenter ved UiO fra design, psykologi og digitalisering i helsesektoren. Et spørreskjema med QR-kode ga få svar, så vi gikk over til lavterskel rekruttering og kommunikasjon gjennom Messenger, med noe ad hoc-rekruttering før første og siste workshop.
+                  </p>
+                </div>
+
+                <div class="full">
+                  <span class="detail-label" data-no="Designprosess" data-en="Design process">Designprosess</span>
+                  <ol class="process-list">
+                    <li><b>01</b><span data-no="I den første workshopen utforsket deltakerne egne studievaner gjennom en icebreaker, individuell refleksjon og kartlegging med post-its. Sammen sorterte vi erfaringene og brukte tematisk analyse til å finne mønstre, utfordringer og lite effektive rutiner." data-en="In the first workshop, participants explored their study habits through an icebreaker, individual reflection and mapping with sticky notes. Together, we sorted their experiences and used thematic analysis to identify patterns, challenges and inefficient routines.">I den første workshopen utforsket deltakerne egne studievaner gjennom en icebreaker, individuell refleksjon og kartlegging med post-its. Sammen sorterte vi erfaringene og brukte tematisk analyse til å finne mønstre, utfordringer og lite effektive rutiner.</span></li>
+                    <li><b>02</b><span data-no="Den andre workshopen handlet om idéutvikling. Deltakerne analyserte problemer med mindmaps, brukte Crazy 4s, videreutviklet hverandres forslag og ga feedback med tenkehatter. Til slutt stemte de frem tre retninger: en felles studiespilleliste, en motivasjonsapp og felles pauser." data-en="The second workshop focused on ideation. Participants analysed problems with mind maps, used Crazy 4s, developed each other's proposals and gave feedback using thinking hats. Finally, they voted for three directions: a shared study playlist, a motivation app and shared breaks.">Den andre workshopen handlet om idéutvikling. Deltakerne analyserte problemer med mindmaps, brukte Crazy 4s, videreutviklet hverandres forslag og ga feedback med tenkehatter. Til slutt stemte de frem tre retninger: en felles studiespilleliste, en motivasjonsapp og felles pauser.</span></li>
+                    <li><b>03</b><span data-no="I den tredje workshopen utviklet to grupper løsningene videre gjennom low-fidelity-skisser og prototyping. De presenterte forslagene for hverandre og bygget videre på hverandres ideer i både Figma- og AI-prototyper." data-en="In the third workshop, two groups developed the solutions through low-fidelity sketches and prototyping. They presented their proposals to each other and built on one another's ideas in both Figma and AI prototypes.">I den tredje workshopen utviklet to grupper løsningene videre gjennom low-fidelity-skisser og prototyping. De presenterte forslagene for hverandre og bygget videre på hverandres ideer i både Figma- og AI-prototyper.</span></li>
+                    <li><b>04</b><span data-no="Til slutt ferdigstilte vi løsningen uten deltakerne. Målet var å bevare sporene av beslutningene deres, slik at de kunne kjenne igjen egne behov og ideer og oppleve at de hadde hatt en reell stemme i resultatet." data-en="Finally, we completed the solution without the participants. Our aim was to preserve the outcomes of their decisions, allowing them to recognise their needs and ideas and feel that they had a genuine voice in the result.">Til slutt ferdigstilte vi løsningen uten deltakerne. Målet var å bevare sporene av beslutningene deres, slik at de kunne kjenne igjen egne behov og ideer og oppleve at de hadde hatt en reell stemme i resultatet.</span></li>
+                  </ol>
+                </div>
+
+                <div>
+                  <span class="detail-label" data-no="Utfordringer" data-en="Challenges">Utfordringer</span>
+                  <p data-no="Det var vanskelig å opprettholde den samme deltakelsen gjennom hele prosjektet, og flere deltok bare i én workshop. Den korte tidsrammen begrenset også hvor mange aktiviteter og iterasjoner vi kunne gjennomføre. Dette kan ha påvirket deltakernes mulighet til å ha en tydelig stemme i alle beslutningene."
+                     data-en="Maintaining consistent participation throughout the project was difficult, and several people attended only one workshop. The short timeframe also limited the number of activities and iterations we could conduct. This may have affected the participants' ability to have a clear voice in every decision.">
+                    Det var vanskelig å opprettholde den samme deltakelsen gjennom hele prosjektet, og flere deltok bare i én workshop. Den korte tidsrammen begrenset også hvor mange aktiviteter og iterasjoner vi kunne gjennomføre. Dette kan ha påvirket deltakernes mulighet til å ha en tydelig stemme i alle beslutningene.
+                  </p>
+                </div>
+
+                <div>
+                  <span class="detail-label" data-no="Refleksjon" data-en="Reflection">Refleksjon</span>
+                  <p data-no="Den største utfordringen for meg var å gi slipp på deler av den vanlige UX-designerrollen. I stedet for å samle innsikt og selv omsette den til en løsning, måtte jeg la deltakerne definere problemer, utvikle ideer og ta aktive beslutninger. Jeg måtte balansere det å styre workshopen med å gi rom for utforskning. Prosjektet lærte meg forskjellen mellom å designe for mennesker og å designe med dem."
+                     data-en="The greatest challenge for me was letting go of parts of the conventional UX designer role. Instead of collecting insights and translating them into a solution myself, I had to let participants define problems, develop ideas and make active decisions. I had to balance guiding the workshop with creating space for exploration. The project taught me the difference between designing for people and designing with them.">
+                    Den største utfordringen for meg var å gi slipp på deler av den vanlige UX-designerrollen. I stedet for å samle innsikt og selv omsette den til en løsning, måtte jeg la deltakerne definere problemer, utvikle ideer og ta aktive beslutninger. Jeg måtte balansere det å styre workshopen med å gi rom for utforskning. Prosjektet lærte meg forskjellen mellom å designe for mennesker og å designe med dem.
+                  </p>
+                </div>
+
+                <div class="full detail-solution">
+                  <span class="detail-label" data-no="Resultat" data-en="Outcome">Resultat</span>
+                  <p data-no="Prosessen resulterte i et konsept for en motivasjonsapp bygget på deltakernes egne behov, valg og prototyper. Løsningen kombinerer personlige mål og visuell fremgang med felles pauser og sosial støtte, og ble ferdigstilt som en high-fidelity-prototype i Figma."
+                     data-en="The process resulted in a motivation-app concept built on the participants' own needs, choices and prototypes. The solution combines personal goals and visual progress with shared breaks and social support, and was completed as a high-fidelity prototype in Figma.">
+                    Prosessen resulterte i et konsept for en motivasjonsapp bygget på deltakernes egne behov, valg og prototyper. Løsningen kombinerer personlige mål og visuell fremgang med felles pauser og sosial støtte, og ble ferdigstilt som en high-fidelity-prototype i Figma.
+                  </p>
+                </div>
+              </div>
+
+              <div class="case-gallery" aria-label="Deltakende design – flere prosjektbilder">
+                <figure class="case-gallery-card case-gallery-card-phone"><img src="pictures/pd-goals.png" alt="Prototype med mål for studiearbeidet"></figure>
+                <figure class="case-gallery-card case-gallery-card-phone"><img src="pictures/pd-progress.png" alt="Prototype med visuell fremgang for studieoppgaver"></figure>
+                <figure class="case-gallery-card case-gallery-card-phone"><img src="pictures/pd-break.png" alt="Prototype av pauseoversikt med nedtelling"></figure>
+                <figure class="case-gallery-card case-gallery-card-phone"><img src="pictures/pd-groups.png" alt="Prototype for kollokviegrupper"></figure>
+              </div>
+
+              <div class="next-project-bar" data-next-project="sustained">
+                <div class="next-project-copy">
+                  <span data-no="Se neste prosjekt" data-en="View next project">Se neste prosjekt</span>
+                  <strong>Sustained by Voices</strong>
+                </div>
+                <button class="next-project-button" type="button" aria-label="Se neste prosjekt">→</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 4 -->
+          <article class="project" data-project="3" id="project-sustained">
+            <div class="project-preview">
+              <div class="project-summary-text">
+                <div class="project-kicker">
+                  <span>TANGIBLE INTERACTION</span>
+                  <span>•</span>
+                  <span data-no="TEAMPROSJEKT" data-en="TEAM PROJECT">TEAMPROSJEKT</span>
+                </div>
+
+                <h3>Sustained by Voices</h3>
+                <p data-no="En interaktiv installasjon som holdes «i live» av publikums stemmer."
+                   data-en="An interactive installation sustained by the voices of its audience.">
+                  En interaktiv installasjon som holdes «i live» av publikums stemmer.
+                </p>
+
+                <button class="project-toggle" type="button" aria-expanded="false" aria-controls="details-sustained">
+                  <span data-no="Se mer" data-en="See more">Se mer</span>
+                  <span class="project-toggle-icon" aria-hidden="true">+</span>
+                </button>
+              </div>
+
+              <div class="preview-marquee" aria-label="Sustained by Voices – prosjektbilder">
+                <div class="preview-track">
+                  <figure class="preview-card"><img src="pictures/sustained.jpg" alt="Den ferdige installasjonen Sustained by Voices"></figure>
+                  <figure class="preview-card"><img src="pictures/sustained2.png" alt="Konstruksjon og mekanikk i Sustained by Voices"></figure>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-details" id="details-sustained">
+              <div class="detail-grid">
+                <div class="detail-lead">
+                  <span class="detail-label" data-no="Konsept" data-en="Concept">Konsept</span>
+                  <h4 data-no="En skjør skikkelse som bare holdes «i live» så lenge publikum snakker til den."
+                      data-en="A fragile figure kept “alive” only for as long as the audience speaks to it.">
+                    En skjør skikkelse som bare holdes «i live» så lenge publikum snakker til den.
+                  </h4>
+                </div>
+
+                <div class="detail-copy">
+                  <p data-no="Sustained by Voices er en interaktiv installasjon som utforsker puls som en midlertidig og betinget tilstand. Installasjonen består av en skjør, menneskelignende skikkelse som bare holdes «i live» så lenge publikum prater til den."
+                     data-en="Sustained by Voices is an interactive installation that explores pulse as a temporary and conditional state. The installation consists of a fragile, human-like figure that is kept “alive” only for as long as the audience speaks to it.">
+                    Sustained by Voices er en interaktiv installasjon som utforsker puls som en midlertidig og betinget tilstand. Installasjonen består av en skjør, menneskelignende skikkelse som bare holdes «i live» så lenge publikum prater til den.
+                  </p>
+                </div>
+
+                <div>
+                  <span class="detail-label" data-no="Kontekst" data-en="Context">Kontekst</span>
+                  <p data-no="Prosjektet ble utviklet i et team med utgangspunkt i temaet «puls». Installasjonen var ikke laget for én bestemt brukergruppe, men for en interaktiv utstilling der mange mennesker skulle kunne møte og påvirke installasjonen."
+                     data-en="The project was developed as a team in response to the theme of “pulse”. The installation was not designed for one specific user group, but for an interactive exhibition where many people could encounter and influence it.">
+                    Prosjektet ble utviklet i et team med utgangspunkt i temaet «puls». Installasjonen var ikke laget for én bestemt brukergruppe, men for en interaktiv utstilling der mange mennesker skulle kunne møte og påvirke installasjonen.
+                  </p>
+                </div>
+
+                <div class="full">
+                  <span class="detail-label" data-no="Designprosess" data-en="Design process">Designprosess</span>
+                  <ol class="process-list">
+                    <li><b>01</b><span data-no="Vi startet med en åpen idémyldringsfase der vi undersøkte ulike tolkninger av puls. Ideene ble utforsket gjennom skisser, enkle modeller og fysiske prototyper i forskjellige formater og materialer." data-en="We began with an open ideation phase in which we explored different interpretations of pulse. The ideas were investigated through sketches, simple models and physical prototypes in different formats and materials.">Vi startet med en åpen idémyldringsfase der vi undersøkte ulike tolkninger av puls. Ideene ble utforsket gjennom skisser, enkle modeller og fysiske prototyper i forskjellige formater og materialer.</span></li>
+                    <li><b>02</b><span data-no="Gjennom flere iterasjoner undersøkte vi hvordan form, materiale, lyd og bevegelse kunne skape en tydelig sammenheng. Vi bygget interaksjonen med mikrofon, Arduino og motor, og brukte tilbakemeldinger fra designkritikk til å forenkle konseptet." data-en="Across several iterations, we explored how form, material, sound and movement could create a clear relationship. We built the interaction using a microphone, Arduino and motor, and used feedback from design critiques to simplify the concept.">Gjennom flere iterasjoner undersøkte vi hvordan form, materiale, lyd og bevegelse kunne skape en tydelig sammenheng. Vi bygget interaksjonen med mikrofon, Arduino og motor, og brukte tilbakemeldinger fra designkritikk til å forenkle konseptet.</span></li>
+                    <li><b>03</b><span data-no="Vi testet installasjonen med andre studenter for å undersøke om sammenhengen mellom stemme og bevegelse var forståelig, og hvordan mennesker reagerte på skikkelsen. Observasjonene hjalp oss med å justere lydnivået, bevegelsen og hvor raskt installasjonen falt sammen når stemmen forsvant." data-en="We tested the installation with other students to examine whether the relationship between voice and movement was understandable and how people responded to the figure. Our observations helped us adjust the sound threshold, the movement and how quickly the installation collapsed when the voice disappeared.">Vi testet installasjonen med andre studenter for å undersøke om sammenhengen mellom stemme og bevegelse var forståelig, og hvordan mennesker reagerte på skikkelsen. Observasjonene hjalp oss med å justere lydnivået, bevegelsen og hvor raskt installasjonen falt sammen når stemmen forsvant.</span></li>
+                  </ol>
+                </div>
+
+                <div>
+                  <span class="detail-label" data-no="Interaksjon og teknologi" data-en="Interaction and technology">Interaksjon og teknologi</span>
+                  <p data-no="En mikrofon registrerer lydnivået rundt installasjonen. Når noen snakker eller lager lyd, sendes signalet til en Arduino som styrer en motor. Motoren løfter og senker skikkelsen slik at den ser ut til å være i live. Når lyden forsvinner, faller installasjonen ned i en sammenkrøket posisjon."
+                     data-en="A microphone detects the sound level around the installation. When someone speaks or makes a sound, the signal is sent to an Arduino that controls a motor. The motor raises and lowers the figure, making it appear alive. When the sound disappears, the installation collapses into a crouched position.">
+                    En mikrofon registrerer lydnivået rundt installasjonen. Når noen snakker eller lager lyd, sendes signalet til en Arduino som styrer en motor. Motoren løfter og senker skikkelsen slik at den ser ut til å være i live. Når lyden forsvinner, faller installasjonen ned i en sammenkrøket posisjon.
+                  </p>
+                  <p data-no="Publikums stemmer blir en avgjørende faktor for at skikkelsen skal holdes «i live». Interaksjonen undersøker hvor lenge mennesker er villige til å gi oppmerksomhet og energi til noe som ikke kan opprettholdes for alltid."
+                     data-en="The audience's voices become essential to keeping the figure “alive”. The interaction explores how long people are willing to give attention and energy to something that cannot be sustained forever.">
+                    Publikums stemmer blir en avgjørende faktor for at skikkelsen skal holdes «i live». Interaksjonen undersøker hvor lenge mennesker er villige til å gi oppmerksomhet og energi til noe som ikke kan opprettholdes for alltid.
+                  </p>
+                </div>
+
+                <div>
+                  <span class="detail-label" data-no="Utfordringer" data-en="Challenges">Utfordringer</span>
+                  <p data-no="En sentral utfordring var å begrense konseptet. Det var lett å ønske flere funksjoner, men for mange elementer gjorde sammenhengen mellom lyd og bevegelse mindre tydelig."
+                     data-en="A central challenge was limiting the scope of the concept. It was easy to want more features, but too many elements made the relationship between sound and movement less clear.">
+                    En sentral utfordring var å begrense konseptet. Det var lett å ønske flere funksjoner, men for mange elementer gjorde sammenhengen mellom lyd og bevegelse mindre tydelig.
+                  </p>
+                </div>
+              </div>
+
+              <div class="case-gallery" aria-label="Sustained by Voices – flere prosjektbilder">
+                <figure class="case-gallery-card"><img src="pictures/sustained.jpg" alt="Den ferdige installasjonen Sustained by Voices"></figure>
+                <figure class="case-gallery-card case-gallery-card-tall"><img src="pictures/sustained2.png" alt="Konstruksjon og mekanikk i Sustained by Voices"></figure>
+              </div>
+
+              <div class="next-project-bar" data-next-project="liftoff">
+                <div class="next-project-copy">
+                  <span data-no="Se neste prosjekt" data-en="View next project">Se neste prosjekt</span>
+                  <strong>LiftOff</strong>
+                </div>
+                <button class="next-project-button" type="button" aria-label="Se neste prosjekt">→</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 5 -->
+          <article class="project" data-project="4" id="project-liftoff">
+            <div class="project-preview">
+              <div class="project-summary-text">
+                <div class="project-kicker">
+                  <span>UX / UI DESIGN</span>
+                  <span>•</span>
+                  <span>2024</span>
+                </div>
+
+                <h3>LiftOff</h3>
+                <p data-no="App for å vurdere værforhold ved rakettoppskytning — i samarbeid med Portal Space"
+                   data-en="App for evaluating weather conditions for rocket launches — in collaboration with Portal Space">
+                  App for å vurdere værforhold ved rakettoppskytning — i samarbeid med Portal Space
+                </p>
+
+                <button class="project-toggle" type="button" aria-expanded="false" aria-controls="details-liftoff">
+                  <span data-no="Se mer" data-en="See more">Se mer</span>
+                  <span class="project-toggle-icon" aria-hidden="true">+</span>
+                </button>
+              </div>
+
+              <div class="preview-marquee reverse" aria-label="Prosjektbilder">
+                <div class="preview-track">
+                  <figure class="preview-card"><img src="pictures/liftoff-final.png" alt="Endelig LiftOff-prototype med værstatus"></figure>
+                  <figure class="preview-card"><img src="pictures/liftoff-flow.png" alt="Brukerflyt for LiftOff"></figure>
+                  <figure class="preview-card"><img src="pictures/liftoff-early.png" alt="Tidlig LiftOff-prototype"></figure>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-details" id="details-liftoff">
+              <div class="detail-grid">
+                <div class="detail-lead">
+                  <span class="detail-label" data-no="Problem / kontekst" data-en="Problem / context">Problem / kontekst</span>
+                  <h4 data-no="Komplekse værdata måtte bli raske å forstå og enkle å handle på."
+                      data-en="Complex weather data needed to become fast to understand and easy to act on.">
+                    Komplekse værdata måtte bli raske å forstå og enkle å handle på.
+                  </h4>
+                </div>
+
+                <div class="detail-copy">
+                  <p data-no="Portal Space manglet én løsning som samlet værdataene de trenger for å vurdere en trygg rakettoppskytning. Vi utviklet derfor LiftOff, en app som kombinerer blant annet sikt, nedbør, luftfuktighet og vind ved ulike høyder og presenterer informasjonen i en mer oversiktlig beslutningsstøtte."
+                     data-en="Portal Space lacked a single solution that brought together the weather data required to assess whether a rocket could be launched safely. We therefore developed LiftOff, an app combining visibility, precipitation, humidity and wind at different altitudes in a clearer decision-support interface.">
+                    Portal Space manglet én løsning som samlet værdataene de trenger for å vurdere en trygg rakettoppskytning. Vi utviklet derfor LiftOff, en app som kombinerer blant annet sikt, nedbør, luftfuktighet og vind ved ulike høyder og presenterer informasjonen i en mer oversiktlig beslutningsstøtte.
+                  </p>
+                </div>
+
+                <div>
+                  <span class="detail-label" data-no="Min rolle" data-en="My role">Min rolle</span>
+                  <p data-no="Jeg hadde rollen som designer og front-end-utvikler i et tverrfaglig team på seks. Jeg bidro gjennom hele prosessen med intervju, kravprioritering, workshops, interaktiv prototyping i Figma, brukertesting og utvikling av brukergrensesnittet i Kotlin og Jetpack Compose."
+                     data-en="I worked as a designer and front-end developer in an interdisciplinary team of six. I contributed throughout the process with interviewing, requirements prioritisation, workshops, interactive prototyping in Figma, usability testing and implementation of the user interface in Kotlin and Jetpack Compose.">
+                    Jeg hadde rollen som designer og front-end-utvikler i et tverrfaglig team på seks. Jeg bidro gjennom hele prosessen med intervju, kravprioritering, workshops, interaktiv prototyping i Figma, brukertesting og utvikling av brukergrensesnittet i Kotlin og Jetpack Compose.
+                  </p>
+                </div>
+
+                <div>
+                  <span class="detail-label" data-no="Teamarbeid" data-en="Teamwork">Teamarbeid</span>
+                  <p data-no="Teamet besto av studenter fra design, robotikk, programmering og språkteknologi. Vi jobbet i ukentlige sprinter og brukte workshops, parprogrammering og mobbprogrammering for å dele kunnskap og ta beslutninger sammen. Prosjektet lærte meg hvor avgjørende tydelig arbeidsfordeling, regelmessige møter og åpen kommunikasjon er i et tverrfaglig team."
+                     data-en="The team included students from design, robotics, programming and language technology. We worked in weekly sprints and used workshops, pair programming and mob programming to share knowledge and make decisions together. The project taught me how essential clear task ownership, regular meetings and open communication are in an interdisciplinary team.">
+                    Teamet besto av studenter fra design, robotikk, programmering og språkteknologi. Vi jobbet i ukentlige sprinter og brukte workshops, parprogrammering og mobbprogrammering for å dele kunnskap og ta beslutninger sammen. Prosjektet lærte meg hvor avgjørende tydelig arbeidsfordeling, regelmessige møter og åpen kommunikasjon er i et tverrfaglig team.
+                  </p>
+                </div>
+
+                <div class="full">
+                  <span class="detail-label" data-no="Designprosess" data-en="Design process">Designprosess</span>
+                  <ol class="process-list">
+                    <li><b>01</b><span data-no="Vi startet med et semistrukturert intervju med en representant fra Portal Space for å forstå oppskytningsprosessen, nødvendige værparametere og behovet for egendefinerte grenseverdier. Innsikten ga oss et tydeligere grunnlag for kravene og funksjonene i appen." data-en="We began with a semi-structured interview with a Portal Space representative to understand the launch process, required weather parameters and the need for custom threshold values. These insights gave us a clearer foundation for the app's requirements and features.">Vi startet med et semistrukturert intervju med en representant fra Portal Space for å forstå oppskytningsprosessen, nødvendige værparametere og behovet for egendefinerte grenseverdier. Innsikten ga oss et tydeligere grunnlag for kravene og funksjonene i appen.</span></li>
+                    <li><b>02</b><span data-no="Vi gjennomførte en workshop der hele teamet skisset, diskuterte og prioriterte funksjonene i en MVP. Workshopen ga oss flere retninger for hvordan komplekse værdata kunne organiseres og presenteres på en forståelig måte." data-en="We ran a workshop in which the whole team sketched, discussed and prioritised the features for an MVP. The workshop gave us several directions for organising and presenting complex weather data in an understandable way.">Vi gjennomførte en workshop der hele teamet skisset, diskuterte og prioriterte funksjonene i en MVP. Workshopen ga oss flere retninger for hvordan komplekse værdata kunne organiseres og presenteres på en forståelig måte.</span></li>
+                    <li><b>03</b><span data-no="På bakgrunn av ideene utviklet vi en interaktiv MVP i Figma. Prototypen ble evaluert med Portal Space og gjennom geriljatesting. Tilbakemeldingene førte blant annet til at vi fjernet en unødvendig kartvisning, forenklet navigasjonen og delte værvariablene inn i tydelige kort." data-en="Based on these ideas, we developed an interactive MVP in Figma. The prototype was evaluated with Portal Space and through guerrilla testing. The feedback led us to remove an unnecessary map view, simplify the navigation and divide the weather variables into clear cards.">På bakgrunn av ideene utviklet vi en interaktiv MVP i Figma. Prototypen ble evaluert med Portal Space og gjennom geriljatesting. Tilbakemeldingene førte blant annet til at vi fjernet en unødvendig kartvisning, forenklet navigasjonen og delte værvariablene inn i tydelige kort.</span></li>
+                    <li><b>04</b><span data-no="Da hovedstrukturen var validert, utviklet vi front-end i Kotlin og Jetpack Compose. Vi brukte par- og mobbprogrammering for å dele kunnskap, løse problemer sammen og sikre at hele teamet kunne bidra til brukergrensesnittet." data-en="Once the main structure had been validated, we developed the front end in Kotlin and Jetpack Compose. We used pair and mob programming to share knowledge, solve problems together and ensure that the whole team could contribute to the user interface.">Da hovedstrukturen var validert, utviklet vi front-end i Kotlin og Jetpack Compose. Vi brukte par- og mobbprogrammering for å dele kunnskap, løse problemer sammen og sikre at hele teamet kunne bidra til brukergrensesnittet.</span></li>
+                    <li><b>05</b><span data-no="Den kodede appen ble brukertestet på telefon og nettbrett med IFI-studenter, fem personer fra Portal Space og en deltaker med rød-grønn fargeblindhet. Gjennom oppgaver, observasjon og tenke-høyt-metoden fant vi forbedringsmuligheter i navigasjon, datoer, tabeller, ikoner og grafer. Funnene ble brukt til å forbedre kontrast, fargebruk og den samlede brukeropplevelsen." data-en="The coded app was usability-tested on phones and tablets with informatics students, five people from Portal Space and one participant with red-green colour vision deficiency. Through tasks, observation and the think-aloud method, we identified improvements to navigation, dates, tables, icons and graphs. The findings were used to improve contrast, colour use and the overall user experience.">Den kodede appen ble brukertestet på telefon og nettbrett med IFI-studenter, fem personer fra Portal Space og en deltaker med rød-grønn fargeblindhet. Gjennom oppgaver, observasjon og tenke-høyt-metoden fant vi forbedringsmuligheter i navigasjon, datoer, tabeller, ikoner og grafer. Funnene ble brukt til å forbedre kontrast, fargebruk og den samlede brukeropplevelsen.</span></li>
+                  </ol>
+                </div>
+
+                <div>
+                  <span class="detail-label" data-no="Løsning" data-en="Solution">Løsning</span>
+                  <p data-no="LiftOff samler værdata fra flere kilder og gir en tydelig anbefaling: grønt, gult eller rødt lys for oppskytning. Brukeren kan velge lokasjon, finne neste gode oppskytningstidspunkt, undersøke data i tabell eller graf og justere egne grenseverdier og marginer."
+                     data-en="LiftOff combines weather data from multiple sources and provides a clear recommendation: green, yellow or red for launch. Users can select a location, find the next suitable launch time, inspect data in tables or graphs and adjust their own thresholds and margins.">
+                    LiftOff samler værdata fra flere kilder og gir en tydelig anbefaling: grønt, gult eller rødt lys for oppskytning. Brukeren kan velge lokasjon, finne neste gode oppskytningstidspunkt, undersøke data i tabell eller graf og justere egne grenseverdier og marginer.
+                  </p>
+                </div>
+
+                <div>
+                  <span class="detail-label" data-no="Resultat" data-en="Outcome">Resultat</span>
+                  <p data-no="Resultatet ble en responsiv Android-app der de fleste testdeltakerne opplevde grensesnittet som intuitivt og oversiktlig. Testing med målgruppen og en deltaker med rød-grønn fargeblindhet gjorde løsningen tydeligere og mer tilgjengelig."
+                     data-en="The result was a responsive Android app that most test participants found intuitive and easy to navigate. Testing with the target group and a participant with red-green colour vision deficiency made the solution clearer and more accessible.">
+                    Resultatet ble en responsiv Android-app der de fleste testdeltakerne opplevde grensesnittet som intuitivt og oversiktlig. Testing med målgruppen og en deltaker med rød-grønn fargeblindhet gjorde løsningen tydeligere og mer tilgjengelig.
+                  </p>
+                </div>
+
+                <div>
+                  <span class="detail-label" data-no="Hva jeg ville gjort annerledes" data-en="What I would do differently">Hva jeg ville gjort annerledes</span>
+                  <p data-no="Jeg ville planlagt testingen av den kodede løsningen tidligere, slik at teamet fikk mer tid til en ekstra testrunde. Jeg ville også etablert tydeligere arbeidsfordeling og kortere, mer fokuserte workshops fra starten."
+                     data-en="I would schedule testing of the coded solution earlier to give the team time for an additional round of testing. I would also establish clearer task ownership and shorter, more focused workshops from the beginning.">
+                    Jeg ville planlagt testingen av den kodede løsningen tidligere, slik at teamet fikk mer tid til en ekstra testrunde. Jeg ville også etablert tydeligere arbeidsfordeling og kortere, mer fokuserte workshops fra starten.
+                  </p>
+                </div>
+              </div>
+
+              <div class="case-gallery" aria-label="LiftOff – flere prosjektbilder">
+                <figure class="case-gallery-card"><img src="pictures/liftoff-final.png" alt="Endelig LiftOff-prototype med værstatus"></figure>
+                <figure class="case-gallery-card"><img src="pictures/liftoff-flow.png" alt="Brukerflyt for LiftOff"></figure>
+                <figure class="case-gallery-card"><img src="pictures/liftoff-early.png" alt="Tidlig LiftOff-prototype"></figure>
+              </div>
+            
+              <div class="next-project-bar" data-next-project="tanum">
+                <div class="next-project-copy">
+                  <span data-no="Se neste prosjekt" data-en="View next project">Se neste prosjekt</span>
+                  <strong>Tanum Ridesenter</strong>
+                </div>
+                <button class="next-project-button" type="button" aria-label="Se neste prosjekt">→</button>
+              </div>
+</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="thank-you" aria-label="Takk">
+      <div class="thank-you-sticky">
+        <div class="thank-you-text">
+          <span class="thank-line thank-line-top" data-no="Ta gjerne" data-en="Please get">Ta gjerne</span>
+          <span class="thank-line thank-line-bottom" data-no="kontakt!" data-en="in touch!">kontakt!</span>
+
+           <div class="contact-links">
+            <a
+              href="mailto:Malinbjornstadjordet@gmail.com"
+              class="contact-email">
+              Malinbjornstadjordet@gmail.com
+            </a>
+            <a
+              href="https://www.linkedin.com/in/malin-bj%C3%B8rnstadjordet-32353126a/"
+              target="_blank"
+              rel="noopener"
+              class="contact-linkedin">
+              LinkedIn
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer" id="contact">
+      <div class="footer-bottom">
+        <span>© 2026 Malin Bjørnstadjordet</span>
+        <a href="#top" data-no="Til toppen ↑" data-en="Back to top ↑">Til toppen ↑</a>
+      </div>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
