@@ -58,6 +58,12 @@
 
     <!-- ABOUT -->
     <section class="about section-shell" id="about" aria-labelledby="about-title">
+      <svg class="about-doodle about-doodle-left" viewBox="0 0 360 280" aria-hidden="true">
+        <path d="M-8 8 C48 45 77 96 48 139 C25 173 5 143 31 132 C76 113 92 204 151 244 C181 264 213 270 246 268"></path>
+      </svg>
+      <svg class="about-doodle about-doodle-right" viewBox="0 0 360 280" aria-hidden="true">
+        <path d="M111 10 C188 0 276 38 305 97 C330 149 316 218 279 232 C248 244 234 213 252 184 C273 151 318 139 368 144"></path>
+      </svg>
       <div class="about-inner">
         <div class="about-copy about-rise about-rise-copy">
           <h2 id="about-title" data-no="OM MEG" data-en="ABOUT">
@@ -104,16 +110,28 @@
     <section class="projects" id="projects" aria-labelledby="projects-title">
       <div class="featured-project-scroll" tabindex="0" aria-label="Utvalgte prosjektbilder – bla sidelengs">
         <figure class="featured-project-image">
-          <img src="pictures/tanumGroup.png" width="1536" height="1024" loading="eager" decoding="async" alt="Utvalgte skjermbilder fra Tanum Ridesenter">
+          <a class="featured-project-link" href="#project-tanum">
+            <img src="pictures/tanumGroup.png" width="1536" height="1024" loading="eager" decoding="async" alt="Utvalgte skjermbilder fra Tanum Ridesenter">
+            <span><span data-no="Tanum Ridesenter" data-en="Tanum Riding Centre">Tanum Ridesenter</span> <span aria-hidden="true">→</span></span>
+          </a>
         </figure>
         <figure class="featured-project-image">
-          <img src="pictures/platformsGroup.png" width="2027" height="1414" loading="eager" decoding="async" alt="Utvalgte skjermbilder fra School Inspection">
+          <a class="featured-project-link" href="#project-edutopia">
+            <img src="pictures/platformsGroup.png" width="2027" height="1414" loading="eager" decoding="async" alt="Utvalgte skjermbilder fra School Inspection">
+            <span>School Inspection <span aria-hidden="true">→</span></span>
+          </a>
         </figure>
         <figure class="featured-project-image">
-          <img src="pictures/PDGROUP.png" width="1177" height="787" loading="eager" decoding="async" alt="Utvalgte skjermbilder fra Deltakende Design">
+          <a class="featured-project-link" href="#project-participatory">
+            <img src="pictures/PDGROUP.png" width="1177" height="787" loading="eager" decoding="async" alt="Utvalgte skjermbilder fra Deltakende Design">
+            <span><span data-no="Deltakende design" data-en="Participatory design">Deltakende design</span> <span aria-hidden="true">→</span></span>
+          </a>
         </figure>
         <figure class="featured-project-image">
-          <img src="pictures/liftoffGroup-web.png" width="2200" height="1527" loading="eager" decoding="async" alt="Utvalgte skjermbilder fra LiftOff">
+          <a class="featured-project-link" href="#project-liftoff">
+            <img src="pictures/liftoffGroup-web.png" width="2200" height="1527" loading="eager" decoding="async" alt="Utvalgte skjermbilder fra LiftOff">
+            <span>LiftOff <span aria-hidden="true">→</span></span>
+          </a>
         </figure>
       </div>
 
@@ -149,6 +167,10 @@
                 <div class="project-kicker">
                   <span>UX / UI DESIGN</span>
                   <span>•</span>
+                  <span>CLIENT PROJECT</span>
+                  <span>•</span>
+                  <span>SOLO</span>
+                  <span>•</span>
                   <span>2026</span>
                 </div>
 
@@ -160,7 +182,7 @@
                 </p>
 
                 <button class="project-toggle" type="button" aria-expanded="false" aria-controls="details-tanum">
-                  <span data-no="Se prosjektet" data-en="See the project">Se prosjektet</span>
+                  <span data-no="Se prosjekt" data-en="View project">Se prosjekt</span>
                   <span class="project-toggle-icon" aria-hidden="true"></span>
                 </button>
               </div>
@@ -187,13 +209,16 @@
                   >
                 </figure>
               </div>
-            </div>
+              </div>
             </div>
 
             
 
             <div class="project-details" id="details-tanum">
               <div class="detail-grid">
+                <div class="detail-context">
+                  <span>Client project</span><span aria-hidden="true">—</span><span>Solo</span>
+                </div>
                 <div class="detail-lead">
                   <span class="detail-label" data-no="Problem / kontekst" data-en="Problem / context">Problem / kontekst</span>
                   <h4 data-no="Viktig informasjon var vanskelig å finne på en uoversiktlig nettside."
@@ -266,7 +291,11 @@
                 <div class="project-kicker">
                   <span>UX / UI DESIGN</span>
                   <span>•</span>
-                  <span>2024</span>
+                  <span data-no="TEAMPROSJEKT" data-en="TEAM PROJECT">TEAMPROSJEKT</span>
+                  <span>•</span>
+                  <span data-no="UNIVERSITETSPROSJEKT" data-en="UNIVERSITY PROJECT">UNIVERSITETSPROSJEKT</span>
+                  <span>•</span>
+                  <span>2025</span>
                 </div>
 
                 <h3>School Inspection (DHIS2)</h3>
@@ -276,7 +305,7 @@
                 </p>
 
                 <button class="project-toggle" type="button" aria-expanded="false" aria-controls="details-edutopia">
-                  <span data-no="Se prosjektet" data-en="See the project">Se prosjektet</span>
+                  <span data-no="Se prosjekt" data-en="View project">Se prosjekt</span>
                   <span class="project-toggle-icon" aria-hidden="true"></span>
                 </button>
               </div>
@@ -292,6 +321,11 @@
 
             <div class="project-details" id="details-edutopia">
               <div class="detail-grid">
+                <div class="detail-context">
+                  <span data-no="Universitetsprosjekt" data-en="University project">Universitetsprosjekt</span>
+                  <span aria-hidden="true">—</span>
+                  <span>IN5320, Development in Platform Ecosystems</span>
+                </div>
                 <div class="detail-lead">
                   <span class="detail-label" data-no="Problem / kontekst" data-en="Problem / context">Problem / kontekst</span>
                   <h4 data-no="Skoleinspektører trengte bedre støtte til å prioritere hvor oppfølging var mest kritisk."
@@ -383,11 +417,13 @@
           </article>
 
           <!-- PROJECT 3 -->
-          <article class="project" data-project="2" id="project-participatory">
+          <article class="project" data-project="2" data-image-slideshow="true" id="project-participatory">
             <div class="project-preview">
               <div class="project-summary-text">
                 <div class="project-kicker">
                   <span>UX / PARTICIPATORY DESIGN</span>
+                  <span>•</span>
+                  <span data-no="UNIVERSITETSPROSJEKT" data-en="UNIVERSITY PROJECT">UNIVERSITETSPROSJEKT</span>
                   <span>•</span>
                   <span>2025</span>
                 </div>
@@ -399,7 +435,7 @@
                 </p>
 
                 <button class="project-toggle" type="button" aria-expanded="false" aria-controls="details-participatory">
-                  <span data-no="Se prosjektet" data-en="View project">Se prosjektet</span>
+                  <span data-no="Se prosjekt" data-en="View project">Se prosjekt</span>
                   <span class="project-toggle-icon" aria-hidden="true"></span>
                 </button>
               </div>
@@ -413,6 +449,11 @@
 
             <div class="project-details" id="details-participatory">
               <div class="detail-grid">
+                <div class="detail-context">
+                  <span data-no="Universitetsprosjekt" data-en="University project">Universitetsprosjekt</span>
+                  <span aria-hidden="true">—</span>
+                  <span data-no="IN5510 – Deltakende eksperimentell design" data-en="IN5510 – Participatory Experimental Design">IN5510 – Deltakende eksperimentell design</span>
+                </div>
                 <div class="detail-lead">
                   <span class="detail-label" data-no="Problem / kontekst" data-en="Problem / context">Problem / kontekst</span>
                   <h4 data-no="Hvordan kan studenter jobbe mer effektivt og opprettholde motivasjon?"
@@ -500,13 +541,15 @@
           </article>
 
           <!-- PROJECT 4 -->
-          <article class="project" data-project="3" id="project-sustained">
+          <article class="project" data-project="3" data-image-slideshow="true" id="project-sustained">
             <div class="project-preview">
               <div class="project-summary-text">
                 <div class="project-kicker">
                   <span>TANGIBLE INTERACTION</span>
                   <span>•</span>
                   <span data-no="TEAMPROSJEKT" data-en="TEAM PROJECT">TEAMPROSJEKT</span>
+                  <span>•</span>
+                  <span data-no="UNIVERSITETSPROSJEKT" data-en="UNIVERSITY PROJECT">UNIVERSITETSPROSJEKT</span>
                 </div>
 
                 <h3>Sustained by Voices</h3>
@@ -516,7 +559,7 @@
                 </p>
 
                 <button class="project-toggle" type="button" aria-expanded="false" aria-controls="details-sustained">
-                  <span data-no="Se prosjektet" data-en="See the project">Se prosjektet</span>
+                  <span data-no="Se prosjekt" data-en="View project">Se prosjekt</span>
                   <span class="project-toggle-icon" aria-hidden="true"></span>
                 </button>
               </div>
@@ -531,6 +574,11 @@
 
             <div class="project-details" id="details-sustained">
               <div class="detail-grid">
+                <div class="detail-context">
+                  <span data-no="Universitetsprosjekt" data-en="University project">Universitetsprosjekt</span>
+                  <span aria-hidden="true">—</span>
+                  <span>IN5120 – Tangible Interaction</span>
+                </div>
                 <div class="detail-lead">
                   <span class="detail-label" data-no="Konsept" data-en="Concept">Konsept</span>
                   <h4 data-no="En skjør skikkelse som bare holdes «i live» så lenge publikum snakker til den."
@@ -602,11 +650,15 @@
           </article>
 
           <!-- PROJECT 5 -->
-          <article class="project" data-project="4" id="project-liftoff">
+          <article class="project" data-project="4" data-image-slideshow="true" id="project-liftoff">
             <div class="project-preview">
               <div class="project-summary-text">
                 <div class="project-kicker">
                   <span>UX / UI DESIGN</span>
+                  <span>•</span>
+                  <span data-no="TEAMPROSJEKT" data-en="TEAM PROJECT">TEAMPROSJEKT</span>
+                  <span>•</span>
+                  <span data-no="UNIVERSITETSPROSJEKT" data-en="UNIVERSITY PROJECT">UNIVERSITETSPROSJEKT</span>
                   <span>•</span>
                   <span>2024</span>
                 </div>
@@ -618,7 +670,7 @@
                 </p>
 
                 <button class="project-toggle" type="button" aria-expanded="false" aria-controls="details-liftoff">
-                  <span data-no="Se prosjektet" data-en="See the project">Se prosjektet</span>
+                  <span data-no="Se prosjekt" data-en="View project">Se prosjekt</span>
                   <span class="project-toggle-icon" aria-hidden="true"></span>
                 </button>
               </div>
@@ -632,6 +684,11 @@
 
             <div class="project-details" id="details-liftoff">
               <div class="detail-grid">
+                <div class="detail-context">
+                  <span data-no="Universitetsprosjekt" data-en="University project">Universitetsprosjekt</span>
+                  <span aria-hidden="true">—</span>
+                  <span data-no="IN2000 – Software Engineering med prosjektarbeid" data-en="IN2000 – Software Engineering with Project Work">IN2000 – Software Engineering med prosjektarbeid</span>
+                </div>
                 <div class="detail-lead">
                   <span class="detail-label" data-no="Problem / kontekst" data-en="Problem / context">Problem / kontekst</span>
                   <h4 data-no="Komplekse værdata måtte bli raske å forstå og enkle å handle på."
@@ -702,6 +759,7 @@
               <div class="case-gallery" aria-label="LiftOff – flere prosjektbilder">
                 <figure class="case-gallery-card"><img src="pictures/liftoff-early.png" alt="Første prototype av LiftOff" data-caption-no="Første prototype" data-caption-en="First prototype"></figure>
                 <figure class="case-gallery-card"><img src="pictures/tidlVersLiftoff.png" alt="Andre prototype av LiftOff" data-caption-no="Andre prototype" data-caption-en="Second prototype"></figure>
+                <figure class="case-gallery-card case-gallery-card-full"><img src="pictures/tidlVersLiftoff1.jpg" alt="Tidlig versjon av LiftOff" data-caption-no="Tidlig versjon av LiftOff" data-caption-en="Early version of LiftOff"></figure>
                 <figure class="case-gallery-card"><img src="pictures/liftoff2.png" alt="Videreutviklet LiftOff-prototype" data-caption-no="Videreutviklet prototype" data-caption-en="Refined prototype"></figure>
                 <figure class="case-gallery-card"><img src="pictures/liftoff3.png" alt="LiftOff-visninger for regelverk og grenseverdier" data-caption-no="Visninger for relevant regelverk og tilpasning av grenseverdier for værforhold." data-caption-en="Views for relevant regulations and custom weather-condition thresholds."></figure>
               </div>

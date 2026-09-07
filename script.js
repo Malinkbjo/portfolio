@@ -698,22 +698,10 @@ function updateProjectButton(
         : "Lukk";
 
   } else {
-
-    const isProjectButton =
-      label.dataset.en === "View project";
-
     label.textContent =
-      isProjectButton
-        ? (
-          english
-            ? "View project"
-            : "Se prosjektet"
-        )
-        : (
-          english
-            ? "See more"
-            : "Se mer"
-        );
+      english
+        ? "View project"
+        : "Se prosjekt";
   }
 }
 
@@ -908,9 +896,9 @@ if ("IntersectionObserver" in window) {
         });
       },
       {
-        threshold: 0.12,
+        threshold: 0.04,
         rootMargin:
-          "0px 0px -8% 0px"
+          "0px 0px 8% 0px"
       }
     );
 
@@ -1125,6 +1113,14 @@ function openImageLightbox(imageElement) {
     ];
   }
 
+  const seenImageSources = new Set();
+  sourceImages = sourceImages.filter(image => {
+    const source = image.getAttribute("src");
+    if (!source || seenImageSources.has(source)) return false;
+    seenImageSources.add(source);
+    return true;
+  });
+
   const captionLanguage =
     currentLanguage();
 
@@ -1237,12 +1233,16 @@ if (featuredProjectScroll) {
   );
 
   let dragging = false;
+  let dragged = false;
+  let pressedProjectLink = null;
   let dragStartX = 0;
   let dragStartScroll = 0;
 
   featuredProjectScroll.addEventListener("pointerdown", event => {
     if (event.pointerType === "touch") return;
     dragging = true;
+    dragged = false;
+    pressedProjectLink = event.target.closest(".featured-project-link");
     dragStartX = event.clientX;
     dragStartScroll = featuredProjectScroll.scrollLeft;
     featuredProjectScroll.classList.add("is-dragging");
@@ -1251,6 +1251,7 @@ if (featuredProjectScroll) {
 
   featuredProjectScroll.addEventListener("pointermove", event => {
     if (!dragging) return;
+    if (Math.abs(event.clientX - dragStartX) > 6) dragged = true;
     featuredProjectScroll.scrollLeft =
       dragStartScroll - (event.clientX - dragStartX);
   });
@@ -1266,6 +1267,29 @@ if (featuredProjectScroll) {
 
   featuredProjectScroll.addEventListener("pointerup", stopFeaturedDrag);
   featuredProjectScroll.addEventListener("pointercancel", stopFeaturedDrag);
+
+  featuredProjectScroll.addEventListener("click", event => {
+    const link =
+      event.target.closest(".featured-project-link") ||
+      pressedProjectLink;
+    if (!link) return;
+
+    if (dragged) {
+      event.preventDefault();
+      dragged = false;
+      pressedProjectLink = null;
+      return;
+    }
+
+    const project = document.querySelector(link.getAttribute("href"));
+    if (!project) return;
+
+    event.preventDefault();
+    const offset = header?.offsetHeight || 0;
+    const top = project.getBoundingClientRect().top + window.scrollY - offset - 18;
+    window.scrollTo({ top, behavior: "smooth" });
+    pressedProjectLink = null;
+  });
 }
 
 
