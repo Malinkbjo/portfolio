@@ -17,9 +17,9 @@
     <a class="brand" href="#top">MALIN BJØRNSTADJORDET</a>
 
     <nav class="nav" aria-label="Hovedmeny">
-      <a href="#about" data-no="Om meg" data-en="About">Om meg</a>
+      <a href="#about" aria-controls="about" aria-expanded="false" data-no="Om meg" data-en="About">Om meg</a>
       <a href="#projects" data-no="Prosjekter" data-en="Projects">Prosjekter</a>
-       <a class="nav-cv" href="CV-MalinB.pdf" target="_blank" rel="noopener" data-no="CV" data-en="CV">CV</a>
+       <a class="nav-cv" href="CVMalinB.pdf" target="_blank" rel="noopener" data-no="CV" data-en="CV">CV</a>
       <a href="#contact" data-no="Kontakt" data-en="Contact">Kontakt</a>
       <button class="lang-toggle" type="button" aria-label="Bytt språk">
         <span class="lang-no active">NO</span><span aria-hidden="true"> / </span><span class="lang-en">EN</span>
@@ -31,6 +31,9 @@
     <!-- HERO: wrapper is taller than viewport so the sticky inner can animate while scrolling -->
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-sticky">
+        <svg class="hero-corner-doodle" viewBox="0 0 410 300" aria-hidden="true">
+          <path d="M-10 286 C48 267 94 231 78 195 C65 165 34 180 43 204 C54 234 104 190 119 145 C132 108 183 112 241 99 C306 84 354 51 401 9"></path>
+        </svg>
         <div class="hero-content">
           <div class="hero-copy">
             <h1 id="hero-title">
@@ -57,7 +60,8 @@
     </section>
 
     <!-- ABOUT -->
-    <section class="about section-shell" id="about" aria-labelledby="about-title">
+    <section class="about section-shell" id="about" aria-labelledby="about-title" aria-hidden="true">
+      <button class="about-close" type="button" data-no="Lukk om meg" data-en="Close about">Lukk om meg <span aria-hidden="true">×</span></button>
       <svg class="about-doodle about-doodle-left" viewBox="0 0 360 280" aria-hidden="true">
         <path d="M-8 8 C48 45 77 96 48 139 C25 173 5 143 31 132 C76 113 92 204 151 244 C181 264 213 270 246 268"></path>
       </svg>
@@ -140,25 +144,6 @@
       </div>
 
       <div class="projects-stage section-shell">
-        <aside class="project-rail" aria-label="Prosjektnavigasjon">
-          <div class="rail-line" aria-hidden="true"></div>
-          <button class="rail-item active" data-project-index="0" type="button" aria-label="Gå til prosjekt 1">
-            <span class="rail-dot"></span><span>01</span>
-          </button>
-          <button class="rail-item" data-project-index="1" type="button" aria-label="Gå til prosjekt 2">
-            <span class="rail-dot"></span><span>02</span>
-          </button>
-          <button class="rail-item" data-project-index="2" type="button" aria-label="Gå til prosjekt 3">
-            <span class="rail-dot"></span><span>03</span>
-          </button>
-          <button class="rail-item" data-project-index="3" type="button" aria-label="Gå til prosjekt 4">
-            <span class="rail-dot"></span><span>04</span>
-          </button>
-          <button class="rail-item" data-project-index="4" type="button" aria-label="Gå til prosjekt 5">
-            <span class="rail-dot"></span><span>05</span>
-          </button>
-        </aside>
-
         <div class="project-list">
           <!-- PROJECT 1 -->
           <article class="project" data-project="0" id="project-tanum">
@@ -189,23 +174,10 @@
 
               <div class="preview-marquee" aria-label="Prosjektbilder">
               <div class="preview-track">
-
                 <figure class="preview-card">
                   <img
-                    src="pictures/tanumHjem.png"
-                    alt="Forsiden til Tanum Ridesenter"
-                  >
-                </figure>
-                <figure class="preview-card">
-                  <img
-                    src="pictures/tanum2.png"
-                    alt="Oppstalling-siden til Tanum Ridesenter"
-                  >
-                </figure>
-                <figure class="preview-card">
-                  <img
-                    src="pictures/tanum3.png"
-                    alt="Undervisning-siden til Tanum Ridesenter"
+                    src="pictures/tanumGroup.png"
+                    alt="Mockup av nettsiden til Tanum Ridesenter på flere enheter"
                   >
                 </figure>
               </div>
@@ -216,9 +188,6 @@
 
             <div class="project-details" id="details-tanum">
               <div class="detail-grid">
-                <div class="detail-context">
-                  <span>Client project</span><span aria-hidden="true">—</span><span>Solo</span>
-                </div>
                 <div class="detail-lead">
                   <span class="detail-label" data-no="Problem / kontekst" data-en="Problem / context">Problem / kontekst</span>
                   <h4 data-no="Viktig informasjon var vanskelig å finne på en uoversiktlig nettside."
@@ -227,42 +196,47 @@
                   </h4>
                 </div>
                 <div class="detail-copy">
-                  <p data-no="Den tidligere nettsiden inneholdt mye tekst og gjorde det vanskelig å få rask oversikt over tilbudene ved ridesenteret. Målet var å skape en tydeligere informasjonsstruktur, slik at både nye og eksisterende kunder lettere kunne finne relevant informasjon."
-                     data-en="The previous website contained a large amount of text and made it difficult to quickly understand the riding centre's services. The goal was to create a clearer information structure, helping both new and existing customers find relevant information more easily.">
-                    Den tidligere nettsiden inneholdt mye tekst og gjorde det vanskelig å få rask oversikt over tilbudene ved ridesenteret. Målet var å skape en tydeligere informasjonsstruktur, slik at både nye og eksisterende kunder lettere kunne finne relevant informasjon.
+                  <p data-no="Den eksisterende nettsiden inneholdt mye informasjon, men den var uoversiktlig og utdatert. Målet mitt var derfor å gjøre det enklere for potensielle kunder å forstå hva Tanum Ridesenter tilbyr og finne informasjonen de trenger."
+                     data-en="The existing website contained a lot of information, but it was difficult to navigate and out of date. My goal was therefore to make it easier for potential customers to understand what Tanum Riding Centre offers and find the information they need.">
+                    Den eksisterende nettsiden inneholdt mye informasjon, men den var uoversiktlig og utdatert. Målet mitt var derfor å gjøre det enklere for potensielle kunder å forstå hva Tanum Ridesenter tilbyr og finne informasjonen de trenger.
                   </p>
                 </div>
 
                 <div>
                   <span class="detail-label" data-no="Min rolle" data-en="My role">Min rolle</span>
-                  <p data-no="Jeg hadde ansvar for hele prosessen fra innsiktsarbeid til ferdig nettside. Dette inkluderte intervju, informasjonsarkitektur, UX/UI-design, interaktiv prototyping i Figma, brukertesting og front-end-utvikling i HTML, CSS og JavaScript."
-                     data-en="I was responsible for the full process from research to the completed website. This included interviewing, information architecture, UX/UI design, interactive prototyping in Figma, usability testing and front-end development using HTML, CSS and JavaScript.">
-                    Jeg hadde ansvar for hele prosessen fra innsiktsarbeid til ferdig nettside. Dette inkluderte intervju, informasjonsarkitektur, UX/UI-design, interaktiv prototyping i Figma, brukertesting og front-end-utvikling i HTML, CSS og JavaScript.
-                  </p>
-                </div>
-
-                <div>
-                  <span class="detail-label" data-no="Løsning" data-en="Solution">Løsning</span>
-                  <p data-no="Resultatet er en responsiv nettside med tydelig hierarki, store bilder og færre konkurrerende elementer. Innholdet er organisert rundt det brukerne oftest leter etter, og navigasjonen gjør det enklere å forstå ridesenterets tilbud og finne veien videre."
-                     data-en="The result is a responsive website with a clear hierarchy, large imagery and fewer competing elements. The content is organised around what users most often look for, while the navigation makes it easier to understand the riding centre's services and find the next step.">
-                    Resultatet er en responsiv nettside med tydelig hierarki, store bilder og færre konkurrerende elementer. Innholdet er organisert rundt det brukerne oftest leter etter, og navigasjonen gjør det enklere å forstå ridesenterets tilbud og finne veien videre.
+                  <p data-no="Dette var et selvstendig kundeprosjekt hvor jeg hadde ansvar for hele prosessen: research, informasjonsarkitektur, UX/UI-design, prototyping, brukertesting og utvikling i HTML, CSS og JavaScript."
+                     data-en="This was an independent client project in which I was responsible for the entire process: research, information architecture, UX/UI design, prototyping, usability testing and development in HTML, CSS and JavaScript.">
+                    Dette var et selvstendig kundeprosjekt hvor jeg hadde ansvar for hele prosessen: research, informasjonsarkitektur, UX/UI-design, prototyping, brukertesting og utvikling i HTML, CSS og JavaScript.
                   </p>
                 </div>
 
                 <div class="full">
                   <span class="detail-label" data-no="Designprosess" data-en="Design process">Designprosess</span>
                   <ol class="process-list">
-                    <li><b>01</b><span data-no="Jeg startet med et intervju for å forstå brukerens behov, ønsker og prioriteringer for den nye nettsiden. Samtalen ga innsikt i hvilket innhold som var viktigst, hva som fungerte dårlig i den eksisterende løsningen og hvilket uttrykk ridesenteret ønsket å formidle." data-en="I began with an interview to understand the user's needs, expectations and priorities for the new website. The conversation provided insight into which content mattered most, what was not working in the existing solution and the impression the riding centre wanted to communicate.">Jeg startet med et intervju for å forstå brukerens behov, ønsker og prioriteringer for den nye nettsiden. Samtalen ga innsikt i hvilket innhold som var viktigst, hva som fungerte dårlig i den eksisterende løsningen og hvilket uttrykk ridesenteret ønsket å formidle.</span></li>
-                    <li><b>02</b><span data-no="På bakgrunn av innsikten sorterte og prioriterte jeg innholdet, forenklet navigasjonen og utviklet en tydeligere informasjonsarkitektur. Målet var å redusere tekstmengden og gjøre de viktigste tilbudene lettere å finne." data-en="Based on these insights, I sorted and prioritised the content, simplified the navigation and developed a clearer information architecture. The aim was to reduce the amount of text and make the most important services easier to find.">På bakgrunn av innsikten sorterte og prioriterte jeg innholdet, forenklet navigasjonen og utviklet en tydeligere informasjonsarkitektur. Målet var å redusere tekstmengden og gjøre de viktigste tilbudene lettere å finne.</span></li>
-                    <li><b>03</b><span data-no="Jeg utforsket den visuelle retningen og bygget en interaktiv prototype i Figma. Prototypen gjorde det mulig å teste navigasjon, innholdsrekkefølge og sentrale brukerflyter før jeg begynte å programmere nettsiden." data-en="I explored the visual direction and built an interactive prototype in Figma. The prototype made it possible to test the navigation, content order and key user flows before I began developing the website.">Jeg utforsket den visuelle retningen og bygget en interaktiv prototype i Figma. Prototypen gjorde det mulig å teste navigasjon, innholdsrekkefølge og sentrale brukerflyter før jeg begynte å programmere nettsiden.</span></li>
-                    <li><b>04</b><span data-no="Den interaktive prototypen ble testet før utviklingsfasen. Tilbakemeldingene viste hvilke deler som var tydelige, og hvilke elementer som fortsatt opplevdes som uoversiktlige. Jeg justerte strukturen og designet før løsningen ble implementert responsivt i HTML, CSS og JavaScript." data-en="The interactive prototype was tested before development began. The feedback showed which parts were clear and which elements still felt confusing. I adjusted the structure and design before implementing the responsive solution in HTML, CSS and JavaScript.">Den interaktive prototypen ble testet før utviklingsfasen. Tilbakemeldingene viste hvilke deler som var tydelige, og hvilke elementer som fortsatt opplevdes som uoversiktlige. Jeg justerte strukturen og designet før løsningen ble implementert responsivt i HTML, CSS og JavaScript.</span></li>
-                    <li><b>05</b><span data-no="Til slutt testet jeg den ferdige løsningen med flere brukere. Jeg observerte hvordan de fant informasjon og beveget seg mellom sidene, og endret innhold, plassering og visuelle elementer som ikke ble oppfattet som oversiktlige. Testingen ble dermed brukt aktivt til å forbedre den endelige nettsiden." data-en="Finally, I tested the completed solution with several users. I observed how they found information and moved between pages, then changed content, placement and visual elements that were not perceived as clear. The testing was actively used to improve the final website.">Til slutt testet jeg den ferdige løsningen med flere brukere. Jeg observerte hvordan de fant informasjon og beveget seg mellom sidene, og endret innhold, plassering og visuelle elementer som ikke ble oppfattet som oversiktlige. Testingen ble dermed brukt aktivt til å forbedre den endelige nettsiden.</span></li>
+                    <li><b>01</b><span data-no="For å forstå både virksomhetens mål og brukernes behov intervjuet jeg først klienten ved Tanum Ridesenter. Samtalen ga innsikt i hvilken informasjon ridesenteret ønsket å formidle, hva de opplevde som utfordrende med den eksisterende nettsiden, og hva den nye løsningen skulle prioritere." data-en="To understand both the organisation's goals and the users' needs, I first interviewed the client at Tanum Riding Centre. The conversation provided insight into what information the riding centre wanted to communicate, what they found challenging about the existing website, and what the new solution should prioritise.">For å forstå både virksomhetens mål og brukernes behov intervjuet jeg først klienten ved Tanum Ridesenter. Samtalen ga innsikt i hvilken informasjon ridesenteret ønsket å formidle, hva de opplevde som utfordrende med den eksisterende nettsiden, og hva den nye løsningen skulle prioritere.</span></li>
+                    <li><b>02</b><span data-no="Deretter gjennomførte jeg semistrukturerte intervjuer med brukere av nettsiden. Dette ga meg et perspektiv på hva de faktisk lette etter når de besøkte nettsiden, hvilken informasjon de opplevde som viktigst, og hvor de hadde problemer med å finne frem. Ved å sammenholde klientens mål med brukernes behov kunne jeg identifisere hva den nye nettsiden faktisk burde prioritere." data-en="I then conducted semi-structured interviews with users of the website. This gave me insight into what they were actually looking for when visiting the site, which information they considered most important, and where they had difficulty navigating. By comparing the client's goals with the users' needs, I could identify what the new website should actually prioritise.">Deretter gjennomførte jeg semistrukturerte intervjuer med brukere av nettsiden. Dette ga meg et perspektiv på hva de faktisk lette etter når de besøkte nettsiden, hvilken informasjon de opplevde som viktigst, og hvor de hadde problemer med å finne frem. Ved å sammenholde klientens mål med brukernes behov kunne jeg identifisere hva den nye nettsiden faktisk burde prioritere.</span></li>
+                    <li><b>03</b><span data-no="Jeg observerte deretter brukere mens de forsøkte å finne viktig informasjon på den eksisterende nettsiden. Flere brukte unødvendig lang tid på å finne frem, noe som bekreftet at problemet var mangelen på struktur, informasjonen lå der." data-en="I then observed users as they tried to find important information on the existing website. Several spent unnecessarily long trying to navigate it, confirming that the problem was a lack of structure; the information was already there.">Jeg observerte deretter brukere mens de forsøkte å finne viktig informasjon på den eksisterende nettsiden. Flere brukte unødvendig lang tid på å finne frem, noe som bekreftet at problemet var mangelen på struktur, informasjonen lå der.</span></li>
+                    <li><b>04</b><span data-no="Ut ifra funnene etter intervju lagde jeg en prototype i Figma hvor jeg reduserte jeg tekstmengden, prioriterte innholdet brukerne faktisk etterspurte, lot bilder få en større rolle. Bilder av stallen, fasilitetene og området var viktigere enn lange beskrivelser. Informasjon om undervisning og hvordan hestene blir ivaretatt var også viktig." data-en="Based on the interview findings, I created a prototype in Figma where I reduced the amount of text, prioritised the content users actually requested and gave images a more prominent role. Images of the stables, facilities and surrounding area were more important than lengthy descriptions. Information about lessons and how the horses are cared for was also important.">Ut ifra funnene etter intervju lagde jeg en prototype i Figma hvor jeg reduserte jeg tekstmengden, prioriterte innholdet brukerne faktisk etterspurte, lot bilder få en større rolle. Bilder av stallen, fasilitetene og området var viktigere enn lange beskrivelser. Informasjon om undervisning og hvordan hestene blir ivaretatt var også viktig.</span></li>
+                    <li><b>05</b><span data-no="Jeg utviklet deretter en interaktiv prototype i Figma og testet navigasjon og innholdsstruktur før jeg begynte utviklingen. Det gjorde at jeg kunne oppdage og justere uklarheter mens endringene fortsatt var raske og enkle å gjøre. Figma prototypen ble testet på nytt med oppgaver tilsvarende dem jeg hadde brukt på den gamle nettsiden. Brukerne fant frem til sentral informasjon raskere og med mindre leting." data-en="I then developed an interactive prototype in Figma and tested the navigation and content structure before beginning development. This allowed me to discover and adjust unclear elements while changes were still quick and easy to make. The Figma prototype was tested again with tasks similar to those I had used on the old website. Users found key information faster and with less searching.">Jeg utviklet deretter en interaktiv prototype i Figma og testet navigasjon og innholdsstruktur før jeg begynte utviklingen. Det gjorde at jeg kunne oppdage og justere uklarheter mens endringene fortsatt var raske og enkle å gjøre. Figma prototypen ble testet på nytt med oppgaver tilsvarende dem jeg hadde brukt på den gamle nettsiden. Brukerne fant frem til sentral informasjon raskere og med mindre leting.</span></li>
                   </ol>
+                </div>
+
+                <div>
+                  <span class="detail-label" data-no="Utfordring" data-en="Challenge">Utfordring</span>
+                  <p data-no="Å finne ut av hva som kunne fjernes uten at kunden opplevde at viktig informasjon gikk tapt. I tillegg var det litt vanskelig å balansere brukernes behov med klientens ønsker. I intervjuene kom det blant annet frem at brukerne ønsket tydelig prisinformasjon på nettsiden, mens klienten ikke ønsket å publisere priser. Jeg måtte derfor prioritere innhold som svarte på brukernes behov og samtidig samsvarte med klientens ønsker."
+                     data-en="Determining what could be removed without the customer feeling that important information was being lost. It was also somewhat difficult to balance users' needs with the client's wishes. The interviews revealed, among other things, that users wanted clear pricing information on the website, while the client did not want to publish prices. I therefore had to prioritise content that addressed users' needs while also aligning with the client's wishes.">Å finne ut av hva som kunne fjernes uten at kunden opplevde at viktig informasjon gikk tapt. I tillegg var det litt vanskelig å balansere brukernes behov med klientens ønsker. I intervjuene kom det blant annet frem at brukerne ønsket tydelig prisinformasjon på nettsiden, mens klienten ikke ønsket å publisere priser. Jeg måtte derfor prioritere innhold som svarte på brukernes behov og samtidig samsvarte med klientens ønsker.</p>
+                </div>
+
+                <div>
+                  <span class="detail-label" data-no="Hva jeg lærte" data-en="What I learned">Hva jeg lærte</span>
+                  <p data-no="Prosjektet lærte meg hvor stor forskjell prioritering av informasjon kan gjøre. Jeg lærte også verdien av å teste en eksisterende løsning før jeg begynner å redesigne den. Det ga meg et konkret sammenligningsgrunnlag og gjorde det lettere å begrunne designvalgene mine overfor kunden."
+                     data-en="The project taught me how much of a difference prioritising information can make. I also learned the value of testing an existing solution before redesigning it. This gave me a concrete basis for comparison and made it easier to justify my design decisions to the client.">Prosjektet lærte meg hvor stor forskjell prioritering av informasjon kan gjøre. Jeg lærte også verdien av å teste en eksisterende løsning før jeg begynner å redesigne den. Det ga meg et konkret sammenligningsgrunnlag og gjorde det lettere å begrunne designvalgene mine overfor kunden.</p>
                 </div>
               </div>
 
               <div class="case-gallery" aria-label="Tanum Ridesenter – flere prosjektbilder">
-                <figure class="case-gallery-card"><img src="pictures/tanumHjem.png" alt="Forsiden til Tanum Ridesenter"></figure>
+                <figure class="case-gallery-card"><img src="pictures/analyseTanum.png" alt="Analyse fra innsiktsarbeidet for Tanum Ridesenter"></figure>
+                <figure class="case-gallery-card"><img src="pictures/tidligPrototypeTanum.png" alt="Tidlig prototype av nettsiden til Tanum Ridesenter"></figure>
                 <figure class="case-gallery-card"><img src="pictures/tanum2.png" alt="Oppstalling-siden til Tanum Ridesenter"></figure>
                 <figure class="case-gallery-card"><img src="pictures/tanum3.png" alt="Undervisning-siden til Tanum Ridesenter"></figure>
               </div>
@@ -293,8 +267,6 @@
                   <span>•</span>
                   <span data-no="TEAMPROSJEKT" data-en="TEAM PROJECT">TEAMPROSJEKT</span>
                   <span>•</span>
-                  <span data-no="UNIVERSITETSPROSJEKT" data-en="UNIVERSITY PROJECT">UNIVERSITETSPROSJEKT</span>
-                  <span>•</span>
                   <span>2025</span>
                 </div>
 
@@ -313,7 +285,7 @@
               <div class="preview-marquee slow" aria-label="Edutopia School Inspection – prosjektbilder">
                 <div class="preview-track">
                   <figure class="preview-card">
-                    <img src="pictures/platforms.png" alt="Inspeksjonsoversikt for School Inspection">
+                    <img src="pictures/platformsGroup.png" alt="Mockup av School Inspection på flere enheter">
                   </figure>
                 </div>
               </div>
@@ -321,11 +293,6 @@
 
             <div class="project-details" id="details-edutopia">
               <div class="detail-grid">
-                <div class="detail-context">
-                  <span data-no="Universitetsprosjekt" data-en="University project">Universitetsprosjekt</span>
-                  <span aria-hidden="true">—</span>
-                  <span>IN5320, Development in Platform Ecosystems</span>
-                </div>
                 <div class="detail-lead">
                   <span class="detail-label" data-no="Problem / kontekst" data-en="Problem / context">Problem / kontekst</span>
                   <h4 data-no="Skoleinspektører trengte bedre støtte til å prioritere hvor oppfølging var mest kritisk."
@@ -335,9 +302,9 @@
                 </div>
 
                 <div class="detail-copy">
-                  <p data-no="Vi utviklet en DHIS2-app som kombinerer skolehierarki, tidligere inspeksjoner og visuelle prioritetsindikatorer i én arbeidsflyt. Fordi skoleinspektører kan arbeide i områder med ustabil eller manglende internettilgang, var offline-støtte en viktig del av løsningen. Vi hadde ikke tilgang til faktiske skoleinspektører og måtte derfor basere brukerforståelsen på prosjektbeskrivelsen og teste løsningen med venner og medstudenter som stedfortredende brukere."
-                     data-en="We developed a DHIS2 app combining school hierarchy, previous inspections and visual priority indicators in one workflow. Because school inspectors may work in areas with unreliable or no internet access, offline support was an important part of the solution. We did not have access to real school inspectors, so our understanding of the users was based on the project brief, and we tested the solution with friends and fellow students acting as proxy users.">
-                    Vi utviklet en DHIS2-app som kombinerer skolehierarki, tidligere inspeksjoner og visuelle prioritetsindikatorer i én arbeidsflyt. Fordi skoleinspektører kan arbeide i områder med ustabil eller manglende internettilgang, var offline-støtte en viktig del av løsningen. Vi hadde ikke tilgang til faktiske skoleinspektører og måtte derfor basere brukerforståelsen på prosjektbeskrivelsen og teste løsningen med venner og medstudenter som stedfortredende brukere.
+                  <p data-no="Skoleinspektører måtte kunne få oversikt over hvilke skoler som burde prioriteres for oppfølging, samtidig som de hadde behov for å se tidligere inspeksjoner og relevant skoledata på en forståelig måte. Arbeidet kunne også foregå i områder med ustabil eller manglende internettilgang, noe som stilte krav til hvordan løsningen måtte fungere i praksis."
+                     data-en="School inspectors needed an overview of which schools should be prioritised for follow-up, while also needing to view previous inspections and relevant school data in an understandable way. Their work could also take place in areas with unstable or no internet access, which placed practical requirements on how the solution needed to function.">
+                    Skoleinspektører måtte kunne få oversikt over hvilke skoler som burde prioriteres for oppfølging, samtidig som de hadde behov for å se tidligere inspeksjoner og relevant skoledata på en forståelig måte. Arbeidet kunne også foregå i områder med ustabil eller manglende internettilgang, noe som stilte krav til hvordan løsningen måtte fungere i praksis.
                   </p>
                 </div>
 
@@ -350,19 +317,19 @@
                 </div>
 
                 <div>
-                  <span class="detail-label" data-no="Metodisk begrensning" data-en="Research limitation">Metodisk begrensning</span>
+                  <span class="detail-label" data-no="Utfordringer" data-en="Challenges">Utfordringer</span>
                   <p data-no="Vi hadde ingen «ordentlige» brukere fra målgruppen tilgjengelig i prosjektet. Personasene er derfor antakelsesbaserte og ble utviklet fra prosjektbeskrivelsen vi fikk utdelt, ikke fra intervjuer med skoleinspektører. Testene med venner og medstudenter ga nyttig innsikt i forståelighet, navigasjon og visuell tydelighet, men kunne ikke validere den reelle arbeidshverdagen eller behovene til målgruppen."
-                     data-en="We did not have access to real users from the target group during the project. The personas were therefore assumption-based and developed from the project brief we were given, rather than from interviews with school inspectors. Testing with friends and fellow students provided useful insight into comprehension, navigation and visual clarity, but could not validate the target group's real working context or needs.">
-                    Vi hadde ingen «ordentlige» brukere fra målgruppen tilgjengelig i prosjektet. Personasene er derfor antakelsesbaserte og ble utviklet fra prosjektbeskrivelsen vi fikk utdelt, ikke fra intervjuer med skoleinspektører. Testene med venner og medstudenter ga nyttig innsikt i forståelighet, navigasjon og visuell tydelighet, men kunne ikke validere den reelle arbeidshverdagen eller behovene til målgruppen.
-                  </p>
-                </div>
-
-                <div>
-                  <span class="detail-label" data-no="Utfordring" data-en="Challenge">Utfordring</span>
+                     data-en="We did not have access to real users from the target group during the project. The personas were therefore assumption-based and developed from the project brief we were given, rather than from interviews with school inspectors. Testing with friends and fellow students provided useful insight into comprehension, navigation and visual clarity, but could not validate the target group's real working context or needs.">Vi hadde ingen «ordentlige» brukere fra målgruppen tilgjengelig i prosjektet. Personasene er derfor antakelsesbaserte og ble utviklet fra prosjektbeskrivelsen vi fikk utdelt, ikke fra intervjuer med skoleinspektører. Testene med venner og medstudenter ga nyttig innsikt i forståelighet, navigasjon og visuell tydelighet, men kunne ikke validere den reelle arbeidshverdagen eller behovene til målgruppen.</p>
                   <p data-no="En sentral utfordring var å unngå information overload. Løsningen inneholdt store mengder tall og inspeksjonsdata, og dersom alt ble vist samtidig, ble det vanskelig å forstå hva som var viktigst. Vi måtte derfor prioritere informasjonen vi mente inspektørene trengte først, og presentere den gjennom tydelige statusnivåer. Mer detaljert informasjon ble gjort tilgjengelig ved å klikke seg videre."
                      data-en="A central challenge was avoiding information overload. The solution contained large amounts of numerical and inspection data, and presenting everything at once made it difficult to understand what mattered most. We therefore prioritised the information we believed inspectors needed first and presented it through clear status levels. More detailed information remained available by clicking through.">
                     En sentral utfordring var å unngå information overload. Løsningen inneholdt store mengder tall og inspeksjonsdata, og dersom alt ble vist samtidig, ble det vanskelig å forstå hva som var viktigst. Vi måtte derfor prioritere informasjonen vi mente inspektørene trengte først, og presentere den gjennom tydelige statusnivåer. Mer detaljert informasjon ble gjort tilgjengelig ved å klikke seg videre.
                   </p>
+                </div>
+
+                <div>
+                  <span class="detail-label" data-no="Hva jeg lærte" data-en="What I learned">Hva jeg lærte</span>
+                  <p data-no="Prosjektet lærte meg hvor viktig det er å bruke tid på å forstå datagrunnlaget før man begynner å designe. I DHIS2 var det store mengder data som potensielt kunne være relevant, og en viktig del av designarbeidet ble derfor å vurdere hva brukeren faktisk trenger å se og hva som kan skjules eller nedprioriteres."
+                     data-en="The project taught me how important it is to spend time understanding the data foundation before beginning to design. DHIS2 contained large amounts of potentially relevant data, so an important part of the design work was deciding what the user actually needs to see and what can be hidden or given lower priority.">Prosjektet lærte meg hvor viktig det er å bruke tid på å forstå datagrunnlaget før man begynner å designe. I DHIS2 var det store mengder data som potensielt kunne være relevant, og en viktig del av designarbeidet ble derfor å vurdere hva brukeren faktisk trenger å se – og hva som kan skjules eller nedprioriteres.</p>
                 </div>
 
                 <div>
@@ -376,11 +343,10 @@
                 <div class="full">
                   <span class="detail-label" data-no="Designprosess" data-en="Design process">Designprosess</span>
                   <ol class="process-list">
-                    <li><b>01</b><span data-no="Fordi vi ikke hadde tilgang til faktiske skoleinspektører, utviklet vi to antakelsesbaserte personas fra prosjektbeskrivelsen vi fikk utdelt. De representerte ulik erfaring og digital kompetanse og hjalp oss med å konkretisere behovene vi måtte undersøke videre." data-en="Because we did not have access to real school inspectors, we developed two assumption-based personas from the project brief we were given. They represented different levels of experience and digital confidence and helped us define the needs that required further investigation.">Fordi vi ikke hadde tilgang til faktiske skoleinspektører, utviklet vi to antakelsesbaserte personas fra prosjektbeskrivelsen vi fikk utdelt. De representerte ulik erfaring og digital kompetanse og hjalp oss med å konkretisere behovene vi måtte undersøke videre.</span></li>
-                    <li><b>02</b><span data-no="Med utgangspunkt i caset prioriterte vi inspeksjonsplanlegging, registrering av rapporter, kritikalitetssortering, historikk og offline-støtte. Deretter laget vi wireframes og en første MVP i Figma." data-en="Based on the case, we prioritised inspection planning, report registration, criticality sorting, inspection history and offline support. We then created wireframes and a first MVP in Figma.">Med utgangspunkt i caset prioriterte vi inspeksjonsplanlegging, registrering av rapporter, kritikalitetssortering, historikk og offline-støtte. Deretter laget vi wireframes og en første MVP i Figma.</span></li>
-                    <li><b>03</b><span data-no="Siden målgruppen ikke var tilgjengelig, gjennomførte vi en geriljatest med venner og medstudenter som stedfortredende brukere. Testen, basert på Don Normans prinsipper, avdekket for mye data, uklare klikkbare rader og svak synlighet rundt sortering av kolonner." data-en="As the target users were unavailable, we conducted a guerrilla usability test with friends and fellow students acting as proxy users. Based on Don Norman's principles, the test revealed information overload, unclear clickable rows and poor visibility of column sorting.">Siden målgruppen ikke var tilgjengelig, gjennomførte vi en geriljatest med venner og medstudenter som stedfortredende brukere. Testen, basert på Don Normans prinsipper, avdekket for mye data, uklare klikkbare rader og svak synlighet rundt sortering av kolonner.</span></li>
-                    <li><b>04</b><span data-no="I en workshop utforsket vi nye måter å presentere verdiene på. Vi forenklet tabellen, la til chevrons og hjelpetekster, og erstattet abstrakte skårer med statusene god, advarsel og kritisk med farger og ikoner." data-en="In a workshop, we explored new ways to present the values. We simplified the table, added chevrons and helper text, and replaced abstract scores with good, warning and critical statuses using colour and icons.">I en workshop utforsket vi nye måter å presentere verdiene på. Vi forenklet tabellen, la til chevrons og hjelpetekster, og erstattet abstrakte skårer med statusene god, advarsel og kritisk med farger og ikoner.</span></li>
-                    <li><b>05</b><span data-no="Vi videreutviklet den interaktive Figma-prototypen og gjennomførte en ny test med stedfortredende brukere, som viste tydelig forbedring i forståelighet og navigasjon. Resultatene må likevel ses i lys av at vi ikke testet med faktiske skoleinspektører. Den raffinerte løsningen ble deretter implementert med DHIS2 UI Library og koblet til plattformens API-er." data-en="We refined the interactive Figma prototype and conducted a second test with proxy users, which showed a clear improvement in comprehension and navigation. However, the findings must be considered in light of the fact that we did not test with real school inspectors. The refined solution was then implemented with the DHIS2 UI Library and connected to the platform's APIs.">Vi videreutviklet den interaktive Figma-prototypen og gjennomførte en ny test med stedfortredende brukere, som viste tydelig forbedring i forståelighet og navigasjon. Resultatene må likevel ses i lys av at vi ikke testet med faktiske skoleinspektører. Den raffinerte løsningen ble deretter implementert med DHIS2 UI Library og koblet til plattformens API-er.</span></li>
+                    <li><b>01</b><span data-no="Vi ikke hadde tilgang til faktiske skoleinspektører i prosjektet, derfor måtte vi bygge den første brukerforståelsen på prosjektbeskrivelsen og utviklet personas basert på dette. Personasene representerte ulik erfaring og digital kompetanse og hjalp oss med å prioritere behovene vi måtte undersøke videre. Gjennom personasene identifiserte vi noen antatte brukerbehov vi mente var sentrale for skoleinspektørene." data-en="We did not have access to actual school inspectors during the project, so we had to build our initial understanding of the users from the project brief and developed personas based on it. The personas represented different levels of experience and digital competence and helped us prioritise the needs we needed to investigate further. Through the personas, we identified assumed user needs that we believed were central to school inspectors.">Vi ikke hadde tilgang til faktiske skoleinspektører i prosjektet, derfor måtte vi bygge den første brukerforståelsen på prosjektbeskrivelsen og utviklet personas basert på dette. Personasene representerte ulik erfaring og digital kompetanse og hjalp oss med å prioritere behovene vi måtte undersøke videre. Gjennom personasene identifiserte vi noen antatte brukerbehov vi mente var sentrale for skoleinspektørene.</span></li>
+                    <li><b>02</b><span data-no="Deretter jobbet vi tett i teamet, for å forstå hvilke data som faktisk var tilgjengelige i DHIS2, og hvordan disse kunne brukes i løsningen. Siden vi ikke hadde tilgang til faktiske skoleinspektører, var det utfordrende å vite hvilken informasjon som var mest relevant i deres arbeidshverdag. Vi måtte derfor bruke tid på å utforske datagrunnlaget, diskutere antakelsene våre og prioritere hvilken informasjon som vi tenkte ville vært mest nyttig for brukeren. Deretter laget vi wireframes og en første MVP i Figma." data-en="We then worked closely as a team to understand which data was actually available in DHIS2 and how it could be used in the solution. Since we did not have access to actual school inspectors, it was challenging to know which information was most relevant to their everyday work. We therefore spent time exploring the available data, discussing our assumptions and prioritising the information we believed would be most useful to the user. We then created wireframes and a first MVP in Figma.">Deretter jobbet vi tett i teamet, for å forstå hvilke data som faktisk var tilgjengelige i DHIS2, og hvordan disse kunne brukes i løsningen. Siden vi ikke hadde tilgang til faktiske skoleinspektører, var det utfordrende å vite hvilken informasjon som var mest relevant i deres arbeidshverdag. Vi måtte derfor bruke tid på å utforske datagrunnlaget, diskutere antakelsene våre og prioritere hvilken informasjon som vi tenkte ville vært mest nyttig for brukeren. Deretter laget vi wireframes og en første MVP i Figma.</span></li>
+                    <li><b>03</b><span data-no="Vi videreutviklet prototypen i Figma og lagde en interaktiv prototype som vi kunne teste før vi utviklet den. Siden vi ikke hadde tilgang til skoleinspektører gjennomførte vi testing med medstudenter og venner. Testingen kunne ikke fortelle oss om løsningen passet skoleinspektørenes faktiske arbeidshverdag, men den kunne avdekke grunnleggende problemer med forståelighet og brukervennlighet. Denne testen viste blant annet at grensesnittet inneholdt for mye informasjon samtidig, at det ikke var tydelig hvilke rader som kunne klikkes på og at sortering av kolonner var vanskelig å oppdage." data-en="We refined the prototype in Figma and created an interactive prototype that we could test before developing it. Since we did not have access to school inspectors, we tested it with fellow students and friends. The testing could not tell us whether the solution suited the school inspectors' actual working practices, but it could reveal fundamental problems with comprehensibility and usability. The test showed, among other things, that the interface presented too much information at once, that it was unclear which rows could be clicked and that column sorting was difficult to discover.">Vi videreutviklet prototypen i Figma og lagde en interaktiv prototype som vi kunne teste før vi utviklet den. Siden vi ikke hadde tilgang til skoleinspektører gjennomførte vi testing med medstudenter og venner. Testingen kunne ikke fortelle oss om løsningen passet skoleinspektørenes faktiske arbeidshverdag, men den kunne avdekke grunnleggende problemer med forståelighet og brukervennlighet. Denne testen viste blant annet at grensesnittet inneholdt for mye informasjon samtidig, at det ikke var tydelig hvilke rader som kunne klikkes på og at sortering av kolonner var vanskelig å oppdage.</span></li>
+                    <li><b>04</b><span data-no="Etter testingen gjennomførte vi en workshop med hele teamet for å igjen se på hvordan vi kan presentere dataen på en mer oversiktlig måte. Vi endte opp med å gå tilbake til likheter ved den første prototypen. Vi reduserte mengden informasjon som ble vist samtidig, erstattet abstrakte tall med statusene god, advarsel og kritisk, kombinert med farger og ikoner. Vi gjennomførte en ny test, og denne viste tydeligere forståelse og navigering." data-en="After the testing, we held a workshop with the entire team to revisit how we could present the data more clearly. We ended up returning to similarities from the first prototype. We reduced the amount of information shown at once and replaced abstract numbers with the statuses good, warning and critical, combined with colours and icons. We conducted another test, which showed clearer understanding and navigation.">Etter testingen gjennomførte vi en workshop med hele teamet for å igjen se på hvordan vi kan presentere dataen på en mer oversiktlig måte. Vi endte opp med å gå tilbake til likheter ved den første prototypen. Vi reduserte mengden informasjon som ble vist samtidig, erstattet abstrakte tall med statusene god, advarsel og kritisk, kombinert med farger og ikoner. Vi gjennomførte en ny test, og denne viste tydeligere forståelse og navigering.</span></li>
                   </ol>
                 </div>
               </div>
@@ -390,19 +356,13 @@
                   <img src="pictures/platformsPersonas.png" alt="Personas for skoleinspektørene Daniel og Grace" data-caption-no="Personas utviklet fra prosjektbeskrivelsen for å konkretisere behovene til skoleinspektørene Daniel og Grace." data-caption-en="Personas developed from the project brief to define the needs of the school inspectors Daniel and Grace.">
                 </figure>
                 <figure class="case-gallery-card">
+                  <img src="pictures/platformsTidligPrototype.png" alt="Tidlig prototype i School Inspection-prosjektet" data-caption-no="Tidlig prototype brukt til å utforske tilgjengelige DHIS2-data og hvilken informasjon som burde prioriteres." data-caption-en="Early prototype used to explore the available DHIS2 data and which information should be prioritised.">
+                </figure>
+                <figure class="case-gallery-card">
+                  <img src="pictures/platformsWorkshop.jpeg" alt="Workshop i School Inspection-prosjektet" data-caption-no="Workshop der vi utforsket og diskuterte hvordan inspeksjonsdata kunne presenteres på en tydeligere og mer forståelig måte." data-caption-en="Workshop in which we explored and discussed how inspection data could be presented more clearly and understandably.">
+                </figure>
+                <figure class="case-gallery-card">
                   <img src="pictures/platforms2.png" alt="Tidlig prototype av skoleoversikten" data-caption-no="Tidlig prototype brukt til å utforske hvordan store mengder tall og inspeksjonsdata kunne presenteres." data-caption-en="Early prototype used to explore how large amounts of numerical and inspection data could be presented.">
-                </figure>
-                <figure class="case-gallery-card">
-                  <img src="pictures/platforms3.png" alt="Prototype med fargekodede statuskort" data-caption-no="Prototype der abstrakte tall ble omformet til tydeligere, fargekodede statuskort." data-caption-en="Prototype in which abstract numbers were transformed into clearer, colour-coded status cards.">
-                </figure>
-                <figure class="case-gallery-card">
-                  <img src="pictures/platforms4.png" alt="Prototype av startsiden" data-caption-no="Prototype av startsiden med innganger til inspeksjonsplanlegging og registrering." data-caption-en="Prototype of the start page with entry points for inspection planning and registration.">
-                </figure>
-                <figure class="case-gallery-card">
-                  <img src="pictures/platforms5.png" alt="Prototype av inspeksjonsoversikten" data-caption-no="Prototype brukt til å undersøke hvordan historikk og tidligere resultater kunne gi mening til tallene." data-caption-en="Prototype used to explore how history and previous results could provide context for the numbers.">
-                </figure>
-                <figure class="case-gallery-card">
-                  <img src="pictures/platforms6.png" alt="Prototype av registreringsskjemaet" data-caption-no="Prototype av arbeidsflyten for å registrere en ny skoleinspeksjon." data-caption-en="Prototype of the workflow for registering a new school inspection.">
                 </figure>
               </div>
             
@@ -423,8 +383,6 @@
                 <div class="project-kicker">
                   <span>UX / PARTICIPATORY DESIGN</span>
                   <span>•</span>
-                  <span data-no="UNIVERSITETSPROSJEKT" data-en="UNIVERSITY PROJECT">UNIVERSITETSPROSJEKT</span>
-                  <span>•</span>
                   <span>2025</span>
                 </div>
 
@@ -442,18 +400,13 @@
 
               <div class="preview-marquee" aria-label="Deltakende design – utvalgte prototypeskjermer">
                 <div class="preview-track">
-                  <figure class="preview-card"><img src="pictures/pd2.png" width="1797" height="1800" alt="Utvalgte skjermer fra Deltakende Design-prototypen"></figure>
+                  <figure class="preview-card"><img src="pictures/PDGROUP.png" width="1177" height="787" alt="Mockup av Deltakende Design-prototypen på flere enheter"></figure>
                 </div>
               </div>
             </div>
 
             <div class="project-details" id="details-participatory">
               <div class="detail-grid">
-                <div class="detail-context">
-                  <span data-no="Universitetsprosjekt" data-en="University project">Universitetsprosjekt</span>
-                  <span aria-hidden="true">—</span>
-                  <span data-no="IN5510 – Deltakende eksperimentell design" data-en="IN5510 – Participatory Experimental Design">IN5510 – Deltakende eksperimentell design</span>
-                </div>
                 <div class="detail-lead">
                   <span class="detail-label" data-no="Problem / kontekst" data-en="Problem / context">Problem / kontekst</span>
                   <h4 data-no="Hvordan kan studenter jobbe mer effektivt og opprettholde motivasjon?"
@@ -548,8 +501,6 @@
                   <span>TANGIBLE INTERACTION</span>
                   <span>•</span>
                   <span data-no="TEAMPROSJEKT" data-en="TEAM PROJECT">TEAMPROSJEKT</span>
-                  <span>•</span>
-                  <span data-no="UNIVERSITETSPROSJEKT" data-en="UNIVERSITY PROJECT">UNIVERSITETSPROSJEKT</span>
                 </div>
 
                 <h3>Sustained by Voices</h3>
@@ -574,11 +525,6 @@
 
             <div class="project-details" id="details-sustained">
               <div class="detail-grid">
-                <div class="detail-context">
-                  <span data-no="Universitetsprosjekt" data-en="University project">Universitetsprosjekt</span>
-                  <span aria-hidden="true">—</span>
-                  <span>IN5120 – Tangible Interaction</span>
-                </div>
                 <div class="detail-lead">
                   <span class="detail-label" data-no="Konsept" data-en="Concept">Konsept</span>
                   <h4 data-no="En skjør skikkelse som bare holdes «i live» så lenge publikum snakker til den."
@@ -658,8 +604,6 @@
                   <span>•</span>
                   <span data-no="TEAMPROSJEKT" data-en="TEAM PROJECT">TEAMPROSJEKT</span>
                   <span>•</span>
-                  <span data-no="UNIVERSITETSPROSJEKT" data-en="UNIVERSITY PROJECT">UNIVERSITETSPROSJEKT</span>
-                  <span>•</span>
                   <span>2024</span>
                 </div>
 
@@ -677,18 +621,13 @@
 
               <div class="preview-marquee reverse" aria-label="Prosjektbilder">
                 <div class="preview-track">
-                  <figure class="preview-card"><img src="pictures/liftOff1.png" alt="LiftOff-appens hovedvisning"></figure>
+                  <figure class="preview-card"><img src="pictures/liftoffGroup-web.png" width="2200" height="1527" alt="Mockup av LiftOff-appen på flere enheter"></figure>
                 </div>
               </div>
             </div>
 
             <div class="project-details" id="details-liftoff">
               <div class="detail-grid">
-                <div class="detail-context">
-                  <span data-no="Universitetsprosjekt" data-en="University project">Universitetsprosjekt</span>
-                  <span aria-hidden="true">—</span>
-                  <span data-no="IN2000 – Software Engineering med prosjektarbeid" data-en="IN2000 – Software Engineering with Project Work">IN2000 – Software Engineering med prosjektarbeid</span>
-                </div>
                 <div class="detail-lead">
                   <span class="detail-label" data-no="Problem / kontekst" data-en="Problem / context">Problem / kontekst</span>
                   <h4 data-no="Komplekse værdata måtte bli raske å forstå og enkle å handle på."

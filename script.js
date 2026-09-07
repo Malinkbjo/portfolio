@@ -11,6 +11,8 @@ const header = document.querySelector(".site-header");
 const about = document.querySelector(".about");
 const aboutCopy = document.querySelector(".about-rise-copy");
 const aboutCard = document.querySelector(".about-rise-card");
+const aboutLink = document.querySelector('.nav a[href="#about"]');
+const aboutClose = document.querySelector(".about-close");
 
 const thankSection = document.querySelector(".thank-you");
 const thankTop = document.querySelector(".thank-line-top");
@@ -19,6 +21,46 @@ const thankEmail = document.querySelector(".contact-email");
 const thankLinkedin = document.querySelector(".contact-linkedin");
 
 const projects = [...document.querySelectorAll(".project")];
+
+const projectList = document.querySelector(".project-list");
+const liftoffProject = document.querySelector("#project-liftoff");
+const participatoryProject = document.querySelector("#project-participatory");
+
+if (projectList && liftoffProject && participatoryProject) {
+  projectList.insertBefore(liftoffProject, participatoryProject);
+  projects.splice(0, projects.length, ...projectList.querySelectorAll(".project"));
+}
+
+function setAboutOpen(open, scroll = false) {
+  if (!about) return;
+
+  about.classList.toggle("is-open", open);
+  about.setAttribute("aria-hidden", String(!open));
+  aboutLink?.setAttribute("aria-expanded", String(open));
+
+  if (open && scroll) {
+    requestAnimationFrame(() => {
+      updateAbout();
+      const offset = header?.offsetHeight || 0;
+      const top = about.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: "smooth" });
+    });
+  }
+}
+
+aboutLink?.addEventListener("click", event => {
+  event.preventDefault();
+  setAboutOpen(true, true);
+});
+
+aboutClose?.addEventListener("click", () => {
+  setAboutOpen(false);
+  document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" });
+});
+
+document.querySelectorAll('.nav a[href="#projects"], .nav a[href="#contact"]').forEach(link => {
+  link.addEventListener("click", () => setAboutOpen(false));
+});
 
 
 /* =========================================================
@@ -653,7 +695,317 @@ function prepareProjectCases() {
   });
 }
 
+function prioritiseProjectProcess() {
+  projects.forEach(project => {
+    const grid = project.querySelector(".detail-grid");
+    if (!grid) return;
+
+    const sections = [...grid.children];
+    const rank = section => {
+      const label = section.querySelector(".detail-label")?.dataset.no || "";
+
+      if (label === "Designprosess") return 30;
+      if (
+        label === "Utfordring" ||
+        label === "Utfordringer" ||
+        label === "Begrensninger" ||
+        label === "Metodisk begrensning" ||
+        label === "Hva jeg ville gjort annerledes"
+      ) return 40;
+      if (label === "Refleksjon" || label === "Hva jeg lærte") return 45;
+      if (label === "Løsning" || label === "Interaksjon og teknologi") return 50;
+      if (label === "Resultat") return 60;
+      return 10;
+    };
+
+    sections
+      .map((section, index) => ({ section, index, rank: rank(section) }))
+      .sort((a, b) => a.rank - b.rank || a.index - b.index)
+      .forEach(({ section }) => grid.appendChild(section));
+  });
+}
+
+prioritiseProjectProcess();
 prepareProjectCases();
+
+function buildAlternatingProjectStories() {
+  const preferredSectionIndexes = {
+    "project-tanum": [2, 2, 2],
+    "project-edutopia": [2, 2, 2, 2, 3, 4, 4],
+    "project-participatory": [2, 3, 3, 3, 4, 5],
+    "project-sustained": [2, 2, 3, 3],
+    "project-liftoff": [3, 3, 3, 4, 4]
+  };
+  const projectFacts = {
+    "project-tanum": [
+      ["Omfang", "Scope", "Responsiv nettside", "Responsive website"],
+      ["Rolle", "Role", "UX/UI-designer og front-end", "UX/UI designer and front-end"],
+      ["Samarbeid", "Collaboration", "Kundeprosjekt · individuelt", "Client project · individual"],
+      ["Prosjektperiode", "Project period", "2026", "2026"]
+    ],
+    "project-edutopia": [
+      ["Omfang", "Scope", "DHIS2-webapp", "DHIS2 web app"],
+      ["Rolle", "Role", "UX/UI-design og front-end", "UX/UI design and front-end"],
+      ["Samarbeid", "Collaboration", "Tverrfaglig team på 5 · 2 designere, 2 utviklere, 1 digital økonomi", "Interdisciplinary team of 5 · 2 designers, 2 developers, 1 digital economy student"],
+      ["Varighet", "Duration", "2 måneder", "2 months"]
+    ],
+    "project-participatory": [
+      ["Omfang", "Scope", "Mobilapp og deltakende design", "Mobile app and participatory design"],
+      ["Rolle", "Role", "UX/UI-designer", "UX/UI designer"],
+      ["Samarbeid", "Collaboration", "Teamprosjekt med studenter", "Team project with students"],
+      ["Prosjektperiode", "Project period", "2025", "2025"]
+    ],
+    "project-sustained": [
+      ["Omfang", "Scope", "Interaktiv fysisk installasjon", "Interactive physical installation"],
+      ["Rolle", "Role", "Interaksjonsdesign og prototyping", "Interaction design and prototyping"],
+      ["Samarbeid", "Collaboration", "Teamprosjekt", "Team project"],
+      ["Prosjektperiode", "Project period", "2025", "2025"]
+    ],
+    "project-liftoff": [
+      ["Omfang", "Scope", "Android-app", "Android app"],
+      ["Rolle", "Role", "Designer og front-end-utvikler", "Designer and front-end developer"],
+      ["Samarbeid", "Collaboration", "Tverrfaglig team på seks", "Interdisciplinary team of six"],
+      ["Prosjektperiode", "Project period", "2024", "2024"]
+    ]
+  };
+  const finalSolutionImages = {
+    "project-tanum": [
+      ["pictures/tanum2.png", "Ferdig side for oppstalling"],
+      ["pictures/tanum3.png", "Ferdig side for undervisning"]
+    ],
+    "project-edutopia": [
+      ["pictures/platformsR1.png", "Endelig løsning for School Inspection"],
+      ["pictures/platformsR.png", "Endelig løsning for inspeksjonsoversikten"],
+      ["pictures/platformsR2.png", "Endelig løsning for registrering av skoleinspeksjon"]
+    ],
+    "project-participatory": [
+      ["pictures/pd-goals.png", "Endelig prototype for mål"],
+      ["pictures/pd-progress.png", "Endelig prototype for fremgang"],
+      ["pictures/pd-break.png", "Endelig prototype for pauseoversikt"],
+      ["pictures/pd-groups.png", "Endelig prototype for grupper"]
+    ],
+    "project-sustained": [
+      ["pictures/sustained.jpg", "Den ferdige installasjonen Sustained by Voices"],
+      ["pictures/sustained3.png", "Den ferdige installasjonen i sammenkrøpet posisjon"]
+    ],
+    "project-liftoff": [
+      ["pictures/liftoff2.png", "Videreutviklet LiftOff-løsning"],
+      ["pictures/liftoff3.png", "LiftOff-visninger for regelverk og grenseverdier"]
+    ]
+  };
+
+  projects.forEach(project => {
+    const grid = project.querySelector(".detail-grid");
+    const text = grid?.querySelector(".detail-text");
+    const media = grid?.querySelector(".detail-media");
+    if (!grid || !text || !media) return;
+
+    /* Keep the small context label above the introduction, but remove the
+       repeated oversized heading from the start of each case study. */
+    text.querySelectorAll(".detail-lead").forEach(lead => {
+      const label = lead.querySelector(".detail-label");
+      const introduction = lead.nextElementSibling;
+
+      if (label && introduction?.classList.contains("detail-copy")) {
+        introduction.prepend(label);
+      }
+
+      lead.remove();
+    });
+
+    const sections = [...text.children];
+    const contentSections = sections.filter(section =>
+      !section.classList.contains("detail-context")
+    );
+    const imageElements = [...media.querySelectorAll(".detail-media-card img")]
+      .filter((image, index, images) =>
+        images.findIndex(candidate =>
+          candidate.getAttribute("src") === image.getAttribute("src")
+        ) === index
+      );
+
+    const finalEntries = finalSolutionImages[project.id] || [];
+    const finalSources = new Set(finalEntries.map(([source]) => source));
+    let narrativeImages = imageElements.filter(image =>
+      !finalSources.has(image.getAttribute("src"))
+    );
+
+    if (project.id === "project-tanum") {
+      const processItems = [...text.querySelectorAll(".process-list li")];
+      const inlinePlacements = [
+        [narrativeImages.find(image => image.getAttribute("src") === "pictures/analyseTanum.png"), processItems[1]],
+        [narrativeImages.find(image => image.getAttribute("src") === "pictures/tidligPrototypeTanum.png"), processItems[3]]
+      ];
+
+      inlinePlacements.forEach(([image, item]) => {
+        if (!image || !item) return;
+
+        const figure = document.createElement("figure");
+        figure.className = "process-inline-image";
+        figure.appendChild(image);
+        item.classList.add("has-process-image");
+        item.appendChild(figure);
+      });
+
+      narrativeImages = narrativeImages.filter(image =>
+        !inlinePlacements.some(([placedImage]) => placedImage === image)
+      );
+    }
+
+    if (project.id === "project-edutopia") {
+      const processItems = [...text.querySelectorAll(".process-list li")];
+      const inlinePlacements = [
+        [narrativeImages.find(image => image.getAttribute("src") === "pictures/platformsPersonas.png"), processItems[0]],
+        [narrativeImages.find(image => image.getAttribute("src") === "pictures/platformsTidligPrototype.png"), processItems[1]],
+        [narrativeImages.find(image => image.getAttribute("src") === "pictures/platforms2.png"), processItems[2]],
+        [narrativeImages.find(image => image.getAttribute("src") === "pictures/platformsWorkshop.jpeg"), processItems[3]]
+      ];
+
+      inlinePlacements.forEach(([image, item]) => {
+        if (!image || !item) return;
+
+        const figure = document.createElement("figure");
+        figure.className = "process-inline-image platform-process-image";
+        figure.appendChild(image);
+        item.classList.add("has-process-image");
+        item.appendChild(figure);
+      });
+
+      narrativeImages = narrativeImages.filter(image =>
+        !inlinePlacements.some(([placedImage]) => placedImage === image)
+      );
+    }
+    const sectionIndexes = preferredSectionIndexes[project.id] || [];
+    const imagesBySection = new Map();
+
+    narrativeImages.forEach((image, imageIndex) => {
+      const preferredIndex = sectionIndexes[imageIndex];
+      const sectionIndex = Number.isInteger(preferredIndex)
+        ? Math.min(preferredIndex, contentSections.length - 1)
+        : Math.min(imageIndex, contentSections.length - 1);
+
+      if (!imagesBySection.has(sectionIndex)) imagesBySection.set(sectionIndex, []);
+      imagesBySection.get(sectionIndex).push(image);
+    });
+
+    const story = document.createDocumentFragment();
+    let visualIndex = 0;
+
+    const facts = document.createElement("section");
+    facts.className = "project-facts";
+
+    (projectFacts[project.id] || []).forEach(([labelNo, labelEn, valueNo, valueEn]) => {
+      const fact = document.createElement("div");
+      fact.className = "project-fact";
+
+      const label = document.createElement("span");
+      label.dataset.no = labelNo;
+      label.dataset.en = labelEn;
+      label.textContent = labelNo;
+
+      const value = document.createElement("strong");
+      value.dataset.no = valueNo;
+      value.dataset.en = valueEn;
+      value.textContent = valueNo;
+
+      fact.append(label, value);
+      facts.appendChild(fact);
+    });
+
+    story.appendChild(facts);
+
+    sections.forEach(section => {
+      const row = document.createElement("section");
+      row.className = "detail-story-row";
+
+      const sectionLabel = section.querySelector(".detail-label")?.dataset.no || "";
+      if (["Utfordring", "Utfordringer", "Begrensninger", "Hva jeg lærte"].includes(sectionLabel)) {
+        row.classList.add("compact-text-row");
+      }
+      if ([
+        "Designprosess",
+        "Utfordring",
+        "Utfordringer",
+        "Begrensninger",
+        "Metodisk begrensning",
+        "Hva jeg ville gjort annerledes",
+        "Refleksjon",
+        "Hva jeg lærte",
+        "Løsning",
+        "Interaksjon og teknologi",
+        "Resultat"
+      ].includes(sectionLabel)) {
+        row.classList.add("single-column-row");
+      }
+
+      const copy = document.createElement("div");
+      copy.className = "detail-story-copy";
+      copy.appendChild(section);
+      row.appendChild(copy);
+
+      if (section.classList.contains("detail-context")) {
+        row.classList.add("context-only");
+      } else {
+        const sectionIndex = contentSections.indexOf(section);
+        const pairedImages = imagesBySection.get(sectionIndex) || [];
+
+        pairedImages.forEach(image => {
+          const figure = document.createElement("figure");
+          figure.className = "detail-story-media";
+          figure.appendChild(image);
+          row.appendChild(figure);
+        });
+
+        if (pairedImages.length) {
+          row.classList.add(visualIndex % 2 === 0 ? "image-right" : "image-left");
+          visualIndex += 1;
+        } else {
+          row.classList.add("text-only");
+        }
+      }
+
+      story.appendChild(row);
+    });
+
+    if (finalEntries.length) {
+      const finalSection = document.createElement("section");
+      finalSection.className = "detail-final-solution";
+
+      const finalTitle = document.createElement("span");
+      finalTitle.className = "detail-label";
+      finalTitle.dataset.no = "Endelig løsning";
+      finalTitle.dataset.en = "Final solution";
+      finalTitle.textContent = "Endelig løsning";
+
+      const finalGallery = document.createElement("div");
+      finalGallery.className = "detail-final-gallery";
+
+      finalEntries.forEach(([source, alt]) => {
+        const existingImage = imageElements.find(image =>
+          image.getAttribute("src") === source
+        );
+        const image = existingImage || document.createElement("img");
+
+        if (!existingImage) image.src = source;
+        if (!image.alt) image.alt = alt;
+
+        const figure = document.createElement("figure");
+        figure.appendChild(image);
+        finalGallery.appendChild(figure);
+      });
+
+      finalSection.append(finalTitle, finalGallery);
+      story.appendChild(finalSection);
+    }
+
+    text.remove();
+    media.remove();
+    grid.classList.add("detail-story-layout");
+    grid.appendChild(story);
+  });
+}
+
+buildAlternatingProjectStories();
 
 
 /* =========================================================
@@ -1083,7 +1435,7 @@ function openImageLightbox(imageElement) {
 
   const galleryImages = [
     ...project.querySelectorAll(
-      ".case-gallery-card img"
+      ".case-gallery-card img, .detail-final-gallery img"
     )
   ];
 
@@ -1165,7 +1517,7 @@ function closeImageLightbox() {
 
 document.addEventListener("click", event => {
   const image = event.target.closest(
-    ".project-preview img, .detail-media img"
+    ".project-preview img, .detail-media img, .detail-story-media img, .process-inline-image img, .detail-final-gallery img"
   );
 
   if (image) {
@@ -1298,7 +1650,6 @@ if (featuredProjectScroll) {
    ========================================================= */
 
 function updateAll() {
-  updateHero();
   updateAbout();
   updateThankYou();
   updateHeader();
