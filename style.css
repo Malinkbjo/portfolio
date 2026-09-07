@@ -430,6 +430,59 @@ main,
   line-height: .85;
 }
 
+.featured-project-scroll {
+  display: flex;
+  gap: clamp(12px, 1.5vw, 24px);
+  width: 100%;
+  margin: 0 0 clamp(55px, 7vw, 95px);
+  padding: 24px max(5vw, calc((100vw - var(--max)) / 2)) 18px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: max(5vw, calc((100vw - var(--max)) / 2));
+  overscroll-behavior-inline: contain;
+  cursor: grab;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(36, 23, 15, .34) transparent;
+}
+
+.featured-project-scroll.is-dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.featured-project-image {
+  flex: 0 0 clamp(560px, 72vw, 1120px);
+  margin: 0;
+  height: clamp(350px, 42vw, 610px);
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+
+.featured-project-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+}
+
+@media (max-width: 640px) {
+  .featured-project-scroll {
+    margin-bottom: 64px;
+    padding-inline: 15px;
+    scroll-padding-inline: 15px;
+  }
+
+  .featured-project-image {
+    flex-basis: 88vw;
+    height: 320px;
+  }
+}
+
 .projects-intro {
   max-width: 520px;
   justify-self: end;
@@ -1681,6 +1734,19 @@ main,
   justify-self: start;
 }
 
+#project-participatory .preview-card:first-child,
+#project-liftoff .preview-card:first-child {
+  height: clamp(300px, 34vw, 480px);
+  aspect-ratio: auto;
+}
+
+#project-participatory .preview-card:first-child img,
+#project-liftoff .preview-card:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 #project-participatory .detail-media-card.case-gallery-card-phone,
 #project-participatory .detail-media-card.case-gallery-card-phone img {
   overflow: hidden;
@@ -1753,6 +1819,11 @@ main,
 @media (max-width: 640px) {
   #project-participatory .participatory-pair-preview img {
     max-height: 280px;
+  }
+
+  #project-participatory .preview-card:first-child,
+  #project-liftoff .preview-card:first-child {
+    height: 280px;
   }
 }
 

@@ -1218,6 +1218,58 @@ document.addEventListener("keydown", event => {
 
 
 /* =========================================================
+   FEATURED PROJECT STRIP
+   ========================================================= */
+
+const featuredProjectScroll =
+  document.querySelector(".featured-project-scroll");
+
+if (featuredProjectScroll) {
+  featuredProjectScroll.addEventListener(
+    "wheel",
+    event => {
+      if (!event.shiftKey || !event.deltaY) return;
+
+      event.preventDefault();
+      featuredProjectScroll.scrollLeft += event.deltaY;
+    },
+    { passive: false }
+  );
+
+  let dragging = false;
+  let dragStartX = 0;
+  let dragStartScroll = 0;
+
+  featuredProjectScroll.addEventListener("pointerdown", event => {
+    if (event.pointerType === "touch") return;
+    dragging = true;
+    dragStartX = event.clientX;
+    dragStartScroll = featuredProjectScroll.scrollLeft;
+    featuredProjectScroll.classList.add("is-dragging");
+    featuredProjectScroll.setPointerCapture(event.pointerId);
+  });
+
+  featuredProjectScroll.addEventListener("pointermove", event => {
+    if (!dragging) return;
+    featuredProjectScroll.scrollLeft =
+      dragStartScroll - (event.clientX - dragStartX);
+  });
+
+  const stopFeaturedDrag = event => {
+    if (!dragging) return;
+    dragging = false;
+    featuredProjectScroll.classList.remove("is-dragging");
+    if (featuredProjectScroll.hasPointerCapture(event.pointerId)) {
+      featuredProjectScroll.releasePointerCapture(event.pointerId);
+    }
+  };
+
+  featuredProjectScroll.addEventListener("pointerup", stopFeaturedDrag);
+  featuredProjectScroll.addEventListener("pointercancel", stopFeaturedDrag);
+}
+
+
+/* =========================================================
    MAIN SCROLL LOOP
    ========================================================= */
 
