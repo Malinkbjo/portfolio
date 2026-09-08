@@ -7,6 +7,8 @@ const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 const hero = document.querySelector(".hero");
 const heroContent = document.querySelector(".hero-content");
 const header = document.querySelector(".site-header");
+const nav = document.querySelector(".nav");
+const navToggle = document.querySelector(".nav-toggle");
 
 const about = document.querySelector(".about");
 const aboutCopy = document.querySelector(".about-rise-copy");
@@ -25,6 +27,25 @@ const projects = [...document.querySelectorAll(".project")];
 const projectList = document.querySelector(".project-list");
 const liftoffProject = document.querySelector("#project-liftoff");
 const participatoryProject = document.querySelector("#project-participatory");
+
+function setMobileNavOpen(open) {
+  document.body.classList.toggle("mobile-nav-open", open);
+  nav?.classList.toggle("is-open", open);
+  navToggle?.setAttribute("aria-expanded", String(open));
+  navToggle?.setAttribute("aria-label", open ? "Lukk meny" : "Åpne meny");
+}
+
+navToggle?.addEventListener("click", () => {
+  setMobileNavOpen(!nav?.classList.contains("is-open"));
+});
+
+nav?.querySelectorAll("a, button").forEach(item => {
+  item.addEventListener("click", () => setMobileNavOpen(false));
+});
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") setMobileNavOpen(false);
+});
 
 if (projectList && liftoffProject && participatoryProject) {
   projectList.insertBefore(liftoffProject, participatoryProject);
@@ -747,7 +768,7 @@ function buildAlternatingProjectStories() {
     "project-edutopia": [
       ["Omfang", "Scope", "DHIS2-webapp", "DHIS2 web app"],
       ["Rolle", "Role", "UX/UI-design og front-end", "UX/UI design and front-end"],
-      ["Samarbeid", "Collaboration", "Tverrfaglig team på 5, 2 designere, 2 utviklere, 1 digital økonomi", "Interdisciplinary team of 5, 2 designers, 2 developers, 1 digital economy student"],
+      ["Samarbeid", "Collaboration", "Tverrfaglig team på 5: 2 designere, 2 utviklere, 1 digital økonomi", "Interdisciplinary team of 5, 2 designers, 2 developers, 1 digital economy student"],
       ["Varighet", "Duration", "2 måneder", "2 months"]
     ],
     "project-participatory": [
@@ -765,7 +786,7 @@ function buildAlternatingProjectStories() {
     "project-liftoff": [
       ["Omfang", "Scope", "Android-app", "Android app"],
       ["Rolle", "Role", "Designer og front-end-utvikler", "Designer and front-end developer"],
-      ["Samarbeid", "Collaboration", "Tverrfaglig team på seks, 2 designere, 3 utviklere og 1 robotikk", "Interdisciplinary team of six, 2 designers, 3 developers, 1 robotics"],
+      ["Samarbeid", "Collaboration", "Tverrfaglig team på 6; 2 designere, 3 utviklere, 1 robotikk", "Interdisciplinary team of 6, 2 designers, 3 developers, 1 robotics"],
       ["Varighet", "Duration", "3 måneder", "3 months"]
     ]
   };
