@@ -746,7 +746,7 @@ function buildAlternatingProjectStories() {
     "project-edutopia": [
       ["Omfang", "Scope", "DHIS2-webapp", "DHIS2 web app"],
       ["Rolle", "Role", "UX/UI-design og front-end", "UX/UI design and front-end"],
-      ["Samarbeid", "Collaboration", "Tverrfaglig team på 5 · 2 designere, 2 utviklere, 1 digital økonomi", "Interdisciplinary team of 5 · 2 designers, 2 developers, 1 digital economy student"],
+      ["Samarbeid", "Collaboration", "Tverrfaglig team på 5, 2 designere, 2 utviklere, 1 digital økonomi", "Interdisciplinary team of 5, 2 designers, 2 developers, 1 digital economy student"],
       ["Varighet", "Duration", "2 måneder", "2 months"]
     ],
     "project-participatory": [
@@ -764,8 +764,8 @@ function buildAlternatingProjectStories() {
     "project-liftoff": [
       ["Omfang", "Scope", "Android-app", "Android app"],
       ["Rolle", "Role", "Designer og front-end-utvikler", "Designer and front-end developer"],
-      ["Samarbeid", "Collaboration", "Tverrfaglig team på seks", "Interdisciplinary team of six"],
-      ["Prosjektperiode", "Project period", "2024", "2024"]
+      ["Samarbeid", "Collaboration", "Tverrfaglig team på seks, 2 designere, 3 utviklere og 1 robotikk", "Interdisciplinary team of six, 2 designers, 3 developers, 1 robotics"],
+      ["Varighet", "Duration", "3 måneder", "3 months"]
     ]
   };
   const finalSolutionImages = {
@@ -774,21 +774,22 @@ function buildAlternatingProjectStories() {
       ["pictures/tanum3.png", "Ferdig side for undervisning"]
     ],
     "project-edutopia": [
-      ["pictures/platformsR1.png", "Endelig løsning for School Inspection"],
-      ["pictures/platformsR.png", "Endelig løsning for inspeksjonsoversikten"],
-      ["pictures/platformsR2.png", "Endelig løsning for registrering av skoleinspeksjon"]
+      ["pictures/finalResultP.png", "Endelig løsning for School Inspection"],
+      ["pictures/finalResultP2.png", "Endelig løsning for inspeksjonsoversikten"],
+      ["pictures/finalResultP3.png", "Endelig løsning for registrering av skoleinspeksjon"]
     ],
     "project-participatory": [
-      ["pictures/pd-goals.png", "Endelig prototype for mål"],
       ["pictures/pd-progress.png", "Endelig prototype for fremgang"],
       ["pictures/pd-break.png", "Endelig prototype for pauseoversikt"],
-      ["pictures/pd-groups.png", "Endelig prototype for grupper"]
+      ["pictures/pd-groups.png", "Endelig prototype for grupper"],
+      ["pictures/pd-goals.png", "Endelig prototype for mål"]
     ],
     "project-sustained": [
       ["pictures/sustained.jpg", "Den ferdige installasjonen Sustained by Voices"],
       ["pictures/sustained3.png", "Den ferdige installasjonen i sammenkrøpet posisjon"]
     ],
     "project-liftoff": [
+      ["pictures/liftOff1.png", "Endelig LiftOff-løsning"],
       ["pictures/liftoff2.png", "Videreutviklet LiftOff-løsning"],
       ["pictures/liftoff3.png", "LiftOff-visninger for regelverk og grenseverdier"]
     ]
@@ -871,8 +872,96 @@ function buildAlternatingProjectStories() {
         item.appendChild(figure);
       });
 
+      processItems.filter(item => item.classList.contains("has-process-image")).forEach(item => {
+        const marker = item.querySelector(":scope > b");
+        const copy = item.querySelector(":scope > span");
+        if (!marker || !copy) return;
+
+        const copyWrap = document.createElement("div");
+        copyWrap.className = "process-point-copy";
+        copyWrap.append(marker, copy);
+        item.prepend(copyWrap);
+      });
+
       narrativeImages = narrativeImages.filter(image =>
         !inlinePlacements.some(([placedImage]) => placedImage === image)
+      );
+    }
+
+    if (project.id === "project-liftoff") {
+      const processItems = [...text.querySelectorAll(".process-list li")];
+      const inlinePlacements = [
+        [[narrativeImages.find(image => image.getAttribute("src") === "pictures/intervjuPortal.png")], processItems[0]],
+        [[
+          narrativeImages.find(image => image.getAttribute("src") === "pictures/liftOff-early.png"),
+          narrativeImages.find(image => image.getAttribute("src") === "pictures/liftoff-early2.png")
+        ], processItems[1]],
+        [[narrativeImages.find(image => image.getAttribute("src") === "pictures/protoLiftOff.png")], processItems[2]],
+        [[narrativeImages.find(image => image.getAttribute("src") === "pictures/testingLiftOff.png")], processItems[3]]
+      ];
+
+      inlinePlacements.forEach(([images, item]) => {
+        const availableImages = images.filter(Boolean);
+        if (!availableImages.length || !item) return;
+
+        const figure = document.createElement("figure");
+        figure.className = "process-inline-image liftoff-process-image";
+        if (availableImages.length > 1) figure.classList.add("process-inline-image-pair");
+        figure.append(...availableImages);
+        item.classList.add("has-process-image");
+        item.appendChild(figure);
+      });
+
+      processItems.filter(item => item.classList.contains("has-process-image")).forEach(item => {
+        const marker = item.querySelector(":scope > b");
+        const copy = item.querySelector(":scope > span");
+        if (!marker || !copy) return;
+
+        const copyWrap = document.createElement("div");
+        copyWrap.className = "process-point-copy";
+        copyWrap.append(marker, copy);
+        item.prepend(copyWrap);
+      });
+
+      narrativeImages = narrativeImages.filter(image =>
+        !inlinePlacements.some(([placedImages]) => placedImages.includes(image))
+      );
+    }
+
+    if (project.id === "project-participatory") {
+      const processItems = [...text.querySelectorAll(".process-list li")];
+      const inlinePlacements = [
+        [[narrativeImages.find(image => image.getAttribute("src") === "pictures/pdw1.png")], processItems[0]],
+        [[narrativeImages.find(image => image.getAttribute("src") === "pictures/pdw2.png")], processItems[1]],
+        [[narrativeImages.find(image => image.getAttribute("src") === "pictures/pdskisse4.png")], processItems[2]]
+      ];
+
+      inlinePlacements.forEach(([images, item]) => {
+        const availableImages = images.filter(Boolean);
+        if (!availableImages.length || !item) return;
+
+        const figure = document.createElement("figure");
+        figure.className = "process-inline-image participatory-process-image";
+        if (availableImages.length > 1) figure.classList.add("process-inline-image-pair");
+        if (availableImages.length > 2) figure.classList.add("process-inline-image-trio");
+        figure.append(...availableImages);
+        item.classList.add("has-process-image");
+        item.appendChild(figure);
+      });
+
+      processItems.filter(item => item.classList.contains("has-process-image")).forEach(item => {
+        const marker = item.querySelector(":scope > b");
+        const copy = item.querySelector(":scope > span");
+        if (!marker || !copy) return;
+
+        const copyWrap = document.createElement("div");
+        copyWrap.className = "process-point-copy";
+        copyWrap.append(marker, copy);
+        item.prepend(copyWrap);
+      });
+
+      narrativeImages = narrativeImages.filter(image =>
+        !inlinePlacements.some(([placedImages]) => placedImages.includes(image))
       );
     }
     const sectionIndexes = preferredSectionIndexes[project.id] || [];

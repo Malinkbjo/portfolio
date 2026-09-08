@@ -181,7 +181,7 @@ main,
 .hero-content {
   position: relative;
   width: min(calc(100% - 1.6vw), 1820px);
-  height: min(96vh, 1060px);
+  height: 100svh;
   transform-origin: center;
   will-change: transform, clip-path;
   opacity: 1;
@@ -219,10 +219,18 @@ main,
   margin-top: clamp(50px, 8vh, 92px);
   text-decoration: none;
   font-family: var(--serif);
-  font-size: clamp(1rem, 1.2vw, 1.35rem);
+  font-size: clamp(1.1rem, 1.4vw, 1.55rem);
   letter-spacing: .22em;
+  text-transform: uppercase;
   border-bottom: 1px solid rgba(36, 23, 15, .62);
   padding-bottom: 4px;
+  transform-origin: left center;
+  transition: transform .3s ease;
+}
+
+.hero-project-link:hover,
+.hero-project-link:focus-visible {
+  transform: scale(1.045);
 }
 
 .circle-arrow {
@@ -245,7 +253,7 @@ main,
 .hero-role {
   position: absolute;
   left: 0;
-  top: clamp(300px, 51vh, 540px);
+  top: clamp(340px, 58vh, 620px);
   display: flex;
   align-items: baseline;
   gap: 8px;
@@ -260,16 +268,17 @@ main,
 
 .hero-role-sub {
   font-family: var(--serif);
-  font-size: clamp(.6rem, .8vw, .9rem);
-  letter-spacing: .46em;
+  font-size: clamp(.82rem, 1.05vw, 1.2rem);
+  font-weight: 600;
+  letter-spacing: .38em;
 }
 
 .hero-portrait-wrap {
   position: absolute;
   right: clamp(-42px, -1vw, -8px);
   bottom: -1px;
-  width: min(63vw, 1080px);
-  height: 96%;
+  width: min(66vw, 1140px);
+  height: 100%;
   display: flex;
   align-items: end;
   justify-content: end;
@@ -305,7 +314,7 @@ main,
   width: 100%;
   max-width: none;
   min-height: 118vh;
-  margin: -30vh 0 0;
+  margin: 0;
   padding: 120px 0;
   overflow: clip;
 }
@@ -682,8 +691,8 @@ main,
   display: flex;
   align-items: center;
   gap: 13px;
-  margin: 0 0 18px;
-  font-size: .68rem;
+  margin: 0 0 28px;
+  font-size: clamp(.76rem, .8vw, .88rem);
   letter-spacing: .24em;
   text-transform: uppercase;
   color: var(--muted);
@@ -701,7 +710,7 @@ main,
 
 .project-summary-text > p {
   max-width: 520px;
-  margin: 28px 0 0;
+  margin: 38px 0 0;
   font-family: Georgia, serif;
   font-size: clamp(1rem, 1.05vw, 1.16rem);
   line-height: 1.75;
@@ -912,16 +921,23 @@ main,
   display: inline-flex;
   align-items: center;
   gap: 14px;
-  margin: 34px 0 0;
+  margin: 46px 0 0;
   padding: 0 0 7px;
   border: 0;
   border-bottom: 1px solid rgba(36, 23, 15, .55);
   background: transparent;
   color: var(--ink);
   cursor: pointer;
-  font-size: .74rem;
+  font-size: .82rem;
   letter-spacing: .16em;
   text-transform: uppercase;
+  transform-origin: left center;
+  transition: transform .3s ease;
+}
+
+.project-toggle:hover,
+.project-toggle:focus-visible {
+  transform: scale(1.045);
 }
 
 .project-toggle > span:first-child {
@@ -956,7 +972,7 @@ main,
   opacity: 0;
   visibility: hidden;
   border-top: 0 solid transparent;
-  background: rgba(248, 243, 238, .34);
+  background: rgba(229, 219, 213, .82);
   transform: translateY(-8px);
   transition:
     max-height .9s cubic-bezier(.22, .72, .18, 1),
@@ -1018,7 +1034,7 @@ main,
 .detail-label {
   display: block;
   margin-bottom: 16px;
-  font-size: .66rem;
+  font-size: 3rem;
   text-transform: uppercase;
   letter-spacing: .22em;
   color: var(--muted);
@@ -1050,25 +1066,14 @@ main,
 
 .process-list li {
   display: grid;
-  grid-template-columns: 20px 1fr;
-  gap: 14px;
+  grid-template-columns: 1fr;
+  gap: 0;
   padding: 24px 0;
   border-bottom: 1px solid var(--line);
 }
 
 .process-list b {
-  overflow: hidden;
-  width: 10px;
-  color: transparent;
-  font-size: 0;
-}
-
-.process-list b::before {
-  content: "•";
-  color: var(--ink);
-  font-family: var(--sans);
-  font-size: 1rem;
-  line-height: 1.5;
+  display: none;
 }
 
 .process-list li > span {
@@ -1080,7 +1085,7 @@ main,
 }
 
 .process-inline-image {
-  grid-column: 2;
+  grid-column: 1;
   width: 100%;
   margin: 18px 0 4px;
   overflow: hidden;
@@ -1099,6 +1104,132 @@ main,
 .platform-process-image {
   width: min(100%, 520px);
   margin-inline: auto;
+}
+
+#project-edutopia .process-list li:first-child .platform-process-image {
+  width: min(100%, 350px);
+}
+
+#project-edutopia .process-list li:nth-child(2) .platform-process-image {
+  width: min(100%, 390px);
+}
+
+:is(#project-edutopia, #project-liftoff, #project-participatory) .detail-story-row.single-column-row .detail-story-copy:has(.process-list) {
+  width: min(100%, 1120px);
+}
+
+:is(#project-edutopia, #project-liftoff, #project-participatory) .process-list li.has-process-image {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: clamp(30px, 5vw, 72px);
+  padding: clamp(34px, 4vw, 58px) 0;
+}
+
+:is(#project-edutopia, #project-liftoff, #project-participatory) .process-point-copy {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  min-width: 0;
+}
+
+:is(#project-edutopia, #project-liftoff, #project-participatory) .process-point-copy > span {
+  font-family: var(--sans);
+  font-size: clamp(.98rem, 1vw, 1.1rem);
+  font-weight: 400;
+  line-height: 1.85;
+  color: #44372f;
+  text-align: justify;
+  text-justify: inter-word;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+:is(#project-edutopia, #project-liftoff, #project-participatory) .process-list li.has-process-image .process-inline-image {
+  grid-column: auto;
+  width: 100%;
+  margin: 0;
+}
+
+#project-liftoff .process-inline-image-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 12px;
+}
+
+#project-participatory .process-inline-image-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: 12px;
+}
+
+#project-participatory .process-inline-image-pair img {
+  display: block;
+  width: 100%;
+  height: clamp(220px, 23vw, 320px);
+  max-height: none;
+  object-fit: contain;
+  object-position: center;
+}
+
+#project-participatory .process-inline-image-trio {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+#project-participatory .process-list li:not(.has-process-image) {
+  width: min(100%, 820px);
+  margin-inline: auto;
+}
+
+#project-liftoff .process-inline-image.process-inline-image-pair > img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: clamp(220px, 23vw, 310px);
+  max-height: 310px;
+  object-fit: contain;
+  object-position: center;
+  justify-self: center;
+}
+
+#project-liftoff .process-list li:first-child .liftoff-process-image {
+  width: min(100%, 340px);
+  justify-self: center;
+}
+
+#project-liftoff .process-list li:nth-child(3) .liftoff-process-image {
+  width: min(100%, 300px);
+  justify-self: center;
+}
+
+#project-liftoff .process-list li:nth-child(3) .liftoff-process-image img {
+  width: auto;
+  max-width: 100%;
+  height: clamp(220px, 23vw, 310px);
+  max-height: 310px;
+  margin-inline: auto;
+  object-fit: contain;
+}
+
+:is(#project-edutopia, #project-liftoff, #project-participatory) .process-list li.has-process-image:nth-child(odd) .process-point-copy {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+:is(#project-edutopia, #project-liftoff, #project-participatory) .process-list li.has-process-image:nth-child(odd) .process-inline-image {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+:is(#project-edutopia, #project-liftoff, #project-participatory) .process-list li.has-process-image:nth-child(even) .process-point-copy {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+:is(#project-edutopia, #project-liftoff, #project-participatory) .process-list li.has-process-image:nth-child(even) .process-inline-image {
+  grid-column: 1;
+  grid-row: 1;
 }
 
 .process-title {
@@ -1539,10 +1670,6 @@ main,
     top: 52vh;
   }
 
-  .about {
-    margin-top: -20vh;
-  }
-
   .about-inner {
     grid-template-columns: 1fr;
     gap: 60px;
@@ -1873,10 +2000,11 @@ main,
 .detail-label {
   display: block;
   margin-bottom: 12px;
-  font-size: .66rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: .22em;
   color: var(--muted);
+  font-weight: bold;
 }
 
 /* The problem statement should be strong, but not dominate the page */
@@ -1906,8 +2034,8 @@ main,
 
 .process-list li {
   display: grid;
-  grid-template-columns: 20px 1fr;
-  gap: 14px;
+  grid-template-columns: 1fr;
+  gap: 0;
   padding: 18px 0;
   border-bottom: 1px solid rgba(36, 23, 15, .08);
 }
@@ -2329,7 +2457,7 @@ main,
   grid-template-columns: repeat(4, minmax(0, 1fr));
   border-top: 1px solid rgba(36, 23, 15, .16);
   border-bottom: 1px solid rgba(36, 23, 15, .16);
-  background: rgba(255, 255, 255, .16);
+  background: transparent;
 }
 
 .project-fact {
@@ -2382,6 +2510,10 @@ main,
   margin: 0;
   padding: 0;
   border: 0;
+}
+
+#project-participatory .detail-story-copy p + p {
+  margin-top: 18px;
 }
 
 .detail-story-media {
@@ -2474,6 +2606,10 @@ main,
   hyphens: auto;
 }
 
+.detail-story-copy p {
+  margin-inline: auto;
+}
+
 .project-facts + .detail-story-row.text-only,
 .project-facts + .detail-story-row.text-only + .detail-story-row.text-only,
 .project-facts + .detail-story-row.text-only + .detail-story-row.text-only + .detail-story-row.text-only {
@@ -2497,7 +2633,9 @@ main,
 }
 
 .detail-final-solution > .detail-label {
+  display: block;
   margin-bottom: 16px;
+  text-align: center;
 }
 
 .detail-final-gallery {
@@ -2537,8 +2675,25 @@ main,
   max-height: 300px;
 }
 
+#project-liftoff .detail-final-gallery {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: min(100%, 860px);
+}
+
+#project-liftoff .detail-final-gallery img {
+  max-height: 290px;
+}
+
+#project-liftoff .detail-final-gallery figure:nth-child(n) {
+  grid-column: auto;
+}
+
 #project-participatory .detail-final-gallery {
   grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+#project-participatory .detail-final-gallery img {
+  border-radius: 20px;
 }
 
 #project-edutopia .detail-final-gallery figure:nth-child(n),
@@ -2547,6 +2702,29 @@ main,
 }
 
 @media (max-width: 800px) {
+  :is(#project-edutopia, #project-liftoff, #project-participatory) .process-list li.has-process-image {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  :is(#project-edutopia, #project-liftoff, #project-participatory) .process-list li.has-process-image:nth-child(n) .process-point-copy,
+  :is(#project-edutopia, #project-liftoff, #project-participatory) .process-list li.has-process-image:nth-child(n) .process-inline-image {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  :is(#project-edutopia, #project-liftoff, #project-participatory) .process-list li.has-process-image:nth-child(n) .process-point-copy {
+    order: 1;
+  }
+
+  :is(#project-edutopia, #project-liftoff, #project-participatory) .process-list li.has-process-image:nth-child(n) .process-inline-image {
+    order: 2;
+  }
+
+  #project-participatory .process-inline-image-trio {
+    grid-template-columns: 1fr;
+  }
+
   .project-facts {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -2582,6 +2760,11 @@ main,
 
   .detail-final-gallery {
     grid-template-columns: 1fr;
+  }
+
+  #project-liftoff .detail-final-gallery {
+    grid-template-columns: 1fr;
+    width: min(100%, 360px);
   }
 
   .detail-final-gallery figure:nth-child(n) {
