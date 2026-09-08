@@ -710,7 +710,8 @@ function prioritiseProjectProcess() {
         label === "Utfordringer" ||
         label === "Begrensninger" ||
         label === "Metodisk begrensning" ||
-        label === "Hva jeg ville gjort annerledes"
+        label === "Hva jeg ville gjort annerledes" ||
+        label === "Hvis jeg skulle gjort noe annerledes"
       ) return 40;
       if (label === "Refleksjon" || label === "Hva jeg lærte") return 45;
       if (label === "Løsning" || label === "Interaksjon og teknologi") return 50;
@@ -758,8 +759,8 @@ function buildAlternatingProjectStories() {
     "project-sustained": [
       ["Omfang", "Scope", "Interaktiv fysisk installasjon", "Interactive physical installation"],
       ["Rolle", "Role", "Interaksjonsdesign og prototyping", "Interaction design and prototyping"],
-      ["Samarbeid", "Collaboration", "Teamprosjekt", "Team project"],
-      ["Prosjektperiode", "Project period", "2025", "2025"]
+      ["Samarbeid", "Collaboration", "Team på fem", "Team of five"],
+      ["Varighet", "Duration", "3 uker", "3 weeks"]
     ],
     "project-liftoff": [
       ["Omfang", "Scope", "Android-app", "Android app"],
@@ -785,7 +786,7 @@ function buildAlternatingProjectStories() {
       ["pictures/pd-goals.png", "Endelig prototype for mål"]
     ],
     "project-sustained": [
-      ["pictures/sustained.jpg", "Den ferdige installasjonen Sustained by Voices"],
+      ["pictures/tangiblePeople.jpeg", "Publikum samhandler med Sustained by Voices"],
       ["pictures/sustained3.png", "Den ferdige installasjonen i sammenkrøpet posisjon"]
     ],
     "project-liftoff": [
@@ -834,18 +835,28 @@ function buildAlternatingProjectStories() {
     if (project.id === "project-tanum") {
       const processItems = [...text.querySelectorAll(".process-list li")];
       const inlinePlacements = [
-        [narrativeImages.find(image => image.getAttribute("src") === "pictures/analyseTanum.png"), processItems[1]],
-        [narrativeImages.find(image => image.getAttribute("src") === "pictures/tidligPrototypeTanum.png"), processItems[3]]
+        [narrativeImages.find(image => image.getAttribute("src") === "pictures/analyseTanum.png"), processItems[0]],
+        [narrativeImages.find(image => image.getAttribute("src") === "pictures/tidligPrototypeTanum.png"), processItems[1]]
       ];
 
-      inlinePlacements.forEach(([image, item]) => {
+      inlinePlacements.forEach(([image, item], placementIndex) => {
         if (!image || !item) return;
 
         const figure = document.createElement("figure");
         figure.className = "process-inline-image";
         figure.appendChild(image);
         item.classList.add("has-process-image");
+        item.classList.add(placementIndex % 2 === 0 ? "process-image-right" : "process-image-left");
         item.appendChild(figure);
+
+        const marker = item.querySelector(":scope > b");
+        const copy = item.querySelector(":scope > span");
+        if (marker && copy) {
+          const copyWrap = document.createElement("div");
+          copyWrap.className = "process-point-copy";
+          copyWrap.append(marker, copy);
+          item.prepend(copyWrap);
+        }
       });
 
       narrativeImages = narrativeImages.filter(image =>
@@ -963,6 +974,43 @@ function buildAlternatingProjectStories() {
       narrativeImages = narrativeImages.filter(image =>
         !inlinePlacements.some(([placedImages]) => placedImages.includes(image))
       );
+    }
+
+    if (project.id === "project-sustained") {
+      const processItems = [...text.querySelectorAll(".process-list li")];
+      const processImageSources = [
+        ["pictures/tangibleIde.png"],
+        ["pictures/tangibleProcess.png", "pictures/sustainedProcess.png"],
+        ["pictures/sustained4.jpg"]
+      ];
+      const placedImages = [];
+
+      processImageSources.forEach((sources, index) => {
+        const processItem = processItems[index];
+        const images = sources
+          .map(source => narrativeImages.find(candidate => candidate.getAttribute("src") === source))
+          .filter(Boolean);
+        if (!processItem || !images.length) return;
+
+        const figure = document.createElement("figure");
+        figure.className = "process-inline-image sustained-process-image";
+        if (images.length > 1) figure.classList.add("process-inline-image-pair");
+        figure.append(...images);
+        processItem.classList.add("has-process-image");
+        processItem.appendChild(figure);
+        placedImages.push(...images);
+
+        const marker = processItem.querySelector(":scope > b");
+        const copy = processItem.querySelector(":scope > span");
+        if (marker && copy) {
+          const copyWrap = document.createElement("div");
+          copyWrap.className = "process-point-copy";
+          copyWrap.append(marker, copy);
+          processItem.prepend(copyWrap);
+        }
+      });
+
+      narrativeImages = narrativeImages.filter(candidate => !placedImages.includes(candidate));
     }
     const sectionIndexes = preferredSectionIndexes[project.id] || [];
     const imagesBySection = new Map();
