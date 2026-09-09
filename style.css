@@ -299,8 +299,9 @@ main,
 .hero-role-sub {
   font-family: var(--serif);
   font-size: clamp(.82rem, 1.05vw, 1.2rem);
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: .38em;
+  color: rgba(36, 23, 15, .8);
 }
 
 .hero-portrait-wrap {
@@ -437,8 +438,9 @@ main,
 }
 
 .about-rise-card {
-  transform: translateX(48vw) translateY(25px);
-  opacity: 0;
+  transform: none;
+  opacity: 1;
+  will-change: auto;
 }
 
 .education-card {
@@ -459,8 +461,6 @@ main,
   left: 45px;
   width: 1px;
   background: rgba(36, 23, 15, .45);
-  transform-origin: top;
-  will-change: transform;
 }
 
 .education-item {
@@ -749,7 +749,7 @@ main,
   font-family: Georgia, serif;
   font-size: clamp(1rem, 1.05vw, 1.16rem);
   line-height: 1.75;
-  color: #55483f;
+  color: #3f332c;
 }
 
 /* Project image */
@@ -944,7 +944,7 @@ main,
   margin: 0;
   font-size: clamp(.98rem, 1vw, 1.1rem);
   line-height: 1.85;
-  color: #44372f;
+  color: #382d27;
 }
 
 .process-list {
@@ -971,7 +971,7 @@ main,
   font-size: clamp(.98rem, 1vw, 1.1rem);
   font-weight: 400;
   line-height: 1.85;
-  color: #44372f;
+  color: #382d27;
 }
 
 .project-details p strong,
@@ -1032,7 +1032,7 @@ main,
   font-size: clamp(.98rem, 1vw, 1.1rem);
   font-weight: 400;
   line-height: 1.85;
-  color: #44372f;
+  color: #382d27;
   text-align: justify;
   text-justify: inter-word;
   -webkit-hyphens: auto;
@@ -1961,7 +1961,7 @@ main,
   font-family: var(--sans);
   font-size: .96rem;
   line-height: 1.7;
-  color: #50473f;
+  color: #3f342d;
 }
 
 .process-list {
@@ -2943,8 +2943,15 @@ body.lightbox-open {
     transition: transform .32s ease, opacity .2s ease;
   }
 
+  .nav-toggle[aria-expanded="true"] span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: 0;
+  }
+
   .nav-toggle[aria-expanded="true"] span:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
+    transform: translate(-50%, -50%) rotate(45deg);
   }
 
   .nav-toggle[aria-expanded="true"] span:nth-child(2) {
@@ -2952,7 +2959,7 @@ body.lightbox-open {
   }
 
   .nav-toggle[aria-expanded="true"] span:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
+    transform: translate(-50%, -50%) rotate(-45deg);
   }
 
   .nav-toggle[aria-expanded="true"]:focus-visible {
@@ -3018,8 +3025,19 @@ body.lightbox-open {
 
   .hero-project-link {
     margin-top: clamp(96px, 12vh, 140px);
-    font-weight: 600;
+    font-size: 1.35rem;
+    font-weight: 700;
     transform-origin: center;
+  }
+
+  .project-kicker {
+    flex-wrap: wrap;
+    gap: .45rem 1rem;
+    line-height: 1.45;
+  }
+
+  .project-kicker span:nth-child(even) {
+    display: none;
   }
 
   .projects-head h2,

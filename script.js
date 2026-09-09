@@ -10,7 +10,6 @@ const navToggle = document.querySelector(".nav-toggle");
 
 const about = document.querySelector(".about");
 const aboutCopy = document.querySelector(".about-rise-copy");
-const aboutCard = document.querySelector(".about-rise-card");
 const aboutLink = document.querySelector('.nav a[href="#about"]');
 const aboutClose = document.querySelector(".about-close");
 
@@ -93,7 +92,7 @@ document.querySelectorAll('.nav a[href="#projects"], .nav a[href="#contact"]').f
    ========================================================= */
 
 function updateAbout() {
-  if (!about || !aboutCopy || !aboutCard) return;
+  if (!about || !aboutCopy) return;
 
   const rect = about.getBoundingClientRect();
   const vh = window.innerHeight;
@@ -151,62 +150,6 @@ function updateAbout() {
 
 
   /* -------------------------
-     EDUCATION
-     ------------------------- */
-
-  const cardProgress = clamp(
-    (progress - 0.3) / 0.7,
-    0,
-    1
-  );
-
-  const cardEase = ease(cardProgress);
-
-  aboutCard.style.opacity = cardEase;
-
-  aboutCard.style.transform =
-    `translate(
-      ${(1 - cardEase) * window.innerWidth * 0.4}px,
-      ${(1 - cardEase) * 30}px
-    )
-    scale(${0.95 + cardEase * 0.05})`;
-
-
-  const educationLine =
-    aboutCard.querySelector(".education-line");
-
-  if (educationLine) {
-    educationLine.style.transformOrigin = "top";
-    educationLine.style.transform =
-      `scaleY(${cardEase})`;
-  }
-
-
-  const educationItems =
-    aboutCard.querySelectorAll(".education-item");
-
-  educationItems.forEach((item, index) => {
-
-    const start =
-      0.2 + index * 0.35;
-
-    const local = clamp(
-      (cardProgress - start) /
-      (1 - start || 1),
-      0,
-      1
-    );
-
-    const localEase = ease(local);
-
-    item.style.opacity = localEase;
-
-    item.style.transform =
-      `translateX(${(1 - localEase) * 46}px)`;
-  });
-
-
-  /* -------------------------
      EXIT TOWARDS PROJECTS
      ------------------------- */
 
@@ -232,12 +175,6 @@ function updateAbout() {
       `translateY(${-exitEase * 140}px)
        scale(${1 - exitEase * 0.04})`;
 
-    aboutCard.style.transform =
-      `translate(
-        ${exitEase * 50}px,
-        ${-exitEase * 110}px
-      )
-      scale(${1 - exitEase * 0.03})`;
   }
 }
 
