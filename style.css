@@ -1,5 +1,6 @@
 :root {
   --bg: #d1c4bd;
+  --projects-bg: #c2b0a6;
   --paper: rgba(250, 246, 242, 0.9);
   --ink: #24170f;
   --muted: #6f6259;
@@ -493,6 +494,7 @@ main,
 .projects {
   position: relative;
   padding: 130px 0 0;
+  background: transparent;
 }
 
 .projects-head {
@@ -501,6 +503,18 @@ main,
   gap: 50px;
   align-items: end;
   margin-bottom: 24px;
+}
+
+.projects-solid-background,
+.thank-you,
+.footer {
+  background: transparent;
+}
+
+.projects-solid-background {
+  position: relative;
+  margin-top: 0;
+  padding-top: clamp(55px, 7vw, 95px);
 }
 
 .projects-head h2 {
@@ -515,8 +529,8 @@ main,
   display: none;
   gap: clamp(12px, 1.5vw, 24px);
   width: 100%;
-  margin: 0 0 clamp(55px, 7vw, 95px);
-  padding: 24px max(5vw, calc((100vw - var(--max)) / 2)) 18px;
+  margin: 0;
+  padding: 24px max(5vw, calc((100vw - var(--max)) / 2)) 0;
   overflow-x: auto;
   overflow-y: hidden;
   overscroll-behavior-inline: contain;
@@ -613,8 +627,12 @@ main,
 
 @media (max-width: 640px) {
   .featured-project-scroll {
-    margin-bottom: 64px;
+    margin-bottom: 0;
     padding-inline: 15px;
+  }
+
+  .projects-solid-background {
+    padding-top: 64px;
   }
 
   .featured-project-image {
@@ -3111,7 +3129,7 @@ body.lightbox-open {
     align-items: flex-start;
     justify-content: flex-start;
     gap: 24px;
-    background: #e5dbd5;
+    background: var(--projects-bg);
     box-shadow: -18px 0 45px rgba(36, 23, 15, .10);
     transform: translateX(105%);
     visibility: hidden;
