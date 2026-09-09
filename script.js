@@ -30,7 +30,13 @@ function setMobileNavOpen(open) {
   document.body.classList.toggle("mobile-nav-open", open);
   nav?.classList.toggle("is-open", open);
   navToggle?.setAttribute("aria-expanded", String(open));
-  navToggle?.setAttribute("aria-label", open ? "Lukk meny" : "Åpne meny");
+  const english = currentLanguage() === "en";
+  navToggle?.setAttribute(
+    "aria-label",
+    open
+      ? (english ? "Close menu" : "Lukk meny")
+      : (english ? "Open menu" : "Åpne meny")
+  );
 }
 
 navToggle?.addEventListener("click", () => {
@@ -739,28 +745,28 @@ function buildAlternatingProjectStories() {
   };
   const finalSolutionImages = {
     "project-tanum": [
-      ["pictures/tanum2.png", "Ferdig side for oppstalling"],
-      ["pictures/tanum3.png", "Ferdig side for undervisning"]
+      ["pictures/tanum2.webp", "Ferdig side for oppstalling"],
+      ["pictures/tanum3.webp", "Ferdig side for undervisning"]
     ],
     "project-edutopia": [
-      ["pictures/finalResultP.png", "Endelig løsning for School Inspection"],
-      ["pictures/finalResultP2.png", "Endelig løsning for inspeksjonsoversikten"],
-      ["pictures/finalResultP3.png", "Endelig løsning for registrering av skoleinspeksjon"]
+      ["pictures/finalResultP.webp", "Endelig løsning for School Inspection"],
+      ["pictures/finalResultP2.webp", "Endelig løsning for inspeksjonsoversikten"],
+      ["pictures/finalResultP3.webp", "Endelig løsning for registrering av skoleinspeksjon"]
     ],
     "project-participatory": [
-      ["pictures/pd-progress.png", "Endelig prototype for fremgang"],
-      ["pictures/pd-break.png", "Endelig prototype for pauseoversikt"],
-      ["pictures/pd-groups.png", "Endelig prototype for grupper"],
-      ["pictures/pd-goals.png", "Endelig prototype for mål"]
+      ["pictures/pd-progress.webp", "Endelig prototype for fremgang"],
+      ["pictures/pd-break.webp", "Endelig prototype for pauseoversikt"],
+      ["pictures/pd-groups.webp", "Endelig prototype for grupper"],
+      ["pictures/pd-goals.webp", "Endelig prototype for mål"]
     ],
     "project-sustained": [
-      ["pictures/tangiblePeople.jpeg", "Publikum samhandler med Sustained by Voices"],
-      ["pictures/sustained3.png", "Den ferdige installasjonen i sammenkrøpet posisjon"]
+      ["pictures/tangiblePeople.webp", "Publikum samhandler med Sustained by Voices"],
+      ["pictures/sustained3.webp", "Den ferdige installasjonen i sammenkrøpet posisjon"]
     ],
     "project-liftoff": [
-      ["pictures/liftOff1.png", "Endelig LiftOff-løsning"],
-      ["pictures/liftoff2.png", "Videreutviklet LiftOff-løsning"],
-      ["pictures/liftoff3.png", "LiftOff-visninger for regelverk og grenseverdier"]
+      ["pictures/liftOff1.webp", "Endelig LiftOff-løsning"],
+      ["pictures/liftoff2.webp", "Videreutviklet LiftOff-løsning"],
+      ["pictures/liftoff3.webp", "LiftOff-visninger for regelverk og grenseverdier"]
     ]
   };
 
@@ -803,8 +809,8 @@ function buildAlternatingProjectStories() {
     if (project.id === "project-tanum") {
       const processItems = [...text.querySelectorAll(".process-list li")];
       const inlinePlacements = [
-        [narrativeImages.find(image => image.getAttribute("src") === "pictures/analyseTanum.png"), processItems[0]],
-        [narrativeImages.find(image => image.getAttribute("src") === "pictures/tidligPrototypeTanum.png"), processItems[1]]
+        [narrativeImages.find(image => image.getAttribute("src") === "pictures/analyseTanum.webp"), processItems[0]],
+        [narrativeImages.find(image => image.getAttribute("src") === "pictures/tidligPrototypeTanum.webp"), processItems[1]]
       ];
 
       inlinePlacements.forEach(([image, item], placementIndex) => {
@@ -835,10 +841,10 @@ function buildAlternatingProjectStories() {
     if (project.id === "project-edutopia") {
       const processItems = [...text.querySelectorAll(".process-list li")];
       const inlinePlacements = [
-        [narrativeImages.find(image => image.getAttribute("src") === "pictures/platformsPersonas.png"), processItems[0]],
-        [narrativeImages.find(image => image.getAttribute("src") === "pictures/platformsTidligPrototype.png"), processItems[1]],
-        [narrativeImages.find(image => image.getAttribute("src") === "pictures/platforms2.png"), processItems[2]],
-        [narrativeImages.find(image => image.getAttribute("src") === "pictures/platformsWorkshop.jpeg"), processItems[3]]
+        [narrativeImages.find(image => image.getAttribute("src") === "pictures/platformsPersonas.webp"), processItems[0]],
+        [narrativeImages.find(image => image.getAttribute("src") === "pictures/platformsTidligPrototype.webp"), processItems[1]],
+        [narrativeImages.find(image => image.getAttribute("src") === "pictures/platforms2.webp"), processItems[2]],
+        [narrativeImages.find(image => image.getAttribute("src") === "pictures/platformsWorkshop.webp"), processItems[3]]
       ];
 
       inlinePlacements.forEach(([image, item]) => {
@@ -870,13 +876,13 @@ function buildAlternatingProjectStories() {
     if (project.id === "project-liftoff") {
       const processItems = [...text.querySelectorAll(".process-list li")];
       const inlinePlacements = [
-        [[narrativeImages.find(image => image.getAttribute("src") === "pictures/intervjuPortal.png")], processItems[0]],
+        [[narrativeImages.find(image => image.getAttribute("src") === "pictures/intervjuPortal.webp")], processItems[0]],
         [[
-          narrativeImages.find(image => image.getAttribute("src") === "pictures/liftOff-early.png"),
-          narrativeImages.find(image => image.getAttribute("src") === "pictures/liftoff-early2.png")
+          narrativeImages.find(image => image.getAttribute("src") === "pictures/liftOff-early.webp"),
+          narrativeImages.find(image => image.getAttribute("src") === "pictures/liftoff-early2.webp")
         ], processItems[1]],
-        [[narrativeImages.find(image => image.getAttribute("src") === "pictures/protoLiftOff.png")], processItems[2]],
-        [[narrativeImages.find(image => image.getAttribute("src") === "pictures/testingLiftOff.png")], processItems[3]]
+        [[narrativeImages.find(image => image.getAttribute("src") === "pictures/protoLiftOff.webp")], processItems[2]],
+        [[narrativeImages.find(image => image.getAttribute("src") === "pictures/testingLiftOff.webp")], processItems[3]]
       ];
 
       inlinePlacements.forEach(([images, item]) => {
@@ -910,9 +916,9 @@ function buildAlternatingProjectStories() {
     if (project.id === "project-participatory") {
       const processItems = [...text.querySelectorAll(".process-list li")];
       const inlinePlacements = [
-        [[narrativeImages.find(image => image.getAttribute("src") === "pictures/pdw1.png")], processItems[0]],
-        [[narrativeImages.find(image => image.getAttribute("src") === "pictures/pdw2.png")], processItems[1]],
-        [[narrativeImages.find(image => image.getAttribute("src") === "pictures/pdskisse4.png")], processItems[2]]
+        [[narrativeImages.find(image => image.getAttribute("src") === "pictures/pdw1.webp")], processItems[0]],
+        [[narrativeImages.find(image => image.getAttribute("src") === "pictures/pdw2.webp")], processItems[1]],
+        [[narrativeImages.find(image => image.getAttribute("src") === "pictures/pdskisse4.webp")], processItems[2]]
       ];
 
       inlinePlacements.forEach(([images, item]) => {
@@ -947,9 +953,9 @@ function buildAlternatingProjectStories() {
     if (project.id === "project-sustained") {
       const processItems = [...text.querySelectorAll(".process-list li")];
       const processImageSources = [
-        ["pictures/tangibleIde.png"],
-        ["pictures/tangibleProcess.png", "pictures/sustainedProcess.png"],
-        ["pictures/sustained4.jpg"]
+        ["pictures/tangibleIde.webp"],
+        ["pictures/tangibleProcess.webp", "pictures/sustainedProcess.webp"],
+        ["pictures/sustained4.webp"]
       ];
       const placedImages = [];
 
@@ -1420,6 +1426,10 @@ function setLanguage(lang) {
   document.documentElement.lang =
     lang;
 
+  setMobileNavOpen(
+    nav?.classList.contains("is-open") || false
+  );
+
 
   document
     .querySelector(".lang-no")
@@ -1589,8 +1599,9 @@ function openImageLightbox(imageElement) {
     return {
       src: image.getAttribute("src"),
       alt: caption ||
-        image.getAttribute("alt") ||
-        "Prosjektbilde"
+        (captionLanguage === "en"
+          ? "Project image"
+          : image.getAttribute("alt") || "Prosjektbilde")
     };
   });
 

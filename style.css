@@ -54,7 +54,7 @@ button {
   inset: 0;
   z-index: -2;
   background-color: var(--bg);
-  background-image: url("pictures/bakgrunn.png");
+  background-image: url("pictures/bakgrunn.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -330,8 +330,10 @@ main,
 
 .about-close {
   position: absolute;
-  top: 42px;
-  right: clamp(24px, 4vw, 72px);
+  right: auto;
+  bottom: 42px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 4;
   display: inline-flex;
   align-items: center;
@@ -378,11 +380,6 @@ main,
 .about-doodle-left {
   bottom: clamp(45px, 7vh, 85px);
   left: -12px;
-}
-
-.about-doodle-right {
-  top: clamp(45px, 7vh, 85px);
-  right: -10px;
 }
 
 .about-copy {
@@ -1765,11 +1762,6 @@ main,
     left: -55px;
   }
 
-  .about-doodle-right {
-    top: 45px;
-    right: -58px;
-  }
-
   .education-card {
     width: calc(100% - 5vw);
     margin-left: 5vw;
@@ -3129,7 +3121,7 @@ body.lightbox-open {
     align-items: flex-start;
     justify-content: flex-start;
     gap: 24px;
-    background: var(--projects-bg);
+    background: #e5dbd5;
     box-shadow: -18px 0 45px rgba(36, 23, 15, .10);
     transform: translateX(105%);
     visibility: hidden;
