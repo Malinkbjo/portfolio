@@ -4,8 +4,6 @@ const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
    GLOBAL ELEMENTS
    ========================================================= */
 
-const hero = document.querySelector(".hero");
-const heroContent = document.querySelector(".hero-content");
 const header = document.querySelector(".site-header");
 const nav = document.querySelector(".nav");
 const navToggle = document.querySelector(".nav-toggle");
@@ -82,57 +80,6 @@ aboutClose?.addEventListener("click", () => {
 document.querySelectorAll('.nav a[href="#projects"], .nav a[href="#contact"]').forEach(link => {
   link.addEventListener("click", () => setAboutOpen(false));
 });
-
-
-/* =========================================================
-   HERO
-   ========================================================= */
-
-function updateHero() {
-  if (!hero || !heroContent) return;
-
-  const rect = hero.getBoundingClientRect();
-  const vh = window.innerHeight;
-
-  const travel = Math.max(
-    hero.offsetHeight * 0.95 - vh * 0.15,
-    1
-  );
-
-  const progress = clamp(
-    -rect.top / travel,
-    0,
-    1
-  );
-
-  const ease =
-    progress *
-    progress *
-    (3 - 2 * progress);
-
-  const scale = 1 - ease * 0.14;
-  const y = -ease * vh * 1.35;
-
-  const insetX = ease * 4;
-  const insetTop = ease * 2;
-  const insetBottom = ease * 6;
-  const radius = ease * 28;
-
-  heroContent.style.opacity = "1";
-  heroContent.style.filter = "none";
-
-  heroContent.style.transform =
-    `translateY(${y}px) scale(${scale})`;
-
-  heroContent.style.clipPath =
-    `inset(
-      ${insetTop}%
-      ${insetX}%
-      ${insetBottom}%
-      ${insetX}%
-      round ${radius}px
-    )`;
-}
 
 
 /* =========================================================
