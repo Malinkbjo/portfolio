@@ -58,7 +58,7 @@ button {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: .8;
+  opacity: .6;
 }
 
 main,
@@ -638,16 +638,6 @@ main,
   }
 }
 
-.projects-intro {
-  max-width: 520px;
-  justify-self: end;
-  margin: 0;
-  font-family: Georgia, serif;
-  font-size: clamp(.98rem, 1.05vw, 1.12rem);
-  line-height: 1.7;
-  color: var(--muted);
-}
-
 .projects-stage {
   position: relative;
   width: min(calc(100% - 10vw), var(--max));
@@ -714,7 +704,8 @@ main,
   font-size: clamp(.76rem, .8vw, .88rem);
   letter-spacing: .24em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: #4d4038;
+  font-weight: 500;
 }
 
 .project-summary-text h3 {
@@ -773,18 +764,6 @@ main,
   object-fit: cover;
 }
 
-/* Participatory Design preview — same footprint as the other projects */
-.project-image-stack {
-  position: relative;
-  min-width: 0;
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  overflow: hidden;
-  border-radius: 8px;
-  background: rgba(250, 246, 242, .42);
-  box-shadow: 0 22px 70px rgba(65, 43, 30, .07);
-}
-
 .stack-image {
   position: absolute;
   bottom: -18%;
@@ -795,144 +774,10 @@ main,
   box-shadow: 0 18px 45px rgba(36, 23, 15, .18);
 }
 
-.stack-image-back {
-  left: 17%;
-  transform: rotate(-5deg);
-}
-
-.stack-image-front {
-  right: 17%;
-  z-index: 1;
-  transform: rotate(5deg);
-}
-
 .stack-image img {
   display: block;
   width: 100%;
   height: auto;
-}
-
-/* Synthetic DHIS2 preview */
-.dashboard-card {
-  grid-template-columns: 27% 1fr;
-  background: #f4f5f2;
-}
-
-.dashboard-card:first-child {
-  display: grid;
-}
-
-.dashboard-sidebar {
-  background: #182630;
-}
-
-.dashboard-content {
-  padding: 22px;
-}
-
-.dashboard-search {
-  height: 22px;
-  margin-bottom: 12px;
-  border-radius: 8px;
-  background: #fff;
-}
-
-.dashboard-map {
-  position: relative;
-  height: calc(100% - 34px);
-  min-height: 150px;
-  border-radius: 4px;
-  background:
-    linear-gradient(25deg, transparent 49%, rgba(151, 166, 150, .25) 50% 51%, transparent 52%),
-    linear-gradient(145deg, transparent 49%, rgba(151, 166, 150, .22) 50% 51%, transparent 52%),
-    #e8ece7;
-}
-
-.dashboard-map i {
-  position: absolute;
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: #9b694d;
-}
-
-.dashboard-map i:nth-child(1) { left: 30%; top: 35%; }
-.dashboard-map i:nth-child(2) { left: 55%; top: 50%; }
-.dashboard-map i:nth-child(3) { left: 72%; top: 28%; }
-.dashboard-map i:nth-child(4) { left: 46%; top: 72%; }
-.dashboard-map i:nth-child(5) { left: 79%; top: 67%; }
-
-.dashboard-table {
-  height: 26px;
-  margin-bottom: 10px;
-  border-radius: 6px;
-  background: #fff;
-  box-shadow: inset 0 0 0 1px #e5e7e3;
-}
-
-.dashboard-table.short {
-  width: 72%;
-}
-
-/* Synthetic LiftOff preview */
-.liftoff-card {
-  padding: 30px;
-  background: linear-gradient(155deg, #152831, #2f5a65);
-  color: #eaf4f5;
-}
-
-.liftoff-card:first-child {
-  display: block;
-}
-
-.weather-label {
-  font-size: .62rem;
-  letter-spacing: .18em;
-  opacity: .7;
-}
-
-.liftoff-card strong {
-  display: block;
-  margin-top: 20px;
-  font-family: var(--serif);
-  font-size: clamp(4rem, 6vw, 7rem);
-  font-weight: 400;
-}
-
-.weather-bars {
-  display: flex;
-  gap: 8px;
-  margin-top: auto;
-}
-
-.weather-bars i {
-  width: 42px;
-  height: 6px;
-  border-radius: 4px;
-  background: #bdd1c5;
-}
-
-.weather-bars i:nth-child(2) { background: #d3b88f; }
-.weather-bars i:nth-child(3) { background: #b87568; }
-
-.mini-chart {
-  height: 60%;
-  margin-top: 36px;
-  border-left: 1px solid rgba(255, 255, 255, .5);
-  border-bottom: 1px solid rgba(255, 255, 255, .5);
-  background: linear-gradient(
-    150deg,
-    transparent 45%,
-    rgba(255, 255, 255, .18) 46% 49%,
-    transparent 50%
-  );
-}
-
-.threshold-row {
-  height: 22px;
-  margin-top: 20px;
-  border-radius: 4px;
-  background: rgba(255, 255, 255, .12);
 }
 
 /* See more */
@@ -1773,10 +1618,6 @@ main,
     gap: 24px;
   }
 
-  .projects-intro {
-    justify-self: start;
-  }
-
   .project-preview {
     grid-template-columns: 1fr;
     gap: 38px;
@@ -1877,21 +1718,9 @@ main,
     aspect-ratio: 4 / 3;
   }
 
-  .project-image-stack {
-    aspect-ratio: 4 / 3;
-  }
-
   .stack-image {
     bottom: -10%;
     width: 43%;
-  }
-
-  .stack-image-back {
-    left: 10%;
-  }
-
-  .stack-image-front {
-    right: 10%;
   }
 
   .detail-grid {
@@ -1918,6 +1747,10 @@ main,
   .thank-line-bottom {
     top: 53%;
     font-size: clamp(3.5rem, 15vw, 6rem);
+  }
+
+  .contact-links {
+    top: 82.5%;
   }
 }
 
@@ -2225,34 +2058,6 @@ main,
   background: transparent;
 }
 
-#project-participatory .participatory-pair-preview:first-child {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  justify-items: center;
-  gap: 18px;
-  aspect-ratio: auto;
-  overflow: visible;
-}
-
-#project-participatory .participatory-pair-preview img {
-  width: auto;
-  max-width: 100%;
-  height: auto;
-  max-height: clamp(300px, 34vw, 480px);
-  object-fit: contain;
-  border-radius: clamp(16px, 2vw, 28px);
-  clip-path: inset(0 round clamp(16px, 2vw, 28px));
-}
-
-#project-participatory .participatory-pair-preview img:first-child {
-  justify-self: end;
-}
-
-#project-participatory .participatory-pair-preview img:last-child {
-  justify-self: start;
-}
-
 #project-participatory .preview-card:first-child,
 #project-liftoff .preview-card:first-child {
   height: clamp(300px, 34vw, 480px);
@@ -2340,25 +2145,10 @@ main,
 }
 
 @media (max-width: 640px) {
-  #project-participatory .participatory-pair-preview img {
-    max-height: 280px;
-  }
-
   #project-participatory .preview-card:first-child,
   #project-liftoff .preview-card:first-child {
     height: 280px;
   }
-}
-
-#project-edutopia .platforms-final-preview:first-child {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  align-items: start;
-  padding: 0;
-  aspect-ratio: auto;
-  overflow: visible;
-  background: transparent;
 }
 
 #project-edutopia .preview-marquee {
@@ -2366,14 +2156,6 @@ main,
   border-radius: 0;
   background: transparent;
   box-shadow: none;
-}
-
-#project-edutopia .platforms-final-preview img {
-  min-width: 0;
-  height: auto;
-  padding: 0;
-  border-radius: 0;
-  background: transparent;
 }
 
 #project-edutopia .detail-media-gallery > .detail-media-card,
@@ -2391,9 +2173,6 @@ main,
 }
 
 @media (max-width: 640px) {
-  #project-edutopia .platforms-final-preview:first-child {
-    grid-template-columns: 1fr 1fr;
-  }
 }
 
 .detail-media.detail-media-gallery {
@@ -3108,6 +2887,10 @@ body.lightbox-open {
     transform: translateY(-7px) rotate(-45deg);
   }
 
+  .nav-toggle[aria-expanded="true"]:focus-visible {
+    outline: 0;
+  }
+
   .nav {
     position: fixed;
     top: 0;
@@ -3205,16 +2988,17 @@ body.lightbox-open {
   }
 
   .thank-you {
-    min-height: 112svh;
+    min-height: clamp(760px, 88svh, 940px);
   }
 
   .thank-you-sticky {
-    height: 100svh;
+    position: relative;
+    height: clamp(760px, 88svh, 940px);
   }
 
   .thank-you-text {
     width: 100%;
-    min-height: 100svh;
+    min-height: 100%;
   }
 
   .thank-line-top {
@@ -3230,7 +3014,7 @@ body.lightbox-open {
   }
 
   .contact-links {
-    top: 43%;
+    top: 48%;
     gap: 28px;
   }
 }

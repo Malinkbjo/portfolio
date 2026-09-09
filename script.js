@@ -770,6 +770,13 @@ function buildAlternatingProjectStories() {
     ]
   };
 
+  const generatedImageDimensions = {
+    "pictures/finalResultP.webp": [1059, 1336],
+    "pictures/finalResultP2.webp": [1059, 1336],
+    "pictures/finalResultP3.webp": [1059, 1336],
+    "pictures/liftOff1.webp": [1600, 1576]
+  };
+
   projects.forEach(project => {
     const grid = project.querySelector(".detail-grid");
     const text = grid?.querySelector(".detail-text");
@@ -1097,7 +1104,17 @@ function buildAlternatingProjectStories() {
         );
         const image = existingImage || document.createElement("img");
 
-        if (!existingImage) image.src = source;
+        if (!existingImage) {
+          image.src = source;
+          image.loading = "lazy";
+          image.decoding = "async";
+
+          const dimensions = generatedImageDimensions[source];
+          if (dimensions) {
+            image.width = dimensions[0];
+            image.height = dimensions[1];
+          }
+        }
         if (!image.alt) image.alt = alt;
 
         const figure = document.createElement("figure");
