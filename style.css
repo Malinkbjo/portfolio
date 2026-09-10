@@ -1854,6 +1854,7 @@ main,
 
 .detail-media-counter {
   justify-self: center;
+  font-family: var(--sans);
   font-size: .72rem;
   letter-spacing: .14em;
 }
@@ -2839,7 +2840,7 @@ body.lightbox-open {
 .image-lightbox-caption {
   max-width: 760px;
   color: rgba(255, 255, 255, .88);
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: clamp(1rem, 1.5vw, 1.25rem);
   line-height: 1.4;
   text-align: center;
@@ -2847,6 +2848,7 @@ body.lightbox-open {
 
 .image-lightbox-counter {
   color: rgba(255, 255, 255, .58);
+  font-family: var(--sans);
   font-size: .7rem;
   letter-spacing: .16em;
 }
