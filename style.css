@@ -515,7 +515,7 @@ main,
 
 .projects {
   position: relative;
-  padding: 130px 0 0;
+  padding: 75px 0 0;
   background: transparent;
 }
 
@@ -654,7 +654,7 @@ main,
   }
 
   .projects-solid-background {
-    padding-top: 64px;
+    padding-top: 45px;
   }
 
   .featured-project-image {
@@ -809,25 +809,27 @@ main,
 .project-toggle {
   display: inline-flex;
   align-items: center;
-  gap: 14px;
+  justify-content: space-between;
+  gap: 18px;
   margin: 46px 0 0;
-  padding: 0 0 7px;
-  border: 0;
-  border-bottom: 1px solid rgba(36, 23, 15, .55);
+  width: 190px;
+  padding: 11px 15px;
+  border: 1px solid rgba(36, 23, 15, .55);
   background: transparent;
   color: var(--ink);
   cursor: pointer;
-  font-size: clamp(.94rem, 1vw, 1.06rem);
+  font-size: clamp(.86rem, .9vw, .96rem);
   font-weight: 600;
   letter-spacing: .16em;
   text-transform: uppercase;
   transform-origin: left center;
-  transition: transform .3s ease;
+  transition: transform .3s ease, background-color .3s ease;
 }
 
 .project-toggle:hover,
 .project-toggle:focus-visible {
   transform: scale(1.045);
+  background-color: rgba(194, 176, 166, .42);
 }
 
 .project-toggle > span:first-child {
@@ -1737,7 +1739,7 @@ main,
   }
 
   .projects {
-    padding-top: 90px;
+    padding-top: 55px;
   }
 
   .projects-stage {
@@ -2107,6 +2109,23 @@ main,
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+
+/* Keep every project-cover image equally sized and aligned with the content edge. */
+@media (min-width: 981px) {
+  .project-preview > .preview-marquee {
+    width: min(100%, 620px);
+    margin-left: 0;
+    justify-self: end;
+  }
+
+  .project-preview .preview-card:first-child,
+  #project-participatory .project-preview .preview-card:first-child,
+  #project-liftoff .project-preview .preview-card:first-child {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
+  }
 }
 
 #project-participatory .detail-media-card.case-gallery-card-phone,
@@ -3112,5 +3131,232 @@ body.lightbox-open {
   .contact-links {
     top: 61%;
     gap: 28px;
+  }
+}
+
+/* Final phone and tablet alignment refinements. */
+.project-kicker > span:nth-child(even) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transform: translateY(-.04em);
+}
+
+@media (max-width: 980px) {
+  .project-preview > .preview-marquee {
+    grid-row: 1;
+  }
+
+  .project-preview > .project-summary-text {
+    grid-row: 2;
+  }
+
+  .project-preview .preview-card:first-child,
+  #project-participatory .project-preview .preview-card:first-child,
+  #project-liftoff .project-preview .preview-card:first-child {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
+  }
+
+  .nav a,
+  .nav .lang-toggle {
+    font-family: var(--sans);
+    font-weight: 700;
+    color: #2a1d17;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-project-link {
+    font-weight: 800;
+    color: #2a1d17;
+  }
+
+  .project-kicker {
+    align-items: center;
+    gap: .4rem .65rem;
+  }
+
+  .project-kicker span:nth-child(even) {
+    display: inline-block;
+    align-self: center;
+    font-size: .72em;
+    line-height: 1;
+    transform: translateY(-.04em);
+  }
+
+  .education-card {
+    width: calc(100% - 30px);
+    min-height: 0;
+    margin-inline: auto;
+    padding: 22px 22px 22px 52px;
+    border-radius: 24px;
+  }
+
+  .education-line {
+    top: 22px;
+    bottom: 22px;
+    left: 25px;
+  }
+
+  .education-item {
+    padding: 10px 0 22px;
+  }
+
+  .education-item + .education-item {
+    padding-top: 22px;
+  }
+
+  .education-dot {
+    left: -33px;
+    top: 58px;
+  }
+
+  .education-year {
+    margin-bottom: 10px;
+    font-size: .72rem;
+  }
+
+  .education-item h3 {
+    font-size: clamp(1.45rem, 7vw, 1.9rem);
+    line-height: 1.02;
+  }
+
+  .education-item p {
+    margin-top: 10px;
+    font-size: .88rem;
+  }
+}
+
+/* Identical cover frames for every project preview. */
+.project-toggle {
+  width: 190px;
+  align-self: flex-start;
+}
+
+@media (min-width: 981px) {
+  .project-list {
+    width: min(100%, 1280px);
+    margin-inline: auto;
+  }
+
+  .project-preview {
+    grid-template-columns: minmax(0, 1fr) 580px;
+    gap: clamp(42px, 4vw, 64px);
+  }
+
+  .project-summary-text {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: min(100%, 500px);
+    height: 365px;
+  }
+
+  .project-summary-text > p {
+    max-width: 460px;
+  }
+
+  .project-summary-text .project-kicker {
+    margin-top: 0;
+  }
+
+  .project-summary-text > .project-toggle {
+    align-self: flex-start;
+    margin-top: auto;
+  }
+
+  #project-liftoff .project-summary-text > p {
+    margin-top: auto;
+  }
+}
+
+.project-preview > .preview-marquee {
+  width: 580px;
+  max-width: 100%;
+  justify-self: end;
+}
+
+.project-preview .preview-card:first-child,
+#project-participatory .project-preview .preview-card:first-child,
+#project-liftoff .project-preview .preview-card:first-child {
+  width: 580px;
+  max-width: 100%;
+  height: 365px;
+  aspect-ratio: auto;
+}
+
+.project-preview .preview-card:first-child img,
+#project-participatory .project-preview .preview-card:first-child img,
+#project-liftoff .project-preview .preview-card:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 980px) {
+  .project-preview > .preview-marquee {
+    width: 100%;
+    justify-self: stretch;
+  }
+
+  .project-preview .preview-card:first-child,
+  #project-participatory .project-preview .preview-card:first-child,
+  #project-liftoff .project-preview .preview-card:first-child {
+    width: 100%;
+    height: 360px;
+  }
+}
+
+@media (max-width: 640px) {
+  .contact-email .contact-note-arrow {
+    bottom: 17px;
+  }
+
+  .contact-linkedin .contact-note-arrow {
+    bottom: 8px;
+  }
+
+  .contact-email .contact-note,
+  .contact-email .contact-address {
+    position: relative;
+    top: -56px;
+  }
+
+  .contact-doodle-top {
+    top: -28px;
+    left: -42px;
+    transform: scaleY(1.42);
+    transform-origin: left bottom;
+  }
+
+  .project-summary-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-summary-text h3 {
+    order: 1;
+  }
+
+  .project-summary-text .project-kicker {
+    order: 2;
+    margin: 20px 0 0;
+  }
+
+  .project-summary-text > p {
+    order: 3;
+  }
+
+  .project-summary-text > .project-toggle {
+    order: 4;
+  }
+
+  .project-preview .preview-card:first-child,
+  #project-participatory .project-preview .preview-card:first-child,
+  #project-liftoff .project-preview .preview-card:first-child {
+    height: 220px;
   }
 }
