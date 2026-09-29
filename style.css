@@ -884,11 +884,6 @@ main,
   transform: translateY(0);
 }
 
-body.is-closing-project .thank-you,
-body.is-closing-project .footer {
-  visibility: hidden;
-}
-
 .detail-grid {
   display: grid;
   grid-template-columns: minmax(0, 2fr) minmax(280px, .92fr);
