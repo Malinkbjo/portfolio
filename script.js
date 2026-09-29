@@ -588,24 +588,33 @@ function prepareProjectCases() {
       closeButton.addEventListener(
         "click",
         () => {
-          const nextProject = project.nextElementSibling;
+          const orderedProjects = [
+            ...document.querySelectorAll(".project-list > .project")
+          ];
+          const projectIndex = orderedProjects.indexOf(project);
+          const nextProject = orderedProjects[projectIndex + 1] || null;
           const headerOffset =
             document.querySelector(".site-header")?.offsetHeight || 0;
 
-          project.classList.add("close-without-shift");
+          closeButton.blur();
+          document.body.classList.add("is-closing-project");
+          details.style.display = "none";
           project.classList.remove("open");
           updateProjectButton(project, false);
 
-          if (nextProject) {
-            const nextProjectTop =
-              nextProject.getBoundingClientRect().top +
-              window.scrollY -
-              headerOffset;
-            window.scrollTo({ top: nextProjectTop, behavior: "auto" });
-          }
-
           requestAnimationFrame(() => {
-            project.classList.remove("close-without-shift");
+            if (nextProject) {
+              const nextProjectTop =
+                nextProject.getBoundingClientRect().top +
+                window.scrollY -
+                headerOffset;
+              window.scrollTo({ top: nextProjectTop, behavior: "auto" });
+            }
+
+            requestAnimationFrame(() => {
+              details.style.removeProperty("display");
+              document.body.classList.remove("is-closing-project");
+            });
           });
         }
       );
