@@ -588,14 +588,24 @@ function prepareProjectCases() {
       closeButton.addEventListener(
         "click",
         () => {
+          const nextProject = project.nextElementSibling;
+          const headerOffset =
+            document.querySelector(".site-header")?.offsetHeight || 0;
+
+          project.classList.add("close-without-shift");
           project.classList.remove("open");
           updateProjectButton(project, false);
 
+          if (nextProject) {
+            const nextProjectTop =
+              nextProject.getBoundingClientRect().top +
+              window.scrollY -
+              headerOffset;
+            window.scrollTo({ top: nextProjectTop, behavior: "auto" });
+          }
+
           requestAnimationFrame(() => {
-            project.scrollIntoView({
-              behavior: "smooth",
-              block: "start"
-            });
+            project.classList.remove("close-without-shift");
           });
         }
       );
@@ -753,18 +763,25 @@ function buildAlternatingProjectStories() {
     if (project.id === "project-tanum") {
       const processItems = [...text.querySelectorAll(".process-list li")];
       const inlinePlacements = [
-        [narrativeImages.find(image => image.getAttribute("src") === "pictures/analyseTanum.webp"), processItems[0]],
-        [narrativeImages.find(image => image.getAttribute("src") === "pictures/tidligPrototypeTanum.webp"), processItems[1]]
+        [[narrativeImages.find(image => image.getAttribute("src") === "pictures/analyseTanum.webp")], processItems[0], "process-image-left"],
+        [[
+          narrativeImages.find(image => image.getAttribute("src") === "pictures/tanumOutdatedPage.png"),
+          narrativeImages.find(image => image.getAttribute("src") === "pictures/tanumHiddenNavigation.png")
+        ], processItems[1], "process-image-right"],
+        [[narrativeImages.find(image => image.getAttribute("src") === "pictures/tidligPrototypeTanum.webp")], processItems[2], "process-image-left"]
       ];
 
-      inlinePlacements.forEach(([image, item], placementIndex) => {
-        if (!image || !item) return;
+      inlinePlacements.forEach(([images, item, positionClass], placementIndex) => {
+        const availableImages = images.filter(Boolean);
+        if (!availableImages.length || !item) return;
 
         const figure = document.createElement("figure");
         figure.className = "process-inline-image";
-        figure.appendChild(image);
+        if (availableImages.length > 1) figure.classList.add("process-inline-image-pair");
+        if (placementIndex === 1) figure.classList.add("tanum-observation-images");
+        figure.append(...availableImages);
         item.classList.add("has-process-image");
-        item.classList.add(placementIndex % 2 === 0 ? "process-image-right" : "process-image-left");
+        item.classList.add(positionClass);
         item.appendChild(figure);
 
         const marker = item.querySelector(":scope > b");
@@ -778,25 +795,36 @@ function buildAlternatingProjectStories() {
       });
 
       narrativeImages = narrativeImages.filter(image =>
-        !inlinePlacements.some(([placedImage]) => placedImage === image)
+        !inlinePlacements.some(([placedImages]) => placedImages.includes(image))
       );
     }
 
     if (project.id === "project-edutopia") {
       const processItems = [...text.querySelectorAll(".process-list li")];
       const inlinePlacements = [
-        [narrativeImages.find(image => image.getAttribute("src") === "pictures/platformsPersonas.webp"), processItems[0]],
-        [narrativeImages.find(image => image.getAttribute("src") === "pictures/platformsTidligPrototype.webp"), processItems[1]],
-        [narrativeImages.find(image => image.getAttribute("src") === "pictures/platforms2.webp"), processItems[2]],
-        [narrativeImages.find(image => image.getAttribute("src") === "pictures/platformsWorkshop.webp"), processItems[3]]
+        [[narrativeImages.find(image => image.getAttribute("src") === "pictures/platformsPersonas.webp")], processItems[0]],
+        [[narrativeImages.find(image => image.getAttribute("src") === "pictures/platformsTidligPrototype.webp")], processItems[1]],
+        [[
+          narrativeImages.find(image => image.getAttribute("src") === "pictures/platformsTestPrototype.png"),
+          narrativeImages.find(image => image.getAttribute("src") === "pictures/platforms2.webp")
+        ], processItems[2]],
+        [[narrativeImages.find(image => image.getAttribute("src") === "pictures/platformsWorkshop.webp")], processItems[3]],
+        [[
+          narrativeImages.find(image => image.getAttribute("src") === "pictures/platformsNumbersBefore.png"),
+          narrativeImages.find(image => image.getAttribute("src") === "pictures/platformsStatusesAfter.png")
+        ], processItems[4]]
       ];
 
-      inlinePlacements.forEach(([image, item]) => {
-        if (!image || !item) return;
+      inlinePlacements.forEach(([images, item], placementIndex) => {
+        const availableImages = images.filter(Boolean);
+        if (!availableImages.length || !item) return;
 
         const figure = document.createElement("figure");
         figure.className = "process-inline-image platform-process-image";
-        figure.appendChild(image);
+        if (availableImages.length > 1) figure.classList.add("process-inline-image-pair");
+        if (availableImages.length > 2) figure.classList.add("process-inline-image-stack");
+        if (placementIndex === 4) figure.classList.add("platform-comparison-image");
+        figure.append(...availableImages);
         item.classList.add("has-process-image");
         item.appendChild(figure);
       });
@@ -813,7 +841,7 @@ function buildAlternatingProjectStories() {
       });
 
       narrativeImages = narrativeImages.filter(image =>
-        !inlinePlacements.some(([placedImage]) => placedImage === image)
+        !inlinePlacements.some(([placedImages]) => placedImages.includes(image))
       );
     }
 
@@ -826,7 +854,11 @@ function buildAlternatingProjectStories() {
           narrativeImages.find(image => image.getAttribute("src") === "pictures/liftoff-early2.webp")
         ], processItems[1]],
         [[narrativeImages.find(image => image.getAttribute("src") === "pictures/protoLiftOff.webp")], processItems[2]],
-        [[narrativeImages.find(image => image.getAttribute("src") === "pictures/testingLiftOff.webp")], processItems[3]]
+        [[narrativeImages.find(image => image.getAttribute("src") === "pictures/testingLiftOff.webp")], processItems[3]],
+        [[
+          narrativeImages.find(image => image.getAttribute("src") === "pictures/liftoffWeatherBefore.png"),
+          narrativeImages.find(image => image.getAttribute("src") === "pictures/liftoffWeatherPriority.png")
+        ], processItems[4]]
       ];
 
       inlinePlacements.forEach(([images, item]) => {

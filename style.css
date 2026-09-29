@@ -515,7 +515,7 @@ main,
 
 .projects {
   position: relative;
-  padding: 75px 0 0;
+  padding: 0;
   background: transparent;
 }
 
@@ -537,6 +537,7 @@ main,
   position: relative;
   margin-top: 0;
   padding-top: clamp(55px, 7vw, 95px);
+  background: #ece4dd;
 }
 
 .projects-head h2 {
@@ -883,6 +884,10 @@ main,
   transform: translateY(0);
 }
 
+.project.close-without-shift .project-details {
+  transition: none;
+}
+
 .detail-grid {
   display: grid;
   grid-template-columns: minmax(0, 2fr) minmax(280px, .92fr);
@@ -1011,6 +1016,23 @@ main,
   width: min(100%, 390px);
 }
 
+#project-edutopia .process-inline-image-pair {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: start;
+  gap: 16px;
+  width: min(100%, 620px);
+}
+
+#project-edutopia .process-inline-image-pair img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  object-position: center;
+}
+
 :is(#project-tanum, #project-edutopia, #project-liftoff, #project-participatory, #project-sustained) .detail-story-row.single-column-row .detail-story-copy:has(.process-list) {
   width: min(100%, 1120px);
 }
@@ -1066,6 +1088,28 @@ main,
 #project-tanum .process-list li.process-image-left .process-inline-image {
   grid-column: 1;
   grid-row: 1;
+}
+
+#project-tanum .tanum-observation-images {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(0, .85fr);
+  align-items: center;
+  gap: 12px;
+  width: min(100%, 560px);
+}
+
+#project-tanum .tanum-observation-images img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+}
+
+@media (max-width: 640px) {
+  #project-tanum .tanum-observation-images {
+    grid-template-columns: 1fr;
+  }
 }
 
 #project-tanum .process-list li:last-child:not(.has-process-image) {
@@ -1369,7 +1413,7 @@ main,
 }
 
 .contact-doodle-top {
-  top: clamp(65px, 9vh, 110px);
+  top: -10px;
   left: -28px;
 }
 
@@ -1739,7 +1783,7 @@ main,
   }
 
   .projects {
-    padding-top: 55px;
+    padding-top: 0;
   }
 
   .projects-stage {
@@ -2300,6 +2344,44 @@ main,
   display: block;
   width: 100%;
   height: auto;
+}
+
+#project-edutopia .detail-media.detail-media-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+#project-edutopia .detail-media-gallery > .detail-media-card {
+  grid-column: 1 / -1;
+}
+
+#project-edutopia .detail-media-gallery > .platforms-test-before {
+  grid-column: 1;
+}
+
+#project-edutopia .detail-media-gallery > .platforms-test-after {
+  grid-column: 2;
+}
+
+#project-edutopia .detail-media-gallery > :is(.platforms-test-before, .platforms-test-after) {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+#project-edutopia .detail-media-gallery > :is(.platforms-test-before, .platforms-test-after) img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 640px) {
+  #project-edutopia .detail-media.detail-media-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  #project-edutopia .detail-media-gallery > :is(.platforms-test-before, .platforms-test-after) {
+    grid-column: 1;
+  }
 }
 
 .detail-media-slideshow {
