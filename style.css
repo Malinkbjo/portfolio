@@ -28,7 +28,7 @@ body {
   margin: 0;
   color: var(--ink);
   font-family: var(--sans);
-  background: var(--bg);
+  background: var(--projects-bg);
   overflow-x: clip;
 }
 
@@ -865,7 +865,7 @@ main,
   opacity: 0;
   visibility: hidden;
   border-top: 0 solid transparent;
-  background: rgba(229, 219, 213, .82);
+  background: #F8F8F8;
   transform: translateY(-8px);
   transition:
     max-height .9s cubic-bezier(.22, .72, .18, 1),
@@ -882,6 +882,11 @@ main,
   border-top-width: 1px;
   border-top-color: rgba(36, 23, 15, .14);
   transform: translateY(0);
+}
+
+body.is-closing-project .thank-you,
+body.is-closing-project .footer {
+  visibility: hidden;
 }
 
 .detail-grid {
@@ -1102,7 +1107,50 @@ main,
   object-fit: contain;
 }
 
+#project-tanum .tanum-wireframe-images {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: start;
+  gap: 14px;
+}
+
+#project-tanum .process-list li.has-process-image.process-image-left {
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, .9fr);
+  gap: clamp(24px, 3vw, 50px);
+}
+
+#project-tanum .process-list li.has-process-image.process-image-right {
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.2fr);
+  gap: clamp(24px, 3vw, 50px);
+}
+
+#project-tanum .process-list li.has-process-image .process-inline-image {
+  width: 100%;
+  max-width: 700px;
+  padding: 0;
+  background: transparent;
+  justify-self: stretch;
+}
+
+#project-tanum .process-list li.has-process-image .process-inline-image img {
+  border: 1px solid #b8b8b8;
+}
+
+#project-tanum .tanum-wireframe-images img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+}
+
 @media (max-width: 640px) {
+  #project-tanum .process-list li.has-process-image.process-image-left,
+  #project-tanum .process-list li.has-process-image.process-image-right {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
   #project-tanum .tanum-observation-images {
     grid-template-columns: 1fr;
   }

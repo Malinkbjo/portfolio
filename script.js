@@ -588,46 +588,34 @@ function prepareProjectCases() {
       closeButton.addEventListener(
         "click",
         () => {
+          const nextProjectKey =
+            project.querySelector(".next-project-bar")?.dataset.nextProject;
+          const nextProject = nextProjectKey
+            ? document.getElementById(`project-${nextProjectKey}`)
+            : null;
           const headerOffset =
             document.querySelector(".site-header")?.offsetHeight || 0;
-          const projectTop =
-            project.getBoundingClientRect().top +
-            window.scrollY -
-            headerOffset;
-          const reduceMotion = window.matchMedia(
-            "(prefers-reduced-motion: reduce)"
-          ).matches;
 
           closeButton.blur();
+          document.body.classList.add("is-closing-project");
+          details.style.display = "none";
+          project.classList.remove("open");
+          updateProjectButton(project, false);
 
-          const finishClosing = () => {
-            project.classList.remove("open");
-            updateProjectButton(project, false);
-          };
-
-          if (reduceMotion) {
-            window.scrollTo({ top: projectTop, behavior: "auto" });
-            finishClosing();
-            return;
-          }
-
-          const startTop = window.scrollY;
-          const distance = projectTop - startTop;
-          const duration = 550;
-          const startedAt = performance.now();
-
-          const scrollStep = now => {
-            const progress = Math.min((now - startedAt) / duration, 1);
-            window.scrollTo(0, startTop + distance * progress);
-
-            if (progress < 1) {
-              requestAnimationFrame(scrollStep);
-            } else {
-              finishClosing();
+          requestAnimationFrame(() => {
+            if (nextProject) {
+              const nextProjectTop =
+                nextProject.getBoundingClientRect().top +
+                window.scrollY -
+                headerOffset;
+              window.scrollTo({ top: nextProjectTop, behavior: "auto" });
             }
-          };
 
-          requestAnimationFrame(scrollStep);
+            requestAnimationFrame(() => {
+              details.style.removeProperty("display");
+              document.body.classList.remove("is-closing-project");
+            });
+          });
         }
       );
 
@@ -789,7 +777,9 @@ function buildAlternatingProjectStories() {
           narrativeImages.find(image => image.getAttribute("src") === "pictures/tanumOutdatedPage.png"),
           narrativeImages.find(image => image.getAttribute("src") === "pictures/tanumHiddenNavigation.png")
         ], processItems[1], "process-image-right"],
-        [[narrativeImages.find(image => image.getAttribute("src") === "pictures/tidligPrototypeTanum.webp")], processItems[2], "process-image-left"]
+        [[narrativeImages.find(image => image.getAttribute("src") === "pictures/tanumWireframesCombined.png")], processItems[2], "process-image-left"],
+        [[narrativeImages.find(image => image.getAttribute("src") === "pictures/tidligPrototypeTanum.webp")], processItems[3], "process-image-right"],
+        [[narrativeImages.find(image => image.getAttribute("src") === "pictures/tanumInteractivePrototype.png")], processItems[4], "process-image-left"]
       ];
 
       inlinePlacements.forEach(([images, item, positionClass], placementIndex) => {
@@ -800,6 +790,7 @@ function buildAlternatingProjectStories() {
         figure.className = "process-inline-image";
         if (availableImages.length > 1) figure.classList.add("process-inline-image-pair");
         if (placementIndex === 1) figure.classList.add("tanum-observation-images");
+        if (placementIndex === 2) figure.classList.add("tanum-wireframe-images");
         figure.append(...availableImages);
         item.classList.add("has-process-image");
         item.classList.add(positionClass);
