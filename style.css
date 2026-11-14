@@ -1034,25 +1034,25 @@ body.is-closing-project .footer {
   object-position: center;
 }
 
-:is(#project-tanum, #project-edutopia, #project-liftoff, #project-participatory, #project-sustained) .detail-story-row.single-column-row .detail-story-copy:has(.process-list) {
+:is(#project-avora, #project-tanum, #project-edutopia, #project-liftoff, #project-participatory, #project-sustained) .detail-story-row.single-column-row .detail-story-copy:has(.process-list) {
   width: min(100%, 1120px);
 }
 
-:is(#project-tanum, #project-edutopia, #project-liftoff, #project-participatory, #project-sustained) .process-list li.has-process-image {
+:is(#project-avora, #project-tanum, #project-edutopia, #project-liftoff, #project-participatory, #project-sustained) .process-list li.has-process-image {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: center;
   gap: clamp(30px, 5vw, 72px);
   padding: clamp(34px, 4vw, 58px) 0;
 }
 
-:is(#project-tanum, #project-edutopia, #project-liftoff, #project-participatory, #project-sustained) .process-point-copy {
+:is(#project-avora, #project-tanum, #project-edutopia, #project-liftoff, #project-participatory, #project-sustained) .process-point-copy {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 0;
   min-width: 0;
 }
 
-:is(#project-tanum, #project-edutopia, #project-liftoff, #project-participatory, #project-sustained) .process-point-copy > span {
+:is(#project-avora, #project-tanum, #project-edutopia, #project-liftoff, #project-participatory, #project-sustained) .process-point-copy > span {
   font-family: var(--sans);
   font-size: clamp(.98rem, 1vw, 1.1rem);
   font-weight: 400;
@@ -1064,29 +1064,29 @@ body.is-closing-project .footer {
   hyphens: auto;
 }
 
-:is(#project-tanum, #project-edutopia, #project-liftoff, #project-participatory, #project-sustained) .process-list li.has-process-image .process-inline-image {
+:is(#project-avora, #project-tanum, #project-edutopia, #project-liftoff, #project-participatory, #project-sustained) .process-list li.has-process-image .process-inline-image {
   grid-column: auto;
   width: min(82%, 460px);
   margin: 0;
   justify-self: center;
 }
 
-#project-tanum .process-list li.process-image-right .process-point-copy {
+:is(#project-avora, #project-tanum) .process-list li.process-image-right .process-point-copy {
   grid-column: 1;
   grid-row: 1;
 }
 
-#project-tanum .process-list li.process-image-right .process-inline-image {
+:is(#project-avora, #project-tanum) .process-list li.process-image-right .process-inline-image {
   grid-column: 2;
   grid-row: 1;
 }
 
-#project-tanum .process-list li.process-image-left .process-point-copy {
+:is(#project-avora, #project-tanum) .process-list li.process-image-left .process-point-copy {
   grid-column: 2;
   grid-row: 1;
 }
 
-#project-tanum .process-list li.process-image-left .process-inline-image {
+:is(#project-avora, #project-tanum) .process-list li.process-image-left .process-inline-image {
   grid-column: 1;
   grid-row: 1;
 }
@@ -1144,7 +1144,60 @@ body.is-closing-project .footer {
   object-fit: contain;
 }
 
+#project-avora .process-list li.has-process-image.process-image-left {
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, .9fr);
+  gap: clamp(24px, 3vw, 50px);
+}
+
+#project-avora .process-list li.has-process-image.process-image-right {
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.2fr);
+  gap: clamp(24px, 3vw, 50px);
+}
+
+#project-avora .process-list li.has-process-image .process-inline-image {
+  width: 100%;
+  max-width: 700px;
+  padding: 0;
+  background: transparent;
+  justify-self: stretch;
+}
+
+#project-avora .process-list li:nth-child(3) .process-inline-image {
+  width: min(86%, 580px);
+  justify-self: center;
+}
+
+#project-avora .process-list li.has-process-image .process-inline-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  border: 1px solid #b8b8b8;
+}
+
+#project-avora .avora-wireframe-images {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+#project-avora .process-list li.has-process-image .process-inline-image.avora-testing-images {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  width: 100%;
+  max-width: none;
+  gap: 8px;
+}
+
 @media (max-width: 640px) {
+  #project-avora .process-list li.has-process-image .process-inline-image.avora-testing-images {
+    width: 100%;
+  }
+
+  #project-avora .process-list li.has-process-image.process-image-left,
+  #project-avora .process-list li.has-process-image.process-image-right,
   #project-tanum .process-list li.has-process-image.process-image-left,
   #project-tanum .process-list li.has-process-image.process-image-right {
     grid-template-columns: 1fr;
@@ -1994,6 +2047,12 @@ body.is-closing-project .footer {
   transform: translateY(0);
 }
 
+/* Avorá has a longer case study. Keep the complete result gallery and
+   project actions inside the expanded white project panel. */
+#project-avora.open .project-details {
+  max-height: 12000px;
+}
+
 /* Compact two-column case */
 .detail-grid {
   display: grid;
@@ -2700,6 +2759,21 @@ body.is-closing-project .footer {
   cursor: zoom-in;
 }
 
+#project-avora .detail-final-gallery {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: min(100%, 1120px);
+  gap: clamp(10px, 1.4vw, 20px);
+}
+
+#project-avora .detail-final-gallery figure:nth-child(n) {
+  grid-column: auto;
+}
+
+#project-avora .detail-final-gallery img {
+  max-height: 300px;
+  border: 1px solid #b8b8b8;
+}
+
 #project-sustained .detail-final-gallery {
   gap: 6px;
 }
@@ -2740,22 +2814,34 @@ body.is-closing-project .footer {
 }
 
 @media (max-width: 800px) {
-  :is(#project-tanum, #project-edutopia, #project-liftoff, #project-participatory, #project-sustained) .process-list li.has-process-image {
+  #project-avora .detail-final-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  #project-avora .detail-final-gallery figure:nth-child(n) {
+    grid-column: 1;
+  }
+
+  #project-avora .detail-final-gallery img {
+    max-height: none;
+  }
+
+  :is(#project-avora, #project-tanum, #project-edutopia, #project-liftoff, #project-participatory, #project-sustained) .process-list li.has-process-image {
     grid-template-columns: 1fr;
     gap: 24px;
   }
 
-  :is(#project-tanum, #project-edutopia, #project-liftoff, #project-participatory, #project-sustained) .process-list li.has-process-image:nth-child(n) .process-point-copy,
-  :is(#project-tanum, #project-edutopia, #project-liftoff, #project-participatory, #project-sustained) .process-list li.has-process-image:nth-child(n) .process-inline-image {
+  :is(#project-avora, #project-tanum, #project-edutopia, #project-liftoff, #project-participatory, #project-sustained) .process-list li.has-process-image:nth-child(n) .process-point-copy,
+  :is(#project-avora, #project-tanum, #project-edutopia, #project-liftoff, #project-participatory, #project-sustained) .process-list li.has-process-image:nth-child(n) .process-inline-image {
     grid-column: 1;
     grid-row: auto;
   }
 
-  :is(#project-tanum, #project-edutopia, #project-liftoff, #project-participatory, #project-sustained) .process-list li.has-process-image:nth-child(n) .process-point-copy {
+  :is(#project-avora, #project-tanum, #project-edutopia, #project-liftoff, #project-participatory, #project-sustained) .process-list li.has-process-image:nth-child(n) .process-point-copy {
     order: 1;
   }
 
-  :is(#project-tanum, #project-edutopia, #project-liftoff, #project-participatory, #project-sustained) .process-list li.has-process-image:nth-child(n) .process-inline-image {
+  :is(#project-avora, #project-tanum, #project-edutopia, #project-liftoff, #project-participatory, #project-sustained) .process-list li.has-process-image:nth-child(n) .process-inline-image {
     order: 2;
   }
 

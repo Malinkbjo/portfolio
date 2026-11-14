@@ -661,6 +661,7 @@ prepareProjectCases();
 
 function buildAlternatingProjectStories() {
   const preferredSectionIndexes = {
+    "project-avora": [2, 2, 2],
     "project-tanum": [2, 2, 2],
     "project-edutopia": [2, 2, 2, 2, 3, 4, 4],
     "project-participatory": [2, 3, 3, 3, 4, 5],
@@ -668,6 +669,12 @@ function buildAlternatingProjectStories() {
     "project-liftoff": [3, 3, 3, 4, 4]
   };
   const projectFacts = {
+    "project-avora": [
+      ["Omfang", "Scope", "Fornye nettbutikk", "Online store renewal"],
+      ["Rolle", "Role", "UX-designer og Shopify-utvikler", "UX designer and Shopify developer"],
+      ["Samarbeid", "Collaboration", "Klientprosjekt · freelance", "Client project · freelance"],
+      ["Prosjektperiode", "Project period", "2026", "2026"]
+    ],
     "project-tanum": [
       ["Omfang", "Scope", "Responsiv nettside", "Responsive website"],
       ["Rolle", "Role", "UX/UI-designer og front-end", "UX/UI designer and front-end"],
@@ -700,6 +707,11 @@ function buildAlternatingProjectStories() {
     ]
   };
   const finalSolutionImages = {
+    "project-avora": [
+      ["pictures/avoraFinalHome.png", "Endelig forside for Avorá Equestrian"],
+      ["pictures/avoraFinalProducts.png", "Endelig produktoversikt for Avorá Equestrian"],
+      ["pictures/avoraFinalProduct.png", "Endelig produktside for Avorá Equestrian"]
+    ],
     "project-tanum": [
       ["pictures/tanum2.webp", "Ferdig side for oppstalling"],
       ["pictures/tanum3.webp", "Ferdig side for undervisning"]
@@ -768,6 +780,47 @@ function buildAlternatingProjectStories() {
     let narrativeImages = imageElements.filter(image =>
       !finalSources.has(image.getAttribute("src"))
     );
+
+    if (project.id === "project-avora") {
+      const processItems = [...text.querySelectorAll(".process-list li")];
+      const inlinePlacements = [
+        [[narrativeImages.find(image => image.getAttribute("src") === "pictures/avoraAffinity.png")], processItems[0], "process-image-left"],
+        [[narrativeImages.find(image => image.getAttribute("src") === "pictures/avoraUserInterviews.png")], processItems[1], "process-image-right"],
+        [[narrativeImages.find(image => image.getAttribute("src") === "pictures/avoraSketches.jpeg")], processItems[2], "process-image-left"],
+        [[narrativeImages.find(image => image.getAttribute("src") === "pictures/avoraWireframes.png")], processItems[3], "process-image-right"],
+        [[narrativeImages.find(image => image.getAttribute("src") === "pictures/avoraInteractivePrototype.png")], processItems[4], "process-image-left"],
+        [[
+          narrativeImages.find(image => image.getAttribute("src") === "pictures/avoraPrototypeHorizontal.png"),
+          narrativeImages.find(image => image.getAttribute("src") === "pictures/avoraPrototypeVertical.png")
+        ], processItems[5], "process-image-right"]
+      ];
+
+      inlinePlacements.forEach(([images, item, positionClass], placementIndex) => {
+        const availableImages = images.filter(Boolean);
+        if (!availableImages.length || !item) return;
+
+        const figure = document.createElement("figure");
+        figure.className = "process-inline-image";
+        if (placementIndex === 3) figure.classList.add("avora-wireframe-images");
+        if (placementIndex === 5) figure.classList.add("avora-testing-images");
+        figure.append(...availableImages);
+        item.classList.add("has-process-image", positionClass);
+        item.appendChild(figure);
+
+        const marker = item.querySelector(":scope > b");
+        const copy = item.querySelector(":scope > span");
+        if (marker && copy) {
+          const copyWrap = document.createElement("div");
+          copyWrap.className = "process-point-copy";
+          copyWrap.append(marker, copy);
+          item.prepend(copyWrap);
+        }
+      });
+
+      narrativeImages = narrativeImages.filter(image =>
+        !inlinePlacements.some(([placedImages]) => placedImages.includes(image))
+      );
+    }
 
     if (project.id === "project-tanum") {
       const processItems = [...text.querySelectorAll(".process-list li")];
@@ -1072,9 +1125,10 @@ function buildAlternatingProjectStories() {
 
       const finalTitle = document.createElement("span");
       finalTitle.className = "detail-label";
-      finalTitle.dataset.no = "Endelig løsning";
-      finalTitle.dataset.en = "Final solution";
-      finalTitle.textContent = "Endelig løsning";
+      const isAvora = project.id === "project-avora";
+      finalTitle.dataset.no = isAvora ? "Endelig resultat" : "Endelig løsning";
+      finalTitle.dataset.en = isAvora ? "Final result" : "Final solution";
+      finalTitle.textContent = finalTitle.dataset.no;
 
       const finalGallery = document.createElement("div");
       finalGallery.className = "detail-final-gallery";
