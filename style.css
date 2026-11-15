@@ -561,13 +561,34 @@ main,
 }
 
 #project-guest-lecture .detail-story-media {
-  width: min(100%, 470px);
+  grid-column: 1;
+  grid-row: 2;
+  width: min(100%, 760px);
   justify-self: center;
 }
 
 #project-guest-lecture .detail-story-media img {
-  max-height: 760px;
+  max-height: none;
   border: 1px solid #b8b8b8;
+}
+
+#project-guest-lecture .detail-story-row {
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(32px, 4vw, 56px);
+  justify-items: center;
+}
+
+#project-guest-lecture .detail-story-copy,
+#project-guest-lecture .detail-story-row.image-left .detail-story-copy {
+  grid-column: 1;
+  grid-row: 1;
+  width: min(100%, 900px);
+  justify-self: center;
+}
+
+#project-guest-lecture .detail-story-row.image-left .detail-story-media {
+  grid-column: 1;
+  grid-row: 2;
 }
 
 .featured-project-scroll {
