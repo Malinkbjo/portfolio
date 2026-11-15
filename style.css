@@ -548,6 +548,28 @@ main,
   line-height: .95;
 }
 
+.other-work-head {
+  grid-template-columns: 1fr;
+  margin: 0;
+  padding: clamp(62px, 7vw, 96px) 0 24px;
+  border-top: 1px solid var(--line);
+}
+
+#project-guest-lecture .project-preview .preview-card img {
+  object-fit: cover;
+  object-position: center 58%;
+}
+
+#project-guest-lecture .detail-story-media {
+  width: min(100%, 470px);
+  justify-self: center;
+}
+
+#project-guest-lecture .detail-story-media img {
+  max-height: 760px;
+  border: 1px solid #b8b8b8;
+}
+
 .featured-project-scroll {
   display: none;
   gap: clamp(12px, 1.5vw, 24px);
@@ -2547,6 +2569,10 @@ body.is-closing-project .footer {
   border-top: 1px solid rgba(36, 23, 15, .16);
   border-bottom: 1px solid rgba(36, 23, 15, .16);
   background: transparent;
+}
+
+#project-guest-lecture .project-facts {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .project-fact {

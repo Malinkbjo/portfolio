@@ -682,7 +682,8 @@ function buildAlternatingProjectStories() {
     "project-edutopia": [2, 2, 2, 2, 3, 4, 4],
     "project-participatory": [2, 3, 3, 3, 4, 5],
     "project-sustained": [2, 2, 3, 3],
-    "project-liftoff": [3, 3, 3, 4, 4]
+    "project-liftoff": [3, 3, 3, 4, 4],
+    "project-guest-lecture": [0]
   };
   const projectFacts = {
     "project-avora": [
@@ -720,6 +721,11 @@ function buildAlternatingProjectStories() {
       ["Rolle", "Role", "Designer og front-end-utvikler", "Designer and front-end developer"],
       ["Samarbeid", "Collaboration", "Tverrfaglig team på 6; 2 designere, 3 utviklere, 1 robotikk", "Interdisciplinary team of 6, 2 designers, 3 developers, 1 robotics"],
       ["Varighet", "Duration", "3 måneder", "3 months"]
+    ],
+    "project-guest-lecture": [
+      ["Omfang", "Scope", "Gjesteforelesning", "Guest lecture"],
+      ["Rolle", "Role", "Foredragsholder", "Guest lecturer"],
+      ["Dato", "Date", "Oktober 2026", "October 2026"]
     ]
   };
   const finalSolutionImages = {
