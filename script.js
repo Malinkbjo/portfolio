@@ -812,10 +812,11 @@ function buildAlternatingProjectStories() {
         [[narrativeImages.find(image => image.getAttribute("src") === "pictures/avoraSketches.jpeg")], processItems[3], "process-image-right"],
         [[narrativeImages.find(image => image.getAttribute("src") === "pictures/avoraWireframes.png")], processItems[4], "process-image-left"],
         [[narrativeImages.find(image => image.getAttribute("src") === "pictures/avoraInteractivePrototype.png")], processItems[5], "process-image-right"],
+        [[narrativeImages.find(image => image.getAttribute("src") === "pictures/avoraComponentLibrary.png")], processItems[6], "process-image-left"],
         [[
           narrativeImages.find(image => image.getAttribute("src") === "pictures/avoraPrototypeVertical.png"),
           narrativeImages.find(image => image.getAttribute("src") === "pictures/avoraPrototypeHorizontal.png")
-        ], processItems[6], "process-image-left"]
+        ], processItems[7], "process-image-right"]
       ];
 
       inlinePlacements.forEach(([images, item, positionClass], placementIndex) => {
@@ -825,7 +826,7 @@ function buildAlternatingProjectStories() {
         const figure = document.createElement("figure");
         figure.className = "process-inline-image";
         if (placementIndex === 4) figure.classList.add("avora-wireframe-images");
-        if (placementIndex === 6) figure.classList.add("avora-testing-images");
+        if (placementIndex === 7) figure.classList.add("avora-testing-images");
         figure.append(...availableImages);
         item.classList.add("has-process-image", positionClass);
         item.appendChild(figure);
